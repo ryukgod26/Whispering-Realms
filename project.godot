@@ -19,6 +19,25 @@ config/icon="res://icon.svg"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[input]
+
+move_forward={
+"deadzone": 0.2,
+"events": []
+}
+move_backward={
+"deadzone": 0.2,
+"events": []
+}
+move_right={
+"deadzone": 0.2,
+"events": []
+}
+move_left={
+"deadzone": 0.2,
+"events": []
+}
+
 [rendering]
 
 renderer/rendering_method="mobile"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bp2loi22eepgt"]
+[gd_scene load_steps=6 format=3 uid="uid://bp2loi22eepgt"]
 
 [ext_resource type="Texture2D" uid="uid://dw215pekofhn6" path="res://assets/Enemy/maxdamage_zombie-low-polygltf/gltf/maxdamage_zombie-low-poly_corpse1.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://coiof0jpcomhn" path="res://scripts/player.gd" id="1_g2els"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -25,6 +26,7 @@ animations = [{
 }]
 
 [node name="Player" type="Node3D"]
+script = ExtResource("1_g2els")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 

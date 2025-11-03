@@ -1,13 +1,16 @@
 extends CharacterBody3D
 
+@export var base_speed := 4.0
+var movement_input:Vector2 = Vector2.ZERO
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
-
-
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+	movement_input = Input.get_vector("move_left","move_right","move_forward","move_backward")
+	velocity = Vector3(movement_input.x,0,movement_input.y) * base_speed
 	
-	
+	move_and_slide()
+	'''
+	const SPEED = 5.0
+	const JUMP_VELOCITY = 4.5
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -28,3 +31,4 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	'''

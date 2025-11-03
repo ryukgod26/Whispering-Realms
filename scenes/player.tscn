@@ -11,6 +11,9 @@ height = 2.012085
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_g2els")
+jump_height = 2.25
+jump_time_to_peak = 0.4
+jump_time_to_fall = 0.3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9951893, 0)
@@ -22,6 +25,9 @@ visible = false
 mesh = SubResource("CapsuleMesh_g2els")
 
 [node name="godette" parent="." instance=ExtResource("2_g2els")]
+transform = Transform3D(-0.9984939, 0, 0.054862987, 0, 1, 0, -0.054862987, 0, -0.9984939, 0, 0, 0)
 
 [node name="CameraController" parent="." instance=ExtResource("3_qhqgy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.677301, 3.6234946, -3.6456928)
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 1.5, 0)
+min_limit_x = -0.8
+max_limit_x = 0.2

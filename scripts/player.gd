@@ -23,7 +23,8 @@ var defend := false:
 		if defend and not value:
 			godettte_skin.defend(false)
 		defend = value
-		
+var weapon_active := false
+
 func _physics_process(delta: float) -> void:
 	move_logic(delta)
 	jump_logic(delta)
@@ -57,13 +58,21 @@ func _physics_process(delta: float) -> void:
 	'''
 
 
-func ability_logic() -> void: 
+func ability_logic() -> void:
+	#Handling Attack 
 	if Input.is_action_just_pressed("attack"):
 		godettte_skin.attack()
 	
+	#Handling Defend
 	defend =  Input.is_action_pressed("defend")
+	
+	#Handling Swutch Between Weapon and Magic
+	if Input.is_action_just_pressed("switch_weapon") and not godettte_skin.attacking:
+		weapon_active = not weapon_active
+		godettte_skin.switch_weapon(weapon_active)
 
 func move_logic(delta) ->void:
+	#Handling Movements Like Walking and Running
 	movement_input = Input.get_vector("move_left","move_right","move_forward","move_backward").rotated(-camera.global_rotation.y)
 	var is_running:bool = Input.is_action_pressed("run")
 	var vel_2d = Vector2(velocity.x,velocity.z)
@@ -89,6 +98,7 @@ func move_logic(delta) ->void:
 		
 		
 func jump_logic(delta) ->void:
+	#Handling Jumnp
 	if is_on_floor():
 		if Input.is_action_just_pressed("Jump"): 
 			velocity.y = -jump_velocity

@@ -8,6 +8,8 @@
 height = 2.012085
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 29
 script = ExtResource("1_g2els")
 jump_height = 2.25
 jump_time_to_peak = 0.4

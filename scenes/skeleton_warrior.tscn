@@ -1,0 +1,107 @@
+[gd_scene load_steps=15 format=3 uid="uid://cc5h1qvje3d1y"]
+
+[ext_resource type="PackedScene" uid="uid://cmtblc2xgh7u4" path="res://scenes/enemy.tscn" id="1_8cp24"]
+[ext_resource type="Script" uid="uid://bi20ic7m7wf56" path="res://scripts/skeleton_warrior.gd" id="2_ox6sa"]
+[ext_resource type="PackedScene" uid="uid://mn7ri686h5as" path="res://scenes/skeleton_warrior_skin.tscn" id="2_suf1c"]
+[ext_resource type="PackedScene" uid="uid://cqxi7o0pyi1mt" path="res://assets/weapons/bone.gltf.glb" id="3_a24oy"]
+[ext_resource type="PackedScene" uid="uid://dydnnq3ww2uyk" path="res://assets/weapons/shield.gltf.glb" id="5_8mxg8"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8mxg8"]
+animation = &"1H_Melee_Attack_Chop"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_2qsoa"]
+fadein_time = 0.2
+fadeout_time = 0.2
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a24oy"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ox6sa"]
+animation = &"Running_A"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8mxg8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2qsoa"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lqb75"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_i72rx"]
+states/Idle/node = SubResource("AnimationNodeAnimation_a24oy")
+states/Idle/position = Vector2(362, 100)
+states/Walk/node = SubResource("AnimationNodeAnimation_ox6sa")
+states/Walk/position = Vector2(516, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_8mxg8"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_2qsoa"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_lqb75")]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_w61d5"]
+graph_offset = Vector2(-241.89783, 121.97745)
+nodes/output/position = Vector2(860, 300)
+nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_i72rx")
+nodes/MoveStateMachine/position = Vector2(80, 120)
+nodes/AttackOneShot/node = SubResource("AnimationNodeOneShot_2qsoa")
+nodes/AttackOneShot/position = Vector2(460, 280)
+nodes/AttackAnimation/node = SubResource("AnimationNodeAnimation_8mxg8")
+nodes/AttackAnimation/position = Vector2(-20, 360)
+node_connections = [&"output", 0, &"AttackOneShot", &"AttackOneShot", 0, &"MoveStateMachine", &"AttackOneShot", 1, &"AttackAnimation"]
+
+[node name="Skeleton_Warrior" instance=ExtResource("1_8cp24")]
+script = ExtResource("2_ox6sa")
+
+[node name="skin" parent="." index="1" instance=ExtResource("2_suf1c")]
+
+[node name="Skeleton3D" parent="skin/Rig" index="0"]
+bones/1/position = Vector3(0, 0.37899512, 0)
+bones/4/rotation = Quaternion(-0.55207926, -0.06292095, -0.6571803, 0.50927746)
+bones/5/rotation = Quaternion(1.5333493e-08, -4.2535792e-08, -0.47555554, 0.8796857)
+bones/7/rotation = Quaternion(-0.3166122, -0.32936457, 0.13382898, 0.87941206)
+bones/8/rotation = Quaternion(0.0016564622, 0.0016564617, -0.7009988, 0.7131586)
+bones/9/rotation = Quaternion(-0.6115789, 0.083020754, 0.62999034, 0.47137144)
+bones/10/rotation = Quaternion(1.46757815e-08, 4.7429776e-08, 0.49966195, 0.86622053)
+bones/12/rotation = Quaternion(-0.31521538, 0.30344668, -0.21553704, 0.8729852)
+bones/13/rotation = Quaternion(0.004270507, 0.005030028, 0.70265144, 0.7115037)
+bones/16/rotation = Quaternion(0.991686, 0.08317075, 0.07701399, 0.06091369)
+bones/17/rotation = Quaternion(0.3260772, 5.9385368e-08, -2.2600682e-07, 0.9453432)
+bones/18/rotation = Quaternion(-0.58541816, -0.20460394, 0.064508274, 0.7818321)
+bones/19/rotation = Quaternion(1.6653445e-05, 0.92017245, -0.39151335, -3.7236036e-06)
+bones/20/rotation = Quaternion(0.994059, -0.031796526, 0.03045725, 0.0995389)
+bones/21/rotation = Quaternion(0.37836838, -6.091827e-08, 2.6447208e-07, 0.9256551)
+bones/22/rotation = Quaternion(-0.61471045, 0.11348789, -0.01765713, 0.7803459)
+bones/39/position = Vector3(0.52084064, 0.76795304, -0.057637356)
+bones/41/position = Vector3(-0.5108437, 0.7679529, 0.059736915)
+
+[node name="Skeleton_Warrior_Helmet" parent="skin/Rig/Skeleton3D" index="0"]
+transform = Transform3D(0.99972045, -1.4014349e-09, 0.023646593, 1.3934147e-09, 0.9999998, 3.5568637e-10, -0.023646593, -3.2263736e-10, 0.99972045, -7.483345e-09, 1.1892045, -1.3592684e-07)
+
+[node name="RigthHandSlot" type="BoneAttachment3D" parent="skin/Rig/Skeleton3D" index="10"]
+transform = Transform3D(0.00301788, -0.16286802, -0.9866428, -0.99992007, -0.012522878, -0.0009905018, -0.012194759, 0.98656774, -0.16289367, -0.49091122, 0.61922467, 0.105149455)
+bone_name = "handslot.r"
+bone_idx = 13
+
+[node name="bone_gltf" parent="skin/Rig/Skeleton3D/RigthHandSlot" index="0" instance=ExtResource("3_a24oy")]
+transform = Transform3D(1, 2.842171e-14, -2.1316282e-14, -5.684342e-14, 1.0000001, -2.9802322e-08, 3.5527137e-15, 2.9802322e-08, 1.0000001, 1.7881393e-07, 0.33010998, 0.066732556)
+
+[node name="LeftHandSlot" type="BoneAttachment3D" parent="skin/Rig/Skeleton3D" index="11"]
+transform = Transform3D(-1.2312084e-06, 0.26286423, 0.9648324, 0.9998398, -0.01719398, 0.004686927, 0.017821549, 0.9646787, -0.26282275, 0.50737256, 0.6151451, -0.019996691)
+bone_name = "handslot.l"
+bone_idx = 8
+
+[node name="shield_gltf" parent="skin/Rig/Skeleton3D/LeftHandSlot" index="0" instance=ExtResource("5_8mxg8")]
+transform = Transform3D(1, 2.1824229e-07, 2.9549458e-08, -2.1424499e-07, 0.9329348, 0.36004576, 5.1009675e-08, -0.3600456, 0.93293476, -1.1920929e-07, 0.04388898, 0.16109338)
+
+[node name="AnimationTree" parent="." index="2"]
+root_node = NodePath("../skin")
+tree_root = SubResource("AnimationNodeBlendTree_w61d5")
+anim_player = NodePath("../skin/AnimationPlayer")
+parameters/AttackOneShot/active = false
+parameters/AttackOneShot/internal_active = false
+parameters/AttackOneShot/request = 0
+
+[node name="AttackTimer" parent="Timers" index="0"]
+wait_time = 1.7999999999999998
+autostart = true
+
+[connection signal="timeout" from="Timers/AttackTimer" to="." method="_on_attack_timer_timeout"]
+
+[editable path="skin"]

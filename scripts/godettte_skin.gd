@@ -4,7 +4,7 @@ extends Node3D
 @onready var attack_state_machine = $AnimationTree.get("parameters/AttackStateMachine/playback")
 @onready var right_hand_slot: BoneAttachment3D = $Rig/Skeleton3D/RightHandSlot
 @onready var wand: Node3D = $Rig/Skeleton3D/RightHandSlot/wand2
-@onready var sword: Node3D = $Rig/Skeleton3D/RightHandSlot/sword_1handed2
+@onready var sword: Node3D = $Rig/Skeleton3D/RightHandSlot/sword
 @onready var extra_animation = $AnimationTree.get_tree_root().get_node("ExtraAnimation")
 @onready var face_material: StandardMaterial3D = $Rig/Skeleton3D/Godette_Head.get_surface_override_material(0)
 
@@ -19,8 +19,7 @@ var rng = RandomNumberGenerator.new()
 const faces ={
 	'default': Vector3.ZERO,
 	'concentrate': Vector3(0.5,0,0),
-	'blink': Vector3(0,0.5,0)
-}
+	'blink': Vector3(0,0.5,0)}
 
 func set_move_state(state: String)->void:
 	move_state_machine.travel(state)
@@ -28,7 +27,7 @@ func set_move_state(state: String)->void:
 func attack():
 	if not attacking:
 		attack_state_machine.travel('Slice_Diagonal' if $SecondAttackTimer.time_left else 'Chop')
-		$AnimationTree.set("parameters/OneShot/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		$AnimationTree.set("parameters/AttackOneShot/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
 func attack_toggle(value: bool):
 	attacking = value
@@ -61,7 +60,6 @@ func hit() -> void:
 
 func change_face(expression) -> void:
 	face_material.uv1_offset = faces[expression]
-
 
 func _on_blink_timer_timeout() -> void:
 	change_face('blink')

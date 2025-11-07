@@ -1,0 +1,113 @@
+[gd_scene load_steps=17 format=3 uid="uid://1dc77eeueln0"]
+
+[ext_resource type="PackedScene" uid="uid://cmtblc2xgh7u4" path="res://scenes/enemy.tscn" id="1_50fkq"]
+[ext_resource type="PackedScene" uid="uid://2hy1eus30fi4" path="res://scenes/skeleton_mage_skin.tscn" id="2_l5f3i"]
+[ext_resource type="Script" uid="uid://cnonqo8ihg3o4" path="res://scripts/skeleton_mage.gd" id="2_sgrqo"]
+[ext_resource type="PackedScene" uid="uid://02ix7c6cfe1u" path="res://assets/weapons/wand.gltf" id="3_tkq3b"]
+[ext_resource type="Texture2D" uid="uid://cbf5176yt1e2d" path="res://assets/weapons/barbarian_texture.png" id="4_sgrqo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sgrqo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udouv"]
+albedo_texture = ExtResource("4_sgrqo")
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tkq3b"]
+animation = &"1H_Ranged_Shoot"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_sgrqo"]
+fadein_time = 0.2
+fadeout_time = 0.2
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_udouv"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t72av"]
+animation = &"Walking_A"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xvddv"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hywc2"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hl5gq"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_t82qd"]
+states/Idle/node = SubResource("AnimationNodeAnimation_udouv")
+states/Idle/position = Vector2(377, 100)
+states/Start/position = Vector2(201, 100)
+states/Walk/node = SubResource("AnimationNodeAnimation_t72av")
+states/Walk/position = Vector2(501, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_xvddv"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_hywc2"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_hl5gq")]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_n14jl"]
+graph_offset = Vector2(-350.125, 193)
+nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_t82qd")
+nodes/MoveStateMachine/position = Vector2(-300, 120)
+nodes/AttackAnimation/node = SubResource("AnimationNodeAnimation_tkq3b")
+nodes/AttackAnimation/position = Vector2(-200, 300)
+nodes/AttackOneShot/node = SubResource("AnimationNodeOneShot_sgrqo")
+nodes/AttackOneShot/position = Vector2(120, 160)
+node_connections = [&"output", 0, &"AttackOneShot", &"AttackOneShot", 0, &"MoveStateMachine", &"AttackOneShot", 1, &"AttackAnimation"]
+
+[node name="Skeleton_Mage" instance=ExtResource("1_50fkq")]
+script = ExtResource("2_sgrqo")
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_sgrqo")
+
+[node name="skin" parent="." index="1" instance=ExtResource("2_l5f3i")]
+
+[node name="Skeleton3D" parent="skin/Rig" index="0"]
+bones/1/position = Vector3(0, 0.3895988, 0)
+bones/4/rotation = Quaternion(-0.55789644, -0.06201732, -0.64921165, 0.51325417)
+bones/5/rotation = Quaternion(1.95879e-08, -4.5518256e-08, -0.48597533, 0.87397265)
+bones/7/rotation = Quaternion(-0.31942633, -0.32553142, 0.14110228, 0.8786844)
+bones/8/rotation = Quaternion(0.00072641316, 0.0007263829, -0.7044352, 0.7097676)
+bones/9/rotation = Quaternion(-0.6166298, 0.08189034, 0.62266165, 0.47471467)
+bones/10/rotation = Quaternion(2.0412127e-08, 5.3580052e-08, 0.5095919, 0.86041635)
+bones/12/rotation = Quaternion(-0.31771106, 0.3002289, -0.22270598, 0.8713922)
+bones/13/rotation = Quaternion(0.0013542807, 0.0015951409, 0.70570034, 0.7085075)
+bones/16/rotation = Quaternion(0.9934745, 0.08342347, 0.07436384, 0.022781728)
+bones/17/rotation = Quaternion(0.22641896, 6.600806e-08, -1.5498578e-07, 0.9740301)
+bones/18/rotation = Quaternion(-0.53358126, -0.20856218, 0.04834631, 0.8182026)
+bones/19/rotation = Quaternion(7.6278964e-05, 0.9202259, -0.39138755, -1.721054e-05)
+bones/20/rotation = Quaternion(0.99675053, -0.029933618, 0.031299923, 0.06791815)
+bones/21/rotation = Quaternion(0.2968203, -6.3362045e-08, 2.062465e-07, 0.95493335)
+bones/22/rotation = Quaternion(-0.57116663, 0.114356175, -0.0105289845, 0.812761)
+bones/39/position = Vector3(0.52084064, 0.7823267, -0.057637352)
+bones/41/position = Vector3(-0.5108437, 0.78232664, 0.05973692)
+
+[node name="Skeleton_Mage_Hat" parent="skin/Rig/Skeleton3D" index="0"]
+transform = Transform3D(0.99972045, -1.4014349e-09, 0.023646593, 1.3934147e-09, 0.9999998, 3.5568637e-10, -0.023646593, -3.2263736e-10, 0.99972045, 0.00028601405, 1.7680349, -6.9014545e-06)
+
+[node name="RightHandSlot" type="BoneAttachment3D" parent="skin/Rig/Skeleton3D" index="9"]
+transform = Transform3D(0.0009419323, -0.15401603, -0.98806757, -0.9999908, -0.0039698198, -0.0003337208, -0.0038716577, 0.9880597, -0.1540193, -0.49106747, 0.63458794, 0.10596862)
+bone_name = "handslot.r"
+bone_idx = 13
+
+[node name="wand" parent="skin/Rig/Skeleton3D/RightHandSlot" index="0" instance=ExtResource("3_tkq3b")]
+transform = Transform3D(1, 0, -7.275958e-12, 0, 1, 0, -2.910383e-11, 0, 1, -0.00018048286, 0.23813994, 0.0016470253)
+
+[node name="wand" parent="skin/Rig/Skeleton3D/RightHandSlot/wand" index="0"]
+transform = Transform3D(1, 0, -7.275958e-12, 0, 1, 0, -1.4551915e-11, 0, 1, 0.00017005205, -0.21733402, 0.033132046)
+material_override = SubResource("StandardMaterial3D_udouv")
+
+[node name="AnimationTree" parent="." index="2"]
+root_node = NodePath("../skin")
+tree_root = SubResource("AnimationNodeBlendTree_n14jl")
+anim_player = NodePath("../skin/AnimationPlayer")
+parameters/AttackOneShot/active = false
+parameters/AttackOneShot/internal_active = false
+parameters/AttackOneShot/request = 0
+
+[node name="AttackTimer" parent="Timers" index="0"]
+wait_time = 1.7999999999999998
+autostart = true
+
+[connection signal="timeout" from="Timers/AttackTimer" to="." method="_on_attack_timer_timeout"]
+
+[editable path="skin"]
+[editable path="skin/Rig/Skeleton3D/RightHandSlot/wand"]

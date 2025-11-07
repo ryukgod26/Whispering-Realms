@@ -23,9 +23,8 @@ var defend := false:
 		if defend and not value:
 			godettte_skin.defend(false)
 		defend = value
-var weapon_active := false
+var weapon_active := true
 var speed_modifier := 1.0
-
 
 func _physics_process(delta: float) -> void:
 	move_logic(delta)
@@ -101,3 +100,4 @@ func do_squash_and_strecth(value: float,duration: float = 0.1) -> void:
 	var tween = create_tween()
 	tween.tween_property(godettte_skin,"squash_and_stretch",value,duration)
 	tween.tween_property(godettte_skin,"squash_and_stretch",1.0,duration * 1.8).set_ease(Tween.EASE_OUT)
+	

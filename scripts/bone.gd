@@ -10,4 +10,3 @@ func _physics_process(_delta: float) -> void:
 
 func damage_toggle(val:bool):
 	can_damage = val
- 

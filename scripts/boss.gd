@@ -16,6 +16,9 @@ var can_damage := false
 func _ready() -> void:
 	attack_radius = 6.0
 
+func _process(_delta: float) -> void:
+	attack_logic()
+
 func _physics_process(delta: float) -> void:
 	move_to_player(delta)
 
@@ -67,3 +70,12 @@ func hit() -> void:
 
 func damage_toggle(val:bool):
 	can_damage = val
+
+func attack_logic() -> void:
+	print("Can Damage:",can_damage)
+	if can_damage:
+		var collider = $skin/Rig/Skeleton3D/handslot_r/Nagonford_Axe/RayCast3D.get_collider()
+		#print(collider)
+		if collider and collider.has_method('hit'):
+			collider.hit()
+		

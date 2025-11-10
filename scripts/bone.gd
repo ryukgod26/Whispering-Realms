@@ -1,6 +1,6 @@
 extends Node3D
 
-var can_damage:bool = false
+var can_damage
 
 func _physics_process(_delta: float) -> void:
 	if can_damage:
@@ -8,5 +8,6 @@ func _physics_process(_delta: float) -> void:
 		if collider and collider.has_method('hit'):
 			collider.hit()
 
-func change_damage(val:bool):
+func damage_toggle(val:bool):
 	can_damage = val
+ 

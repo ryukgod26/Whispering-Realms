@@ -100,4 +100,3 @@ func do_squash_and_strecth(value: float,duration: float = 0.1) -> void:
 	var tween = create_tween()
 	tween.tween_property(godettte_skin,"squash_and_stretch",value,duration)
 	tween.tween_property(godettte_skin,"squash_and_stretch",1.0,duration * 1.8).set_ease(Tween.EASE_OUT)
-	

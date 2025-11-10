@@ -11,6 +11,7 @@ const normal_attack_names = ['1H_Melee_Attack_Chop','1H_Melee_Attack_Slice_Diago
 
 var spin_speed := 6.0
 var spinning := false
+var can_damage := false
 
 func _ready() -> void:
 	attack_radius = 6.0
@@ -57,3 +58,12 @@ func _on_spin_area_body_entered(_body: Node3D) -> void:
 		tween.tween_method(_spin_change,1.0,0.0,0.3)
 		spinning = false
 		$Timers/AttackTimer.start()
+
+func hit() -> void:
+	if not $Timers/InvulTimer.time_left:
+		#do_squash_and_strecth(1.2,0.15)
+		print("Boss is getting Hit.")
+		$Timers/InvulTimer.start()
+
+func damage_toggle(val:bool):
+	can_damage = val

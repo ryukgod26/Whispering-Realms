@@ -13,6 +13,11 @@ extends CharacterBody3D
 
 var rng = RandomNumberGenerator.new()
 var speed_modifier := 1.0
+var squash_and_stretch := 1.0:
+	set(value):
+		squash_and_stretch = value
+		var negative = 1.0 + (1.0 - value)
+		scale = Vector3(negative,squash_and_stretch,negative)
 
 func move_to_player(delta) -> void:
 	if position.distance_to(player.position) < detection_radius:
@@ -35,5 +40,10 @@ func stop_movement(start_duration: float,end_duration: float) -> void:
 
 func hit() -> void:
 	if not $Timers/InvulTimer.time_left:
-		print("test")
+		do_squash_and_strecth(1.2,0.15)
 		$Timers/InvulTimer.start()
+
+func do_squash_and_strecth(value: float,duration: float = 0.1) -> void:
+	var tween = create_tween()
+	tween.tween_property(self,"squash_and_stretch",value,duration)
+	tween.tween_property(self,"squash_and_stretch",1.0,duration * 1.8).set_ease(Tween.EASE_OUT)

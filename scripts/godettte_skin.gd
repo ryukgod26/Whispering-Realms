@@ -66,3 +66,6 @@ func _on_blink_timer_timeout() -> void:
 	await  get_tree().create_timer(0.2).timeout
 	change_face('default')
 	$BlinkTimer.wait_time = rng.randf_range(1.2,2.1)
+
+func shoot_fireball() -> void:
+	get_parent().shoot_fireball($Rig/Skeleton3D/RightHandSlot/wand2/wand/Marker3D.global_position)

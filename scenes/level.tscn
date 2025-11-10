@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://xs4k0bcewmjw"]
+[gd_scene load_steps=9 format=3 uid="uid://xs4k0bcewmjw"]
 
 [ext_resource type="PackedScene" uid="uid://bp2loi22eepgt" path="res://scenes/player.tscn" id="1_2q6dc"]
+[ext_resource type="Script" uid="uid://d1jyesrnvnsyh" path="res://scripts/level.gd" id="1_w8frs"]
 [ext_resource type="PackedScene" uid="uid://l327rwd5wiad" path="res://scenes/boss.tscn" id="2_w7c3h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rd3vj"]
@@ -24,6 +25,7 @@ size = Vector3(24.234497, 1, 22.35614)
 size = Vector3(10, 10, 1)
 
 [node name="level" type="Node3D"]
+script = ExtResource("1_w8frs")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_w7c3h")
@@ -60,3 +62,7 @@ size = Vector3(10, 10, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enviorment/StaticBody3D2"]
 shape = SubResource("BoxShape3D_w7c3h")
+
+[node name="Projectiles" type="Node3D" parent="."]
+
+[connection signal="cast_spell" from="Entities/Player" to="." method="_on_player_cast_spell"]

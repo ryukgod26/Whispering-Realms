@@ -6,6 +6,7 @@ const attack_names = ['1H_Melle_Attack_Chop','1H_Melle_Attack_Jump_Chop','1H_Mel
 
 func _ready() -> void:
 	attack_radius = 1.5
+	health = 2
 
 func _physics_process(delta: float) -> void:
 	move_to_player(delta)
@@ -16,3 +17,7 @@ func _on_attack_timer_timeout() -> void:
 		#attack_animation.animation = attack_names.pick_random()
 		#print(attack_animation.animation)
 		$AnimationTree.set("parameters/AttackOneShot/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+
+func die() -> void:
+	print("Tst")
+	$AnimationTree.set("parameters/DeathOneShot/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)

@@ -71,6 +71,7 @@ func hit() -> void:
 		#do_squash_and_strecth(1.2,0.15)
 		print("Boss is getting Hit.")
 		$Timers/InvulTimer.start()
+		health -= 1
 
 func damage_toggle(val:bool):
 	can_damage = val

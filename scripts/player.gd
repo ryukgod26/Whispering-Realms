@@ -39,12 +39,22 @@ var last_movement_input := Vector2(0,-1)
 var health = 5:
 	set(value):
 		ui.update_health(value,value-health)
+		if value == 0:
+			get_tree().reload_current_scene()
 		health = value
 var current_spell = spells.FIREBALL
 var energy = 100:
 	set(value):
 		energy = min(100,value)
 		ui.update_energy(energy)
+var stamina = 100:
+	set(value):
+		ui.update_stamina(stamina,value)
+		if stamina == 100 and value < 100:
+			ui.change_stamina_alpha(1.0)
+		if value == 100:
+			ui.change_stamina_alpha(0.0)
+		stamina = clamp(value,0,100)
 
 signal cast_spell(type: String,position: Vector3,direction: Vector2,size: float)
 
@@ -83,7 +93,7 @@ func ability_logic() -> void:
 func move_logic(delta) ->void:
 	#Handling Movements Like Walking and Running
 	movement_input = Input.get_vector("move_left","move_right","move_forward","move_backward").rotated(-camera.global_rotation.y)
-	var is_running:bool = Input.is_action_pressed("run")
+	var is_running:bool = Input.is_action_pressed("run") and stamina >=1
 	var vel_2d = Vector2(velocity.x,velocity.z)
 
 	if  movement_input != Vector2.ZERO:
@@ -95,6 +105,7 @@ func move_logic(delta) ->void:
 		velocity.z = vel_2d.y
 		if is_running:
 			godettte_skin.set_move_state("Running")
+			stamina -= 1
 		else:
 			godettte_skin.set_move_state("Walking")
 		target_angle = -movement_input.angle() + (PI/2 + 0 )
@@ -110,9 +121,10 @@ func move_logic(delta) ->void:
 func jump_logic(delta) ->void:
 	#Handling Jumnp
 	if is_on_floor():
-		if Input.is_action_just_pressed("Jump"): 
+		if Input.is_action_just_pressed("Jump") and stamina >= 20: 
 			velocity.y = -jump_velocity
 			do_squash_and_strecth(1.2,0.3)
+			stamina -= 20
 	else:
 		godettte_skin.set_move_state("Jump")
 	var gravity = jump_gravity if velocity.y > 0.0 else fall_gravity
@@ -147,3 +159,6 @@ func shoot_magic(pos: Vector3):
 
 func _on_energy_recovery_timer_timeout() -> void:
 	energy += 1
+
+func _on_stamina_recovery_timer_timeout() -> void:
+	stamina += 1

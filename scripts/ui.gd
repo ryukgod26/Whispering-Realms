@@ -6,6 +6,7 @@ var fire_texture = preload("res://assets/ui/fire.png")
 var heal_texture = preload("res://assets/ui/heal.png")
 @onready var spell_texture = $Spells/MarginContainer/TextureRect
 @onready var energybar: TextureProgressBar = $EnergyBar/MarginContainer/energybar
+@onready var stamina_progress_bar: TextureProgressBar = $StaminaBar/CenterContainer/MarginContainer/StaminaProgressBar
 
 func setup(val: int) -> void:
 	for i in val:
@@ -32,7 +33,7 @@ func update_health(value: int, direction: int) -> void:
 		heart_container.add_child(gained_heart)
 		gained_heart.change_alpha(1.0)
 
-func update_spell(spells, current_spell):
+func update_spell(spells, current_spell) -> void:
 	if current_spell == spells.FIREBALL:
 		spell_texture.texture = fire_texture
 	elif current_spell == spells.HEAL:
@@ -42,3 +43,17 @@ func update_spell(spells, current_spell):
 
 func update_energy(val: int) -> void:
 	energybar.value = val
+
+func update_stamina(current: int,target: int) -> void:
+	var tween = create_tween()
+	tween.tween_method(_change_stamina,current,target,0.2)
+
+func _change_stamina(val: int):
+	stamina_progress_bar.value = val
+
+func change_stamina_alpha(val: float) -> void:
+	var tween = create_tween()
+	tween.tween_method(_change_alpha,1-val,val,0.2)
+	
+func _change_alpha(val: float):
+	stamina_progress_bar.modulate.a = val

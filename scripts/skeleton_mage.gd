@@ -4,6 +4,7 @@ signal cast_spell
 
 func _ready() -> void:
 	attack_radius = 10
+	health = 2
 
 func _physics_process(delta: float) -> void:
 	move_to_player(delta)

@@ -13,7 +13,7 @@ func _ready() -> void:
 	#fireball.global_position = position
 	#fireball.direction = direction
 
-func create_fireball(type: String, fireball_position: Vector3, direction: Vector2, size: float) -> void:
+func create_fireball(_type: String, fireball_position: Vector3, direction: Vector2, size: float) -> void:
 	var fireball = fireball_scene.instantiate()
 	$Projectiles.add_child(fireball)
 	fireball.global_position = fireball_position

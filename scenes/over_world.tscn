@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://brt83m705ova0"]
+
+[ext_resource type="PackedScene" uid="uid://xs4k0bcewmjw" path="res://scenes/level.tscn" id="1_ntpey"]
+[ext_resource type="PackedScene" uid="uid://cc5h1qvje3d1y" path="res://scenes/skeleton_warrior.tscn" id="2_b5s6s"]
+[ext_resource type="PackedScene" uid="uid://1k1awrxpa5nt" path="res://scenes/overworld_skin.tscn" id="2_rhs6x"]
+[ext_resource type="PackedScene" uid="uid://017tob8o06v3" path="res://assets/environment/objects/log.glb" id="4_c68g0"]
+
+[node name="OverWorld" instance=ExtResource("1_ntpey")]
+
+[node name="Player" parent="Entities" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3320146, 14.595938, -84.1527)
+
+[node name="Skeleton_Warrior" parent="Entities" index="1" instance=ExtResource("2_b5s6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, -82)
+
+[node name="overworld_environment" parent="Enviorment" index="0" instance=ExtResource("2_rhs6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108, -36, -313)
+
+[node name="log" parent="Enviorment" index="1" instance=ExtResource("4_c68g0")]

@@ -12,6 +12,10 @@ extends CharacterBody3D
 @onready var jump_velocity: float = ((2.0 * jump_height) / jump_time_to_peak )* -1.0
 @onready var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
 @onready var fall_gravity: float = ((-2.0 * jump_height) / (jump_time_to_fall * jump_time_to_fall)) * -1.0
+@onready var ui: Control = $UI
+@onready var invul_timer: Timer = $Timers/InvulTimer
+
+enum spells{FIREBALL,HEAL}
 
 var movement_input:Vector2 = Vector2.ZERO
 var run_input:Vector2 = Vector2.ZERO
@@ -23,11 +27,29 @@ var defend := false:
 		if defend and not value:
 			godettte_skin.defend(false)
 		defend = value
-var weapon_active := true
+var weapon_active := true:
+	set(value):
+		weapon_active = value
+		if value:
+			ui.get_node('Spells').hide()
+		else:
+			ui.get_node('Spells').show()
 var speed_modifier := 1.0
 var last_movement_input := Vector2(0,-1)
+var health = 5:
+	set(value):
+		ui.update_health(value,value-health)
+		health = value
+var current_spell = spells.FIREBALL
+var energy = 100:
+	set(value):
+		energy = min(100,value)
+		ui.update_energy(energy)
 
 signal cast_spell(type: String,position: Vector3,direction: Vector2,size: float)
+
+func _ready() -> void:
+	ui.setup(health)
 
 func _physics_process(delta: float) -> void:
 	move_logic(delta)
@@ -53,6 +75,10 @@ func ability_logic() -> void:
 	if Input.is_action_just_pressed("switch_weapon") and not godettte_skin.attacking:
 		weapon_active = not weapon_active
 		godettte_skin.switch_weapon(weapon_active)
+	
+	if Input.is_action_just_pressed("switch_spell") and not godettte_skin.attacking:
+		current_spell = spells[spells.keys()[(int(current_spell +1)) % len(spells)]]
+		ui.update_spell(spells,current_spell)
 
 func move_logic(delta) ->void:
 	#Handling Movements Like Walking and Running
@@ -98,13 +124,26 @@ func stop_movement(start_duration: float,end_duration: float) -> void:
 	tween.tween_property(self,"speed_modifier",1.0,end_duration)
 
 func hit() -> void:
-	godettte_skin.hit()
-	stop_movement(0.3,0.5)
+	if not invul_timer.time_left:
+		godettte_skin.hit()
+		stop_movement(0.3,0.5)
+		health -= 1
+		invul_timer.start()
 
 func do_squash_and_strecth(value: float,duration: float = 0.1) -> void:
 	var tween = create_tween()
 	tween.tween_property(godettte_skin,"squash_and_stretch",value,duration)
 	tween.tween_property(godettte_skin,"squash_and_stretch",1.0,duration * 1.8).set_ease(Tween.EASE_OUT)
 
-func shoot_fireball(position: Vector3):
-	emit_signal("cast_spell","fireball",position,last_movement_input,1.)
+func shoot_magic(pos: Vector3):
+	if current_spell == spells.FIREBALL:
+		if energy >= 20:
+			emit_signal("cast_spell","fireball",pos,last_movement_input,1.)
+			energy -= 20
+	elif current_spell == spells.HEAL:
+		if energy >= 30:
+			health += 1
+			energy -= 30
+
+func _on_energy_recovery_timer_timeout() -> void:
+	energy += 1

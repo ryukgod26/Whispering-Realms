@@ -64,5 +64,3 @@ size = Vector3(10, 10, 1)
 shape = SubResource("BoxShape3D_w7c3h")
 
 [node name="Projectiles" type="Node3D" parent="."]
-
-[connection signal="cast_spell" from="Entities/Player" to="." method="_on_player_cast_spell"]

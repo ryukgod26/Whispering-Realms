@@ -13,6 +13,8 @@ var spin_speed := 6.0
 var spinning := false
 var can_damage := false
 
+signal cast_spell
+
 func _ready() -> void:
 	attack_radius = 6.0
 
@@ -80,3 +82,7 @@ func attack_logic() -> void:
 		#print(collider)
 		if collider and collider.has_method('hit'):
 			collider.hit()
+
+func shoot_fireball() -> void:
+	var dir = (player.position - position).normalized()
+	emit_signal("cast_spell","fireball",$skin/Rig/Skeleton3D/handslot_r/Nagonford_Axe/Marker3D.global_position,Vector2(dir.x,dir.z),3.)

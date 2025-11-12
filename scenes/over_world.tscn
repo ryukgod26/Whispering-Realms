@@ -16,8 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://lforr8lmeko6" path="res://assets/environment/objects/rock5.glb" id="13_5v57w"]
 [ext_resource type="PackedScene" uid="uid://c04ysd6ex0ubs" path="res://assets/environment/objects/pinetree.glb" id="14_6gcac"]
 [ext_resource type="PackedScene" uid="uid://b4rhqen2u7u1d" path="res://assets/environment/objects/campfire.glb" id="16_nnvwv"]
-[ext_resource type="PackedScene" uid="uid://dwjrrhoj6ltyx" path="res://assets/environment/castle.blend" id="17_nnvwv"]
-[ext_resource type="PackedScene" uid="uid://bj0bbwc2avu6u" path="res://assets/environment/objects/bridge.glb" id="18_3x5pm"]
+[ext_resource type="PackedScene" uid="uid://ctlutglymm3dd" path="res://scenes/bridge.tscn" id="18_3x5pm"]
+[ext_resource type="PackedScene" uid="uid://s05vk6hbwotc" path="res://scenes/castle.tscn" id="18_5v57w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c68g0"]
 albedo_color = Color(0, 0.17301998, 0.8850129, 1)
@@ -33,21 +33,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.667984, 14.595938, -161.15
 [node name="Skeleton_Warrior" parent="Entities" index="1" instance=ExtResource("2_b5s6s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, -82)
 
-[node name="overworld_environment" parent="Enviorment" index="0" instance=ExtResource("2_rhs6x")]
+[node name="bridge" parent="Enviorment" index="0" instance=ExtResource("18_3x5pm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199, -72, -63)
+
+[node name="overworld_environment" parent="Enviorment" index="1" instance=ExtResource("2_rhs6x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108, -36, -313)
 
-[node name="Water" type="MeshInstance3D" parent="Enviorment" index="1"]
+[node name="Water" type="MeshInstance3D" parent="Enviorment" index="2"]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, 97, -78.1, -104)
 material_override = SubResource("StandardMaterial3D_c68g0")
 mesh = SubResource("PlaneMesh_c68g0")
 
-[node name="castle" parent="Enviorment" index="2" instance=ExtResource("17_nnvwv")]
-transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 118, -72, 25)
-
-[node name="bridge" parent="Enviorment" index="3" instance=ExtResource("18_3x5pm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199, -72, -63)
-
-[node name="Trees" type="Node3D" parent="Enviorment" index="4"]
+[node name="Trees" type="Node3D" parent="Enviorment" index="3"]
 
 [node name="tree15" parent="Enviorment/Trees" index="0" instance=ExtResource("8_x7jyi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -69, -122)
@@ -124,7 +121,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, -61, -277)
 [node name="tree14" parent="Enviorment/Trees" index="24" instance=ExtResource("7_tuc5b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123, -67, -275)
 
-[node name="Rocks" type="Node3D" parent="Enviorment" index="5"]
+[node name="Rocks" type="Node3D" parent="Enviorment" index="4"]
 
 [node name="rocks4" parent="Enviorment/Rocks" index="0" instance=ExtResource("9_uulja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -67, -166)
@@ -150,7 +147,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, -65, -245)
 [node name="rock5" parent="Enviorment/Rocks" index="7" instance=ExtResource("13_5v57w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, -64, -132)
 
-[node name="Pinetrees" type="Node3D" parent="Enviorment" index="6"]
+[node name="Pinetrees" type="Node3D" parent="Enviorment" index="5"]
 
 [node name="pinetree" parent="Enviorment/Pinetrees" index="0" instance=ExtResource("14_6gcac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, -68, -164)
@@ -182,7 +179,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129, -73, -159)
 [node name="pinetree10" parent="Enviorment/Pinetrees" index="9" instance=ExtResource("14_6gcac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170, -69, -176)
 
-[node name="Camps" type="Node3D" parent="Enviorment" index="7"]
+[node name="Camps" type="Node3D" parent="Enviorment" index="6"]
 
 [node name="camp2" parent="Enviorment/Camps" index="0" instance=ExtResource("9_6caf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -69, -196)
@@ -190,11 +187,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -69, -196)
 [node name="camp" parent="Enviorment/Camps" index="1" instance=ExtResource("9_6caf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -71, -122)
 
-[node name="Campfire" type="Node3D" parent="Enviorment" index="8"]
+[node name="Campfire" type="Node3D" parent="Enviorment" index="7"]
 
 [node name="campfire" parent="Enviorment/Campfire" index="0" instance=ExtResource("16_nnvwv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -69, -192)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -69, -188)
 
-[node name="Logs" type="Node3D" parent="Enviorment" index="9"]
+[node name="Logs" type="Node3D" parent="Enviorment" index="8"]
 
 [node name="log" parent="Enviorment/Logs" index="0" instance=ExtResource("4_c68g0")]
+transform = Transform3D(-0.7071068, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, -0.7071068, 50, 0, -193)
+
+[node name="log2" parent="Enviorment/Logs" index="1" instance=ExtResource("4_c68g0")]
+transform = Transform3D(-0.5000001, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, -0.5000001, 54, 0, -193)
+
+[node name="log3" parent="Enviorment/Logs" index="2" instance=ExtResource("4_c68g0")]
+transform = Transform3D(0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, 0.9659258, 52, 0, -196)
+
+[node name="castle" parent="Enviorment" index="9" instance=ExtResource("18_5v57w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118, -72, 25)

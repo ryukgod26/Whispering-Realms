@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Whispering Realms"
-run/main_scene="uid://brt83m705ova0"
+run/main_scene="uid://8v7ayvgx4xvj"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
 
 [input]
 

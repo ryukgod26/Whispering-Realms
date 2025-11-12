@@ -38,6 +38,7 @@ var speed_modifier := 1.0
 var last_movement_input := Vector2(0,-1)
 var health = 5:
 	set(value):
+		value = min(6,value)
 		ui.update_health(value,value-health)
 		if value == 0:
 			get_tree().reload_current_scene()

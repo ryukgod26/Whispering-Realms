@@ -54,6 +54,6 @@ func _change_stamina(val: int):
 func change_stamina_alpha(val: float) -> void:
 	var tween = create_tween()
 	tween.tween_method(_change_alpha,1-val,val,0.2)
-	
+
 func _change_alpha(val: float):
 	stamina_progress_bar.modulate.a = val

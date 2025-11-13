@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bp2loi22eepgt"]
+[gd_scene load_steps=9 format=3 uid="uid://bp2loi22eepgt"]
 
 [ext_resource type="Script" uid="uid://bfg0a8r6ugcwp" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://dkfv8vhpntupw" path="res://scenes/godettte_skin.tscn" id="3_dqkch"]
@@ -8,6 +8,18 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
 radius = 0.6660156
 height = 2.3468628
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dqkch"]
+gravity = Vector3(0, 1, 0)
+scale_min = 0.099999994
+scale_max = 0.29999998
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqkch"]
+albedo_color = Color(0.69803923, 0.69803923, 0.69803923, 1)
+metallic_specular = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_qlg0r"]
+material = SubResource("StandardMaterial3D_dqkch")
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
@@ -44,6 +56,12 @@ autostart = true
 [node name="StaminaRecoveryTimer" type="Timer" parent="Timers"]
 wait_time = 0.12
 autostart = true
+
+[node name="RunParticles" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_dqkch")
+draw_pass_1 = SubResource("SphereMesh_qlg0r")
 
 [connection signal="timeout" from="Timers/EnergyRecoveryTimer" to="." method="_on_energy_recovery_timer_timeout"]
 [connection signal="timeout" from="Timers/StaminaRecoveryTimer" to="." method="_on_stamina_recovery_timer_timeout"]

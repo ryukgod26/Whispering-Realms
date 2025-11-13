@@ -1,4 +1,10 @@
+class_name Level
 extends Node3D
+
+const scenes = {
+	'dungeon':"res://scenes/dungeon.tscn",
+	'overworld': "res://scenes/over_world.tscn"
+}
 
 var fireball_scene: PackedScene =  preload("res://scenes/fireball.tscn")
 
@@ -19,3 +25,9 @@ func create_fireball(_type: String, fireball_position: Vector3, direction: Vecto
 	fireball.global_position = fireball_position
 	fireball.direction = direction
 	fireball.setup(size)
+
+func switch_level(level: String):
+	call_deferred('_switch_level',level)
+
+func _switch_level(level: String):
+	get_tree().change_scene_to_file(scenes[level])

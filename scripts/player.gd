@@ -14,6 +14,7 @@ extends CharacterBody3D
 @onready var fall_gravity: float = ((-2.0 * jump_height) / (jump_time_to_fall * jump_time_to_fall)) * -1.0
 @onready var ui: Control = $UI
 @onready var invul_timer: Timer = $Timers/InvulTimer
+@onready var run_particles: GPUParticles3D = $RunParticles
 
 enum spells{FIREBALL,HEAL}
 
@@ -41,7 +42,7 @@ var health = 5:
 		value = min(6,value)
 		ui.update_health(value,value-health)
 		if value == 0:
-			get_tree().reload_current_scene()
+			call_deferred('_player_died')
 		health = value
 var current_spell = spells.FIREBALL
 var energy = 100:
@@ -66,6 +67,7 @@ func _physics_process(delta: float) -> void:
 	move_logic(delta)
 	jump_logic(delta)
 	ability_logic()
+	physics_logic()
 	#if Input.is_action_just_pressed("ui_accept"):
 		#hit()
 	move_and_slide()
@@ -106,6 +108,7 @@ func move_logic(delta) ->void:
 		velocity.z = vel_2d.y
 		if is_running:
 			godettte_skin.set_move_state("Running")
+			
 			#stamina -= 0.5
 		else:
 			godettte_skin.set_move_state("Walking")
@@ -118,7 +121,7 @@ func move_logic(delta) ->void:
 		godettte_skin.set_move_state("Idle")
 	if movement_input:
 		last_movement_input = movement_input.normalized()
-
+	run_particles.emitting = is_running and movement_input != Vector2.ZERO and is_on_floor()
 func jump_logic(delta) ->void:
 	#Handling Jumnp
 	if is_on_floor():
@@ -163,3 +166,12 @@ func _on_energy_recovery_timer_timeout() -> void:
 
 func _on_stamina_recovery_timer_timeout() -> void:
 	stamina += 1
+
+func physics_logic() -> void:
+	for i in get_slide_collision_count():
+		var collider = get_slide_collision(i).get_collider()
+		if collider is RayCast3D:
+			collider.apply_central_impulse(get_slide_collision(i).get_normal())
+
+func _player_died():
+	get_tree().reload_current_scene()

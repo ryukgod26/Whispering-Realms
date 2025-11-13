@@ -1,8 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://brt83m705ova0"]
+[gd_scene load_steps=25 format=3 uid="uid://brt83m705ova0"]
 
 [ext_resource type="PackedScene" uid="uid://xs4k0bcewmjw" path="res://scenes/level.tscn" id="1_ntpey"]
+[ext_resource type="Script" uid="uid://b3yobdrhdad7o" path="res://scripts/over_world.gd" id="2_6gcac"]
 [ext_resource type="PackedScene" uid="uid://cc5h1qvje3d1y" path="res://scenes/skeleton_warrior.tscn" id="2_b5s6s"]
 [ext_resource type="PackedScene" uid="uid://1k1awrxpa5nt" path="res://scenes/overworld_skin.tscn" id="2_rhs6x"]
+[ext_resource type="PackedScene" uid="uid://cdfsyc4afu8b7" path="res://scenes/bird.tscn" id="3_5v57w"]
 [ext_resource type="PackedScene" uid="uid://017tob8o06v3" path="res://assets/environment/objects/log.glb" id="4_c68g0"]
 [ext_resource type="PackedScene" uid="uid://bkmfvv8om32xq" path="res://assets/environment/objects/tree1.glb" id="5_lengd"]
 [ext_resource type="PackedScene" uid="uid://cnx8e4v6j3cwv" path="res://assets/environment/objects/tree4.glb" id="5_vybw3"]
@@ -18,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b4rhqen2u7u1d" path="res://assets/environment/objects/campfire.glb" id="16_nnvwv"]
 [ext_resource type="PackedScene" uid="uid://ctlutglymm3dd" path="res://scenes/bridge.tscn" id="18_3x5pm"]
 [ext_resource type="PackedScene" uid="uid://s05vk6hbwotc" path="res://scenes/castle.tscn" id="18_5v57w"]
+[ext_resource type="PackedScene" uid="uid://jsgoc4j0rq5g" path="res://scenes/water.tscn" id="21_uhkmt"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3x5pm"]
 dof_blur_far_enabled = true
@@ -25,35 +28,44 @@ dof_blur_far_distance = 150.0
 dof_blur_far_transition = 250.0
 dof_blur_amount = 0.06
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c68g0"]
-albedo_color = Color(0, 0.17301998, 0.8850129, 1)
+[sub_resource type="Curve3D" id="Curve3D_3x5pm"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 77, 87, -260, -57.100002, 37.4, -52.5, 57.100002, -37.4, 52.5, 172, 42, -220, 0, 0, 0, 0, 0, 0, 187.062, -3.9046936, -116.63899, -56.3, 33.100002, -42, 56.3, -33.100002, 42, 177.30728, -34.510193, -35.35035, 172.5, -51.2, 8.5, -172.5, 51.2, -8.5, 15.3685, -19.207458, 36.520317, -34.2, -5.5, 37.2, 34.2, 5.5, -37.2, -47.28961, 39.32556, -64.099144, 4.2000003, -17.5, 40.2, -4.2000003, 17.5, -40.2, 10.851013, 55.010864, -141.6026, -18.5, -8.6, 32.9, 18.5, 8.6, -32.9, 1.7919312, 75.669586, -185.92117, -35.2, 2.7, 17.2, 35.2, -2.7, -17.2, 67.91105, 46.976837, -160.47763, 25.2, 1.1, -19.800001, -25.2, -1.1, 19.800001, 15.993347, 89.05942, -228.18518),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 10
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_c68g0"]
-size = Vector2(600, 250)
+[sub_resource type="BoxShape3D" id="BoxShape3D_5v57w"]
+size = Vector3(2.33313, 2.6079102, 2.7694702)
 
 [node name="OverWorld" instance=ExtResource("1_ntpey")]
+script = ExtResource("2_6gcac")
 
 [node name="WorldEnvironment" parent="." index="0"]
 camera_attributes = SubResource("CameraAttributesPractical_3x5pm")
 
 [node name="Player" parent="Entities" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.667984, 14.595938, -161.15271)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.60922, -68.594666, 7.4622116)
 
 [node name="Skeleton_Warrior" parent="Entities" index="1" instance=ExtResource("2_b5s6s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, -82)
 
+[node name="Path3D" type="Path3D" parent="Entities" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.100002, 19, -37.6)
+curve = SubResource("Curve3D_3x5pm")
+
+[node name="Bird" parent="Entities/Path3D" index="0" instance=ExtResource("3_5v57w")]
+transform = Transform3D(-0.31321916, 0.17766178, 0.9329146, 7.4505793e-09, 0.9823454, -0.18707524, -0.9496807, -0.058595553, -0.30768946, 77, 87, -260)
+use_model_front = true
+
 [node name="bridge" parent="Enviorment" index="0" instance=ExtResource("18_3x5pm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199, -72, -63)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199, -75.74031, -63)
 
 [node name="overworld_environment" parent="Enviorment" index="1" instance=ExtResource("2_rhs6x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108, -36, -313)
 
-[node name="Water" type="MeshInstance3D" parent="Enviorment" index="2"]
-transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, 97, -78.1, -104)
-material_override = SubResource("StandardMaterial3D_c68g0")
-mesh = SubResource("PlaneMesh_c68g0")
-
-[node name="Trees" type="Node3D" parent="Enviorment" index="3"]
+[node name="Trees" type="Node3D" parent="Enviorment" index="2"]
 
 [node name="tree15" parent="Enviorment/Trees" index="0" instance=ExtResource("8_x7jyi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -69, -122)
@@ -130,7 +142,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, -61, -277)
 [node name="tree14" parent="Enviorment/Trees" index="24" instance=ExtResource("7_tuc5b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123, -67, -275)
 
-[node name="Rocks" type="Node3D" parent="Enviorment" index="4"]
+[node name="Rocks" type="Node3D" parent="Enviorment" index="3"]
 
 [node name="rocks4" parent="Enviorment/Rocks" index="0" instance=ExtResource("9_uulja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -67, -166)
@@ -156,7 +168,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, -65, -245)
 [node name="rock5" parent="Enviorment/Rocks" index="7" instance=ExtResource("13_5v57w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, -64, -132)
 
-[node name="Pinetrees" type="Node3D" parent="Enviorment" index="5"]
+[node name="Pinetrees" type="Node3D" parent="Enviorment" index="4"]
 
 [node name="pinetree" parent="Enviorment/Pinetrees" index="0" instance=ExtResource("14_6gcac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, -68, -164)
@@ -188,7 +200,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129, -73, -159)
 [node name="pinetree10" parent="Enviorment/Pinetrees" index="9" instance=ExtResource("14_6gcac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170, -69, -176)
 
-[node name="Camps" type="Node3D" parent="Enviorment" index="6"]
+[node name="Camps" type="Node3D" parent="Enviorment" index="5"]
 
 [node name="camp2" parent="Enviorment/Camps" index="0" instance=ExtResource("9_6caf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -69, -196)
@@ -196,12 +208,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -69, -196)
 [node name="camp" parent="Enviorment/Camps" index="1" instance=ExtResource("9_6caf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, -71, -122)
 
-[node name="Campfire" type="Node3D" parent="Enviorment" index="7"]
+[node name="Campfire" type="Node3D" parent="Enviorment" index="6"]
 
 [node name="campfire" parent="Enviorment/Campfire" index="0" instance=ExtResource("16_nnvwv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -69, -188)
 
-[node name="Logs" type="Node3D" parent="Enviorment" index="8"]
+[node name="Logs" type="Node3D" parent="Enviorment" index="7"]
 
 [node name="log" parent="Enviorment/Logs" index="0" instance=ExtResource("4_c68g0")]
 transform = Transform3D(-0.7071068, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, -0.7071068, 49, -68.9, -187)
@@ -212,5 +224,18 @@ transform = Transform3D(-0.5000001, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, -0.500
 [node name="log3" parent="Enviorment/Logs" index="2" instance=ExtResource("4_c68g0")]
 transform = Transform3D(0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, 0.9659258, 51, -68.9, -190)
 
-[node name="castle" parent="Enviorment" index="9" instance=ExtResource("18_5v57w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118, -72, 25)
+[node name="castle" parent="Enviorment" index="8" instance=ExtResource("18_5v57w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118, -73.740295, 25)
+
+[node name="CastleArea" type="Area3D" parent="Enviorment/castle" index="8"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviorment/castle/CastleArea" index="0"]
+transform = Transform3D(-0.3846497, 0, 0.9230626, 0, 1, 0, -0.9230626, 0, -0.3846497, 5.3613358, 8.282463, -8.134108)
+shape = SubResource("BoxShape3D_5v57w")
+
+[node name="Water" parent="Enviorment" index="9" instance=ExtResource("21_uhkmt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.59351, -81.756714, -103.690155)
+
+[connection signal="body_entered" from="Enviorment/castle/CastleArea" to="." method="_on_castle_area_body_entered"]

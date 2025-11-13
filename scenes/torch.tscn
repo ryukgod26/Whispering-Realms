@@ -1,6 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://djeluj1mh6jns"]
+[gd_scene load_steps=7 format=3 uid="uid://djeluj1mh6jns"]
 
-[ext_resource type="PackedScene" uid="uid://b7wf3jucxaf1v" path="res://assets/dungeon objects/torch.glb" id="1_d4v33"]
+[ext_resource type="PackedScene" uid="uid://b7wf3jucxaf1v" path="res://assets/environment/dungeon objects/torch.glb" id="1_d4v33"]
+
+[sub_resource type="Gradient" id="Gradient_d4v33"]
+offsets = PackedFloat32Array(0.24873096, 0.7106599)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_my26j"]
+gradient = SubResource("Gradient_d4v33")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d4v33"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+gravity = Vector3(0, 2, 0)
+scale_min = 0.099999994
+scale_max = 0.19999999
+color_ramp = SubResource("GradientTexture1D_my26j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_my26j"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_o2tjn"]
+material = SubResource("StandardMaterial3D_my26j")
 
 [node name="torch" instance=ExtResource("1_d4v33")]
 
@@ -9,3 +30,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43011105, 0.32514846)
 light_energy = 2.0
 light_indirect_energy = 2.0
 light_volumetric_fog_energy = 2.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41389018, 0.32108426)
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_d4v33")
+draw_pass_1 = SubResource("SphereMesh_o2tjn")

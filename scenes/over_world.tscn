@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://brt83m705ova0"]
+[gd_scene load_steps=22 format=3 uid="uid://brt83m705ova0"]
 
 [ext_resource type="PackedScene" uid="uid://xs4k0bcewmjw" path="res://scenes/level.tscn" id="1_ntpey"]
 [ext_resource type="PackedScene" uid="uid://cc5h1qvje3d1y" path="res://scenes/skeleton_warrior.tscn" id="2_b5s6s"]
@@ -19,6 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://ctlutglymm3dd" path="res://scenes/bridge.tscn" id="18_3x5pm"]
 [ext_resource type="PackedScene" uid="uid://s05vk6hbwotc" path="res://scenes/castle.tscn" id="18_5v57w"]
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3x5pm"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 150.0
+dof_blur_far_transition = 250.0
+dof_blur_amount = 0.06
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c68g0"]
 albedo_color = Color(0, 0.17301998, 0.8850129, 1)
 
@@ -26,6 +32,9 @@ albedo_color = Color(0, 0.17301998, 0.8850129, 1)
 size = Vector2(600, 250)
 
 [node name="OverWorld" instance=ExtResource("1_ntpey")]
+
+[node name="WorldEnvironment" parent="." index="0"]
+camera_attributes = SubResource("CameraAttributesPractical_3x5pm")
 
 [node name="Player" parent="Entities" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.667984, 14.595938, -161.15271)
@@ -195,13 +204,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -69, -188)
 [node name="Logs" type="Node3D" parent="Enviorment" index="8"]
 
 [node name="log" parent="Enviorment/Logs" index="0" instance=ExtResource("4_c68g0")]
-transform = Transform3D(-0.7071068, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, -0.7071068, 50, 0, -193)
+transform = Transform3D(-0.7071068, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, -0.7071068, 49, -68.9, -187)
 
 [node name="log2" parent="Enviorment/Logs" index="1" instance=ExtResource("4_c68g0")]
-transform = Transform3D(-0.5000001, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, -0.5000001, 54, 0, -193)
+transform = Transform3D(-0.5000001, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, -0.5000001, 53, -68.9, -187)
 
 [node name="log3" parent="Enviorment/Logs" index="2" instance=ExtResource("4_c68g0")]
-transform = Transform3D(0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, 0.9659258, 52, 0, -196)
+transform = Transform3D(0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, 0.9659258, 51, -68.9, -190)
 
 [node name="castle" parent="Enviorment" index="9" instance=ExtResource("18_5v57w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118, -72, 25)

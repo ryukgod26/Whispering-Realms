@@ -94,7 +94,7 @@ func ability_logic() -> void:
 func move_logic(delta) ->void:
 	#Handling Movements Like Walking and Running
 	movement_input = Input.get_vector("move_left","move_right","move_forward","move_backward").rotated(-camera.global_rotation.y)
-	var is_running:bool = Input.is_action_pressed("run") and stamina >=1
+	var is_running:bool = Input.is_action_pressed("run")
 	var vel_2d = Vector2(velocity.x,velocity.z)
 
 	if  movement_input != Vector2.ZERO:
@@ -106,7 +106,7 @@ func move_logic(delta) ->void:
 		velocity.z = vel_2d.y
 		if is_running:
 			godettte_skin.set_move_state("Running")
-			stamina -= 1
+			#stamina -= 0.5
 		else:
 			godettte_skin.set_move_state("Walking")
 		target_angle = -movement_input.angle() + (PI/2 + 0 )

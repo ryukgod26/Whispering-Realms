@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://2qodo6lmusmj"]
+
+[ext_resource type="PackedScene" uid="uid://b1nbdbe8syhb4" path="res://assets/dungeon objects/column.glb" id="1_c7hn2"]
+[ext_resource type="PackedScene" uid="uid://bhqt5vgwxv68w" path="res://assets/dungeon objects/pillar.glb" id="2_44mnm"]
+[ext_resource type="PackedScene" uid="uid://b3gvqo445vopj" path="res://assets/dungeon objects/stairs.glb" id="3_qc5d2"]
+[ext_resource type="PackedScene" uid="uid://chw0pqeh5pgfm" path="res://assets/dungeon objects/stool.glb" id="4_kww0q"]
+[ext_resource type="PackedScene" uid="uid://ben46777uu8eu" path="res://assets/dungeon objects/table.glb" id="5_uvnbw"]
+[ext_resource type="PackedScene" uid="uid://b7wf3jucxaf1v" path="res://assets/dungeon objects/torch.glb" id="6_jkmbv"]
+
+[node name="Dungeon_objects" type="Node3D"]
+
+[node name="column" parent="." instance=ExtResource("1_c7hn2")]
+
+[node name="pillar" parent="." instance=ExtResource("2_44mnm")]
+
+[node name="stairs" parent="." instance=ExtResource("3_qc5d2")]
+
+[node name="stool" parent="." instance=ExtResource("4_kww0q")]
+
+[node name="table" parent="." instance=ExtResource("5_uvnbw")]
+
+[node name="torch" parent="." instance=ExtResource("6_jkmbv")]
+
+[editable path="column"]
+[editable path="pillar"]
+[editable path="stairs"]
+[editable path="stool"]
+[editable path="table"]
+[editable path="torch"]

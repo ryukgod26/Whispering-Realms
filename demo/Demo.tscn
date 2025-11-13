@@ -85,7 +85,7 @@ collision_mask = 3
 [node name="Tunnel" parent="." instance=ExtResource("3_kdh0b")]
 
 [node name="Player" parent="." instance=ExtResource("3_ht63y")]
-transform = Transform3D(0.176947, 0, -0.98422, 0, 1, 0, 0.98422, 0, 0.176947, 223.143, 108.348, -1830.08)
+transform = Transform3D(0.17694701, 0, -0.98422, -0.69594866, 0.70710677, -0.12512043, 0.69594866, 0.70710677, 0.12512043, 223.143, 109.34799, -1826.08)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://demo/data"

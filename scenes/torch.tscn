@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://djeluj1mh6jns"]
+
+[ext_resource type="PackedScene" uid="uid://b7wf3jucxaf1v" path="res://assets/dungeon objects/torch.glb" id="1_d4v33"]
+
+[node name="torch" instance=ExtResource("1_d4v33")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43011105, 0.32514846)
+light_energy = 2.0
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 2.0

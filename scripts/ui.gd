@@ -13,7 +13,7 @@ func setup(val: int) -> void:
 		var heart = heart_scene.instantiate()
 		heart_container.add_child(heart)
 		heart.change_alpha(1.0)
-		await  get_tree().create_timer(0.4).timeout
+		await get_tree().create_timer(0.4).timeout
 
 func update_health(value: int, direction: int) -> void:
 	for heart in heart_container.get_children():
@@ -40,7 +40,7 @@ func update_spell(spells, current_spell) -> void:
 		spell_texture.texture = heal_texture
 	else:
 		print("No a Valid Spell")
-
+ 
 func update_energy(val: int) -> void:
 	energybar.value = val
 

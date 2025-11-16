@@ -5,13 +5,15 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s3811"]
 render_priority = 0
 shader = ExtResource("1_bdk6y")
+shader_parameter/WaveHeight = 4.0
+shader_parameter/Direction = Vector2(-1, 0.2)
 shader_parameter/ColorParameter = Color(0.188235, 0.282353, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_elfxw"]
 material = SubResource("ShaderMaterial_s3811")
 size = Vector2(500, 500)
-subdivide_width = 100
-subdivide_depth = 100
+subdivide_width = 200
+subdivide_depth = 200
 
 [node name="Water" type="MeshInstance3D"]
 mesh = SubResource("PlaneMesh_elfxw")

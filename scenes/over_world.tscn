@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://brt83m705ova0"]
+[gd_scene load_steps=26 format=3 uid="uid://brt83m705ova0"]
 
 [ext_resource type="PackedScene" uid="uid://xs4k0bcewmjw" path="res://scenes/level.tscn" id="1_ntpey"]
 [ext_resource type="Script" uid="uid://b3yobdrhdad7o" path="res://scripts/over_world.gd" id="2_6gcac"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://ctlutglymm3dd" path="res://scenes/bridge.tscn" id="18_3x5pm"]
 [ext_resource type="PackedScene" uid="uid://s05vk6hbwotc" path="res://scenes/castle.tscn" id="18_5v57w"]
 [ext_resource type="PackedScene" uid="uid://jsgoc4j0rq5g" path="res://scenes/water.tscn" id="21_uhkmt"]
+[ext_resource type="PackedScene" uid="uid://caseiq1q4fsw6" path="res://scenes/grass_blade.tscn" id="22_w530f"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3x5pm"]
 dof_blur_far_enabled = true
@@ -236,6 +237,10 @@ transform = Transform3D(-0.3846497, 0, 0.9230626, 0, 1, 0, -0.9230626, 0, -0.384
 shape = SubResource("BoxShape3D_5v57w")
 
 [node name="Water" parent="Enviorment" index="9" instance=ExtResource("21_uhkmt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.59351, -81.756714, -103.690155)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.59351, -82.1783, -103.690155)
+
+[node name="Grass" type="Node3D" parent="Enviorment" index="10"]
+
+[node name="GrassBlade" parent="Enviorment/Grass" index="0" instance=ExtResource("22_w530f")]
 
 [connection signal="body_entered" from="Enviorment/castle/CastleArea" to="." method="_on_castle_area_body_entered"]

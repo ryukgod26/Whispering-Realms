@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://chxpwbwcgt643"]
+
+[ext_resource type="Shader" uid="uid://dbqtytm5ottgu" path="res://shaders/godettte_skin_overlay.gdshader" id="1_3ugvj"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3ugvj")
+shader_parameter/color = Color(0, 0.48235294, 0, 1)
+shader_parameter/energy = 1.0
+shader_parameter/alpha = 0.0

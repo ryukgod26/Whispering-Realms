@@ -64,6 +64,7 @@ func _ready() -> void:
 	ui.setup(health)
 
 func _physics_process(delta: float) -> void:
+	RenderingServer.global_shader_parameter_set('player_position',global_position)
 	move_logic(delta)
 	jump_logic(delta)
 	ability_logic()
@@ -77,6 +78,7 @@ func ability_logic() -> void:
 	if Input.is_action_just_pressed("attack"):
 		if weapon_active:
 			godettte_skin.attack()
+			$Sounds/SwordSound.play()
 		else:
 			godettte_skin.cast_spell()
 			stop_movement(0.3,0.8)
@@ -121,7 +123,17 @@ func move_logic(delta) ->void:
 		godettte_skin.set_move_state("Idle")
 	if movement_input:
 		last_movement_input = movement_input.normalized()
+	
+	#Run Particles Logic
 	run_particles.emitting = is_running and movement_input != Vector2.ZERO and is_on_floor()
+	
+	#Step Sound Logic
+	if is_on_floor() and movement_input:
+		if not $Sounds/StepSound.playing:
+			$Sounds/StepSound.playing = true
+	else:
+		$Sounds/StepSound.playing = false
+
 func jump_logic(delta) ->void:
 	#Handling Jumnp
 	if is_on_floor():
@@ -160,6 +172,7 @@ func shoot_magic(pos: Vector3):
 		if energy >= 30:
 			health += 1
 			energy -= 30
+			godettte_skin.heal_tween()
 
 func _on_energy_recovery_timer_timeout() -> void:
 	energy += 1
@@ -173,5 +186,5 @@ func physics_logic() -> void:
 		if collider is RayCast3D:
 			collider.apply_central_impulse(get_slide_collision(i).get_normal())
 
-func _player_died():
+func _player_died() -> void:
 	get_tree().reload_current_scene()

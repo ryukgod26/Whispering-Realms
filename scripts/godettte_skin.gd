@@ -57,6 +57,9 @@ func hit() -> void:
 	$AnimationTree.set("parameters/ExtraShoot/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	$AnimationTree.set("parameters/AttackOneShot/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_ABORT)
 	attacking = false
+	var tween = create_tween()
+	tween.tween_method(_hit_effect,0.0,0.8,0.3)
+	tween.tween_method(_hit_effect,0.8,0.0,0.1)
 
 func change_face(expression) -> void:
 	face_material.uv1_offset = faces[expression]
@@ -69,3 +72,16 @@ func _on_blink_timer_timeout() -> void:
 
 func shoot_magic() -> void:
 	get_parent().shoot_magic($Rig/Skeleton3D/RightHandSlot/wand2/wand/Marker3D.global_position)
+
+func heal_tween() -> void:
+	var tween = create_tween()
+	tween.tween_method(_heal_effect,0.0,0.8,0.5)
+	tween.tween_method(_heal_effect,0.8,0.0,0.2)
+
+func _heal_effect(val: float) -> void:
+	$Rig/Skeleton3D/Godette_Body.material_overlay.set_shader_parameter('color',Color.GREEN_YELLOW)
+	$Rig/Skeleton3D/Godette_Body.material_overlay.set_shader_parameter('alpha',val)
+
+func _hit_effect(val: float) -> void:
+	$Rig/Skeleton3D/Godette_Body.material_overlay.set_shader_parameter('color',Color.RED)
+	$Rig/Skeleton3D/Godette_Body.material_overlay.set_shader_parameter('alpha',val)

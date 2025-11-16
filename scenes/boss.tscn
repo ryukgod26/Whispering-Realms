@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://l327rwd5wiad"]
+[gd_scene load_steps=19 format=3 uid="uid://l327rwd5wiad"]
 
 [ext_resource type="PackedScene" uid="uid://cmtblc2xgh7u4" path="res://scenes/enemy.tscn" id="1_dlmty"]
 [ext_resource type="Script" uid="uid://dgmlvh70kdf2l" path="res://scripts/boss.gd" id="2_jncid"]
 [ext_resource type="PackedScene" uid="uid://c5prpq86esdet" path="res://assets/boss/Nagonford_Animated.glb" id="2_neq0i"]
+[ext_resource type="Material" uid="uid://c747p0wjj6ifu" path="res://shaders/boss_overlay.tres" id="4_qnbj4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jncid"]
 radius = 2.0830078
@@ -138,6 +139,24 @@ transform = Transform3D(1, 5.3290705e-15, 5.3290705e-15, 2.842171e-14, 1.0000001
 
 [node name="chest" parent="skin/Rig/Skeleton3D" index="1"]
 transform = Transform3D(0.9962748, -5.1496167e-09, 0.08623532, 5.1304343e-09, 0.99999994, 4.4407705e-10, -0.08623532, 1.8800718e-15, 0.9962748, -2.9196552e-09, 0.9590293, 1.0685902e-15)
+
+[node name="Nagonford_ArmLeft" parent="skin/Rig/Skeleton3D" index="2"]
+material_overlay = ExtResource("4_qnbj4")
+
+[node name="Nagonford_ArmRight" parent="skin/Rig/Skeleton3D" index="3"]
+material_overlay = ExtResource("4_qnbj4")
+
+[node name="Nagonford_Body" parent="skin/Rig/Skeleton3D" index="4"]
+material_overlay = ExtResource("4_qnbj4")
+
+[node name="Nagonford_Head" parent="skin/Rig/Skeleton3D" index="5"]
+material_overlay = ExtResource("4_qnbj4")
+
+[node name="Nagonford_LegLeft" parent="skin/Rig/Skeleton3D" index="6"]
+material_overlay = ExtResource("4_qnbj4")
+
+[node name="Nagonford_LegRight" parent="skin/Rig/Skeleton3D" index="7"]
+material_overlay = ExtResource("4_qnbj4")
 
 [node name="AnimationTree" parent="." index="2"]
 root_node = NodePath("../skin")

@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c747p0wjj6ifu"]
+
+[ext_resource type="Shader" uid="uid://cvg8y284r667n" path="res://shaders/boss.gdshader" id="1_egnvi"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_egnvi")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/energy = 1.0
+shader_parameter/alpha = 0.0

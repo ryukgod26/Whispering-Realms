@@ -72,6 +72,9 @@ func hit() -> void:
 		print("Boss is getting Hit.")
 		$Timers/InvulTimer.start()
 		health -= 1
+		var tween = create_tween()
+		tween.tween_method(_hit_effect,0.0,08,0.3)
+		tween.tween_method(_hit_effect,0.8,0.0,0.1)
 
 func damage_toggle(val:bool):
 	can_damage = val
@@ -87,3 +90,7 @@ func attack_logic() -> void:
 func shoot_fireball() -> void:
 	var dir = (player.position - position).normalized()
 	emit_signal("cast_spell","fireball",$skin/Rig/Skeleton3D/handslot_r/Nagonford_Axe/Marker3D.global_position,Vector2(dir.x,dir.z),3.)
+
+func _hit_effect(val: float):
+	$skin/Rig/Skeleton3D/Nagonford_Body.material_overlay.set_material_parameter('color',Color.RED)
+	$skin/Rig/Skeleton3D/Nagonford_Body.material_overlay.set_material_parameter('alpha',val)

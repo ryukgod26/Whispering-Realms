@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://brt83m705ova0"]
+[gd_scene load_steps=42 format=3 uid="uid://brt83m705ova0"]
 
 [ext_resource type="PackedScene" uid="uid://xs4k0bcewmjw" path="res://scenes/level.tscn" id="1_ntpey"]
 [ext_resource type="Script" uid="uid://b3yobdrhdad7o" path="res://scripts/over_world.gd" id="2_6gcac"]
@@ -21,7 +21,17 @@
 [ext_resource type="PackedScene" uid="uid://ctlutglymm3dd" path="res://scenes/bridge.tscn" id="18_3x5pm"]
 [ext_resource type="PackedScene" uid="uid://s05vk6hbwotc" path="res://scenes/castle.tscn" id="18_5v57w"]
 [ext_resource type="PackedScene" uid="uid://jsgoc4j0rq5g" path="res://scenes/water.tscn" id="21_uhkmt"]
-[ext_resource type="PackedScene" uid="uid://caseiq1q4fsw6" path="res://scenes/grass_blade.tscn" id="22_w530f"]
+[ext_resource type="AudioStream" uid="uid://cvq05fj2rym4b" path="res://assets/audio/stream.mp3" id="22_qp3h1"]
+[ext_resource type="Script" uid="uid://c2o1e8141gwab" path="res://addons/proton_scatter/src/scatter.gd" id="23_qp3h1"]
+[ext_resource type="Script" uid="uid://ips5iy200aga" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="24_vsre4"]
+[ext_resource type="Script" uid="uid://dmisrmkmrmbtj" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="25_t8t1p"]
+[ext_resource type="Script" uid="uid://bfk4tyhmtf5bx" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="26_6vxvs"]
+[ext_resource type="Script" uid="uid://bv5vlpfk0rqfa" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="27_7wui2"]
+[ext_resource type="Script" uid="uid://w1imhp5lks7h" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="28_f2m47"]
+[ext_resource type="Script" uid="uid://b0kvn7ec0id13" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="29_q2en5"]
+[ext_resource type="Script" uid="uid://d3pb2u0atahv2" path="res://addons/proton_scatter/src/scatter_item.gd" id="30_fkg5q"]
+[ext_resource type="Script" uid="uid://dbnpbh8m54u5f" path="res://addons/proton_scatter/src/scatter_shape.gd" id="31_40yxt"]
+[ext_resource type="Script" uid="uid://b4jrk3xbtrh7b" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="32_46nfg"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3x5pm"]
 dof_blur_far_enabled = true
@@ -39,6 +49,39 @@ point_count = 10
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5v57w"]
 size = Vector3(2.33313, 2.6079102, 2.7694702)
+
+[sub_resource type="Resource" id="Resource_t8t1p"]
+script = ExtResource("26_6vxvs")
+amount = 750
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_6vxvs"]
+script = ExtResource("27_7wui2")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(20, 360, 20)
+scale = Vector3(0.1, 0.1, 0.1)
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_7wui2"]
+script = ExtResource("28_f2m47")
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+restrict_height = true
+
+[sub_resource type="Resource" id="Resource_f2m47"]
+script = ExtResource("29_q2en5")
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+
+[sub_resource type="Resource" id="Resource_q2en5"]
+script = ExtResource("24_vsre4")
+stack = Array[ExtResource("25_t8t1p")]([SubResource("Resource_t8t1p"), SubResource("Resource_6vxvs"), SubResource("Resource_7wui2"), SubResource("Resource_f2m47")])
+
+[sub_resource type="Resource" id="Resource_g8bsm"]
+script = ExtResource("32_46nfg")
+radius = 23.522377
 
 [node name="OverWorld" instance=ExtResource("1_ntpey")]
 script = ExtResource("2_6gcac")
@@ -239,8 +282,29 @@ shape = SubResource("BoxShape3D_5v57w")
 [node name="Water" parent="Enviorment" index="9" instance=ExtResource("21_uhkmt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.59351, -82.1783, -103.690155)
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Enviorment/Water" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.999992, 0, 34)
+stream = ExtResource("22_qp3h1")
+autoplay = true
+max_distance = 86.15
+
 [node name="Grass" type="Node3D" parent="Enviorment" index="10"]
 
-[node name="GrassBlade" parent="Enviorment/Grass" index="0" instance=ExtResource("22_w530f")]
+[node name="ProtonScatter" type="Node3D" parent="Enviorment/Grass" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.17383, -68.59193, 35.148567)
+script = ExtResource("23_qp3h1")
+modifier_stack = SubResource("Resource_q2en5")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+metadata/_custom_type_script = "uid://c2o1e8141gwab"
+
+[node name="ScatterItem" type="Node3D" parent="Enviorment/Grass/ProtonScatter" index="0"]
+script = ExtResource("30_fkg5q")
+path = "uid://caseiq1q4fsw6"
+
+[node name="ScatterShape" type="Node3D" parent="Enviorment/Grass/ProtonScatter" index="1"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 8, 0, 0)
+script = ExtResource("31_40yxt")
+shape = SubResource("Resource_g8bsm")
 
 [connection signal="body_entered" from="Enviorment/castle/CastleArea" to="." method="_on_castle_area_body_entered"]

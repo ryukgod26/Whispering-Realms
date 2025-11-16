@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx6p6akpfk5lp"]
+
+[ext_resource type="AudioStream" uid="uid://wfi6nccacjwc" path="res://assets/audio/music.ogg" id="1_og8p3"]
+
+[node name="BgSound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_og8p3")
+autoplay = true

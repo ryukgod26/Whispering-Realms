@@ -6,6 +6,7 @@ uniform vec3 shadow_color: source_color;
 uniform sampler2D curve_sampler: repeat_disable;
 uniform sampler2D wind_sampler: repeat_enable,filter_linear;
 uniform float wind_strength = 0.4;
+global uniform vec3 player_position;
 
 void vertex() {
 	//For Wind Displacement
@@ -14,6 +15,12 @@ void vertex() {
 	float wind = (texture(wind_sampler,world_position * 0.08 + TIME * 0.05).x - 0.5) * curve;
 	vec3 wind_displacement = vec3(wind) * wind_strength * (1.0 - UV.y);
 	VERTEX += vec3(wind);
+	
+	//For Player Displacement
+	vec3 direction_to_player = player_position - NODE_POSITION_WORLD;
+	float distance_to_player = length(direction_to_player);
+	float falloff = 1.0 - smoothstep(0.0,1.0,distance_to_player);
+	VERTEX += -direction_to_player * falloff *curve * 2.0;
 }
 
 void fragment() {

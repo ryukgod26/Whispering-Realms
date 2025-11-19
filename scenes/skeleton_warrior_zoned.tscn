@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://hxch1lfr7rrq"]
+
+[ext_resource type="PackedScene" uid="uid://cc5h1qvje3d1y" path="res://scenes/skeleton_warrior.tscn" id="1_ef6ld"]
+[ext_resource type="Script" uid="uid://br8oq21otagwo" path="res://scripts/skeleton_warrior_zoned.gd" id="2_4fj2k"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ef6ld"]
+radius = 25.501385
+
+[node name="Skeleton_Warrior_zoned" instance=ExtResource("1_ef6ld")]
+script = ExtResource("2_4fj2k")
+
+[node name="Skeleton3D" parent="skin/Rig" index="0"]
+bones/1/position = Vector3(0, 0.3784311, 0)
+bones/4/rotation = Quaternion(-0.55525225, -0.057726126, -0.6384335, 0.52987295)
+bones/5/rotation = Quaternion(2.1845976e-08, -7.183838e-08, -0.51102203, 0.8595676)
+bones/7/rotation = Quaternion(-0.3218319, -0.33375052, 0.14989392, 0.8732506)
+bones/8/rotation = Quaternion(0.0004779438, 0.0004779321, -0.70535034, 0.70885855)
+bones/9/rotation = Quaternion(-0.6136346, 0.07799247, 0.6136282, 0.49074477)
+bones/10/rotation = Quaternion(9.0754515e-09, 5.976325e-08, 0.5335819, 0.84574836)
+bones/12/rotation = Quaternion(-0.32057673, 0.30973592, -0.2319033, 0.86458963)
+bones/13/rotation = Quaternion(0.0015370602, 0.0018104279, 0.70551, 0.708696)
+bones/16/rotation = Quaternion(0.9915711, 0.08318612, 0.07712758, 0.06259526)
+bones/17/rotation = Quaternion(0.33049193, 5.818249e-08, -2.313114e-07, 0.94380885)
+bones/18/rotation = Quaternion(-0.58772016, -0.20439102, 0.06526251, 0.78009623)
+bones/19/rotation = Quaternion(1.3827422e-05, 0.9201699, -0.39151934, -3.0843742e-06)
+bones/20/rotation = Quaternion(0.9939087, -0.031890117, 0.030416885, 0.1010117)
+bones/21/rotation = Quaternion(0.38217396, -6.0927626e-08, 2.672801e-07, 0.9240904)
+bones/22/rotation = Quaternion(-0.6167527, 0.113434434, -0.018003512, 0.77873284)
+bones/39/position = Vector3(0.52084064, 0.78152907, -0.057637352)
+bones/41/position = Vector3(-0.5108437, 0.78152895, 0.059736915)
+bones/41/rotation = Quaternion(-0.7582528, -1.527369e-07, 0.65196073, -1.1175871e-08)
+
+[node name="Skeleton_Warrior_Helmet" parent="skin/Rig/Skeleton3D" index="0"]
+transform = Transform3D(0.99972045, -1.4014349e-09, 0.023646593, 1.3934147e-09, 0.9999998, 3.5568637e-10, -0.023646593, -3.2263736e-10, 0.99972045, -7.483345e-09, 1.1886405, -1.3592684e-07)
+
+[node name="RigthHandSlot" parent="skin/Rig/Skeleton3D" index="10"]
+transform = Transform3D(0.0010680312, -0.154571, -0.9879807, -0.9999887, -0.004505507, -0.00037528202, -0.004393848, 0.9879709, -0.15457493, -0.49061173, 0.63468534, 0.10757901)
+
+[node name="LeftHandSlot" parent="skin/Rig/Skeleton3D" index="11"]
+transform = Transform3D(-4.506437e-07, 0.2628632, 0.9648328, 0.99998534, -0.004960322, 0.0013529388, 0.0051419814, 0.96481967, -0.2628602, 0.5075362, 0.63017386, -0.01753879)
+
+[node name="DetectionArea" type="Area3D" parent="." index="4"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea" index="0"]
+shape = SubResource("SphereShape3D_ef6ld")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+
+[editable path="skin"]

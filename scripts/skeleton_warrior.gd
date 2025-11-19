@@ -1,3 +1,4 @@
+class_name Skeleton_Warrior
 extends Enemy
 
 const attack_names = ['1H_Melle_Attack_Chop','1H_Melle_Attack_Jump_Chop','1H_Melle_Attack_Slice_Diagonal',

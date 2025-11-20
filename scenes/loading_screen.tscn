@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://vy8e5k646h2n"]
+[gd_scene load_steps=76 format=3 uid="uid://vy8e5k646h2n"]
 
 [ext_resource type="Texture2D" uid="uid://b61ari1w60iy8" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L1/File1.png" id="1_qygbf"]
 [ext_resource type="Texture2D" uid="uid://1yrnv1uavg1f" path="res://assets/Main_menu/Images/loading_screen.png" id="1_ri1c0"]
@@ -62,6 +62,8 @@
 [ext_resource type="Texture2D" uid="uid://byiw5pytedj1p" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L1/File58.png" id="59_1q5ko"]
 [ext_resource type="Texture2D" uid="uid://dclybw3xyx2hr" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L1/File59.png" id="60_85vnb"]
 [ext_resource type="Texture2D" uid="uid://cqxnpw3ifuoa7" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L1/File60.png" id="61_bepwm"]
+[ext_resource type="Texture2D" uid="uid://bt20yho6sivkd" path="res://assets/Main_menu/loading_screen/GUI Interface Kit Free/GUI Interface Kit Free/Sprite Sheet/sprites.png" id="63_pdu2y"]
+[ext_resource type="FontFile" uid="uid://8p2lryul1tq7" path="res://assets/Main_menu/Fonts/cash_paper/Cash Paper.otf" id="64_ukoiq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oveia"]
 texture = ExtResource("1_ri1c0")
@@ -278,6 +280,18 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukoiq"]
+atlas = ExtResource("63_pdu2y")
+region = Rect2(627.0345, 289.59595, 259.5451, 42.222656)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnckj"]
+atlas = ExtResource("63_pdu2y")
+region = Rect2(628.23, 288.14203, 254.69568, 46.581512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ierv5"]
+atlas = ExtResource("63_pdu2y")
+region = Rect2(625.3884, 287.63635, 267.76868, 45.45456)
+
 [node name="loading_screen" type="CanvasLayer"]
 script = ExtResource("1_t1rtf")
 
@@ -294,3 +308,22 @@ position = Vector2(586, 275)
 scale = Vector2(0.73636365, 0.575)
 sprite_frames = SubResource("SpriteFrames_ndlxt")
 frame_progress = 0.6001362
+
+[node name="LoadingProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 20.0
+offset_top = 575.0
+offset_right = 1129.0
+offset_bottom = 615.0
+texture_under = SubResource("AtlasTexture_ukoiq")
+texture_over = SubResource("AtlasTexture_pnckj")
+texture_progress = SubResource("AtlasTexture_ierv5")
+
+[node name="ProgressText" type="Label" parent="."]
+offset_left = 491.0
+offset_top = 508.0
+offset_right = 731.0
+offset_bottom = 531.0
+theme_override_fonts/font = ExtResource("64_ukoiq")
+theme_override_font_sizes/font_size = 36
+text = "0%"
+horizontal_alignment = 1

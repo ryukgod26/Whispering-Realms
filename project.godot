@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 BgSound="*res://scenes/bg_sound.tscn"
-LoadingScreen="*res://scenes/loading_screen.tscn"
 
 [debug]
 

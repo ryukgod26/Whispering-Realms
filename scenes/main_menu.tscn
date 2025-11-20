@@ -1,10 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://vxrejy2781k3"]
+[gd_scene load_steps=10 format=3 uid="uid://vxrejy2781k3"]
 
 [ext_resource type="Script" uid="uid://cv6py7o7cwupx" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://chx6qva2sxd64" path="res://assets/Main_menu/Images/Gemini_Generated_Image_vpjt5xvpjt5xvpjt.png" id="2_ekxnf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vue75"]
 texture = ExtResource("2_ekxnf")
+
+[sub_resource type="Gradient" id="Gradient_ekxnf"]
+colors = PackedColorArray(3.465414e-06, 0, 0.8422111, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bqqt6"]
+gradient = SubResource("Gradient_ekxnf")
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ekxnf"]
+gradient = SubResource("Gradient_ekxnf")
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wu84c"]
+gradient = SubResource("Gradient_ekxnf")
+
+[sub_resource type="Gradient" id="Gradient_bqqt6"]
+colors = PackedColorArray(0.7434253, 0.09723339, 9.62615e-08, 1, 0.32156864, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8ln24"]
+gradient = SubResource("Gradient_bqqt6")
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -31,10 +49,11 @@ offset_bottom = 40.0
 
 [node name="Start" type="TextureButton" parent="ButtonManager"]
 layout_mode = 0
-offset_left = 320.0
-offset_top = 593.0
-offset_right = 459.0
-offset_bottom = 634.0
+offset_left = 239.0
+offset_top = 590.0
+offset_right = 495.0
+offset_bottom = 631.0
+texture_pressed = SubResource("GradientTexture1D_bqqt6")
 
 [node name="Option" type="TextureButton" parent="ButtonManager"]
 layout_mode = 0
@@ -42,6 +61,7 @@ offset_left = 522.0
 offset_top = 582.0
 offset_right = 665.0
 offset_bottom = 632.0
+texture_pressed = SubResource("GradientTexture1D_ekxnf")
 
 [node name="Quit" type="TextureButton" parent="ButtonManager"]
 layout_mode = 0
@@ -49,6 +69,8 @@ offset_left = 716.0
 offset_top = 585.0
 offset_right = 806.0
 offset_bottom = 633.0
+texture_pressed = SubResource("GradientTexture1D_wu84c")
+texture_hover = SubResource("GradientTexture1D_8ln24")
 
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="ButtonManager/Option" to="." method="_on_option_pressed"]

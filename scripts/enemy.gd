@@ -24,13 +24,13 @@ var health = 5:
 		if health <= 0:
 			die()
 
-func move_to_player(delta) -> void:
-	if position.distance_to(player.position) < detection_radius:
-		var target_dir = (player.position - position).normalized()
+func move_to_player(delta,custom_player= player) -> void:
+	if position.distance_to(custom_player.position) < detection_radius:
+		var target_dir = (custom_player.position - position).normalized()
 		var dir_vec2 = Vector2(target_dir.x,target_dir.z)
 		var target_angle = -dir_vec2.angle() + PI/2
 		rotation.y = rotate_toward(rotation.y,target_angle,delta * 6)
-		if position.distance_to(player.position) > attack_radius:
+		if position.distance_to(custom_player.position) > attack_radius:
 			velocity = Vector3(dir_vec2.x,0,dir_vec2.y)  * speed * speed_modifier
 			move_state_machine.travel('Walk')
 		else:

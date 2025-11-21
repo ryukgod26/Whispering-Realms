@@ -1,0 +1,103 @@
+[gd_scene load_steps=16 format=3 uid="uid://ea7hvimnpbpr"]
+
+[ext_resource type="Script" uid="uid://b2suwayxl185a" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+[ext_resource type="FontFile" uid="uid://prpprug22h3q" path="res://assets/Main_menu/Fonts/cinzel/Cinzel-Black.otf" id="2_myx47"]
+[ext_resource type="Texture2D" uid="uid://dg3mfta5qfvvr" path="res://assets/Main_menu/Buttons/glossy-web-buttons-set-different-colors/Adobe_transparent.png" id="3_kukqi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d2l8"]
+atlas = ExtResource("3_kukqi")
+region = Rect2(2069.0964, 2461.615, 1714.2292, 454.22583)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7l7mv"]
+texture = SubResource("AtlasTexture_5d2l8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_88e76"]
+texture = SubResource("AtlasTexture_5d2l8")
+modulate_color = Color(0.3515629, 0.3515629, 0.35156286, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5d2l8"]
+texture = SubResource("AtlasTexture_5d2l8")
+modulate_color = Color(0.69965345, 0.69965345, 0.69965345, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kukqi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kukqi"]
+texture = SubResource("AtlasTexture_5d2l8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_knqa7"]
+texture = SubResource("AtlasTexture_5d2l8")
+modulate_color = Color(0.3515629, 0.3515629, 0.35156286, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v4r4p"]
+texture = SubResource("AtlasTexture_5d2l8")
+modulate_color = Color(0.69965345, 0.69965345, 0.69965345, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5d2l8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_71k7c"]
+texture = SubResource("AtlasTexture_5d2l8")
+modulate_color = Color(0.3515629, 0.3515629, 0.35156286, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1s2dm"]
+texture = SubResource("AtlasTexture_5d2l8")
+modulate_color = Color(0.69965345, 0.69965345, 0.69965345, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7l7mv"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_n87rw")
+
+[node name="ButtonManager" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -311.0
+offset_top = -188.0
+offset_right = 280.0
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Resume" type="Button" parent="ButtonManager"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_7l7mv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_88e76")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5d2l8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kukqi")
+text = "RESUME"
+
+[node name="Options" type="Button" parent="ButtonManager"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_kukqi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_knqa7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v4r4p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5d2l8")
+text = "OPTIONS"
+
+[node name="MainMenu" type="Button" parent="ButtonManager"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_7l7mv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_71k7c")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1s2dm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7l7mv")
+text = "BACK TO MAIN MENU"
+
+[connection signal="pressed" from="ButtonManager/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="ButtonManager/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ButtonManager/MainMenu" to="." method="_on_main_menu_pressed"]

@@ -282,11 +282,11 @@ animations = [{
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukoiq"]
 atlas = ExtResource("63_pdu2y")
-region = Rect2(627.0345, 289.59595, 259.5451, 42.222656)
+region = Rect2(626.0001, 241.00002, 264.1963, 49.000015)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pnckj"]
 atlas = ExtResource("63_pdu2y")
-region = Rect2(628.23, 288.14203, 254.69568, 46.581512)
+region = Rect2(626, 136, 275.00006, 58.000015)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ierv5"]
 atlas = ExtResource("63_pdu2y")
@@ -310,10 +310,12 @@ sprite_frames = SubResource("SpriteFrames_ndlxt")
 frame_progress = 0.6001362
 
 [node name="LoadingProgressBar" type="TextureProgressBar" parent="."]
-offset_left = 20.0
-offset_top = 575.0
-offset_right = 1129.0
-offset_bottom = 615.0
+offset_left = 137.00003
+offset_top = 556.0
+offset_right = 412.00003
+offset_bottom = 614.0
+scale = Vector2(3.4799976, 1)
+rounded = true
 texture_under = SubResource("AtlasTexture_ukoiq")
 texture_over = SubResource("AtlasTexture_pnckj")
 texture_progress = SubResource("AtlasTexture_ierv5")

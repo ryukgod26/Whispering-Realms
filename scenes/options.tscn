@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cjwsx3i32lomh"]
+[gd_scene load_steps=2 format=3 uid="uid://cjwsx3i32lomh"]
+
+[ext_resource type="Script" uid="uid://vcda3q7of4pu" path="res://scripts/Menus/options.gd" id="1_c2u1v"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_c2u1v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -14,19 +17,35 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TabContainer" type="TabContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-current_tab = 0
+layout_direction = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 2
+clip_tabs = false
+drag_to_rearrange_enabled = true
 
 [node name="Video" type="VBoxContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="DisplayModelbl" type="Label" parent="TabContainer/Video"]
+layout_mode = 2
+text = "Display Mode"
+horizontal_alignment = 1
 
 [node name="DisplayMode" type="OptionButton" parent="TabContainer/Video"]
 layout_mode = 2
@@ -37,21 +56,120 @@ popup/item_0/id = 0
 popup/item_1/text = "Full Screen"
 popup/item_1/id = 1
 
+[node name="Resolutionlbl" type="Label" parent="TabContainer/Video"]
+layout_mode = 2
+text = "Resolution"
+horizontal_alignment = 1
+
 [node name="Resolution" type="OptionButton" parent="TabContainer/Video"]
 layout_mode = 2
 selected = 0
-item_count = 2
-popup/item_0/text = "Windowed"
+item_count = 3
+popup/item_0/text = "1600 x 900"
 popup/item_0/id = 0
-popup/item_1/text = "Full Screen"
+popup/item_1/text = "1920 x 1080"
 popup/item_1/id = 1
+popup/item_2/text = "2560 x 1440"
+popup/item_2/id = 2
+
+[node name="vsynclbl" type="Label" parent="TabContainer/Video"]
+layout_mode = 2
+text = "VSync "
+horizontal_alignment = 1
+
+[node name="vsync" type="OptionButton" parent="TabContainer/Video"]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "Enable"
+popup/item_1/id = 1
+popup/item_2/text = "Adaptive"
+popup/item_2/id = 2
+popup/item_3/text = "Mailbox"
+popup/item_3/id = 3
+
+[node name="AntiAliasinglbl" type="Label" parent="TabContainer/Video"]
+layout_mode = 2
+text = "Anti Aliasing"
+horizontal_alignment = 1
+
+[node name="AntiAliasing" type="OptionButton" parent="TabContainer/Video"]
+layout_mode = 2
+selected = 0
+item_count = 5
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "2x"
+popup/item_1/id = 1
+popup/item_2/text = "4x"
+popup/item_2/id = 2
+popup/item_3/text = "8x"
+popup/item_3/id = 3
+popup/item_4/text = "TAA (Cinematic)"
+popup/item_4/id = 4
 
 [node name="Audio" type="VBoxContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
+[node name="MasterSliderlbl" type="Label" parent="TabContainer/Audio"]
+layout_mode = 2
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="TabContainer/Audio"]
+layout_mode = 2
+
+[node name="MusicSliderlbl" type="Label" parent="TabContainer/Audio"]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="TabContainer/Audio"]
+layout_mode = 2
+
+[node name="SfxSliderlbl" type="Label" parent="TabContainer/Audio"]
+layout_mode = 2
+text = "Sound Effects"
+horizontal_alignment = 1
+
+[node name="SfxSlider" type="HSlider" parent="TabContainer/Audio"]
+layout_mode = 2
+
 [node name="Gameplay" type="VBoxContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="Sensitivitylbl" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 2
+
+[node name="Sensitivity" type="HSlider" parent="TabContainer/Gameplay"]
+layout_mode = 2
+min_value = 0.001
+max_value = 0.1
+value = 0.001
+
+[node name="InvertY" type="CheckBox" parent="TabContainer/Gameplay"]
+layout_mode = 2
+text = "Invert Vertical View"
+
+[node name="fovlbl" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 2
+
+[node name="Fov" type="HSlider" parent="TabContainer/Gameplay"]
+layout_mode = 2
+min_value = 70.0
+max_value = 110.0
+value = 70.0
+
+[connection signal="item_selected" from="TabContainer/Video/vsync" to="." method="_on_vsync_item_selected"]
+[connection signal="item_selected" from="TabContainer/Video/AntiAliasing" to="." method="_on_anti_aliasing_item_selected"]
+[connection signal="value_changed" from="TabContainer/Audio/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="TabContainer/Gameplay/Sensitivity" to="." method="_on_sensitivity_value_changed"]
+[connection signal="toggled" from="TabContainer/Gameplay/InvertY" to="." method="_on_invert_y_toggled"]
+[connection signal="value_changed" from="TabContainer/Gameplay/Fov" to="." method="_on_fov_value_changed"]

@@ -5,3 +5,4 @@
 [node name="BgSound" type="AudioStreamPlayer3D"]
 stream = ExtResource("1_og8p3")
 autoplay = true
+bus = &"Music"

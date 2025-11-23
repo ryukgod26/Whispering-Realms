@@ -1,23 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjwsx3i32lomh"]
+[gd_scene load_steps=5 format=3 uid="uid://cjwsx3i32lomh"]
 
 [ext_resource type="Script" uid="uid://vcda3q7of4pu" path="res://scripts/Menus/options.gd" id="1_c2u1v"]
+[ext_resource type="Shader" uid="uid://cmklbql0553mf" path="res://shaders/options.gdshader" id="2_yjkok"]
+[ext_resource type="Script" uid="uid://bitblbksv56rj" path="res://scripts/Menus/Hslider.gd" id="3_2iy26"]
 
-[node name="Options" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2iy26"]
+shader = ExtResource("2_yjkok")
+shader_parameter/glass_intensity = 2.50000011875
+
+[node name="Options" type="CanvasLayer"]
+process_mode = 3
+layer = 100
 script = ExtResource("1_c2u1v")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_2iy26")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26,7 +23,6 @@ grow_vertical = 2
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_direction = 4
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -122,6 +118,7 @@ horizontal_alignment = 1
 
 [node name="MasterSlider" type="HSlider" parent="TabContainer/Audio"]
 layout_mode = 2
+script = ExtResource("3_2iy26")
 
 [node name="MusicSliderlbl" type="Label" parent="TabContainer/Audio"]
 layout_mode = 2
@@ -130,6 +127,7 @@ horizontal_alignment = 1
 
 [node name="MusicSlider" type="HSlider" parent="TabContainer/Audio"]
 layout_mode = 2
+script = ExtResource("3_2iy26")
 
 [node name="SfxSliderlbl" type="Label" parent="TabContainer/Audio"]
 layout_mode = 2
@@ -138,6 +136,7 @@ horizontal_alignment = 1
 
 [node name="SfxSlider" type="HSlider" parent="TabContainer/Audio"]
 layout_mode = 2
+script = ExtResource("3_2iy26")
 
 [node name="Gameplay" type="VBoxContainer" parent="TabContainer"]
 layout_mode = 2
@@ -145,16 +144,21 @@ metadata/_tab_index = 2
 
 [node name="Sensitivitylbl" type="Label" parent="TabContainer/Gameplay"]
 layout_mode = 2
+text = "Sensitivity"
+horizontal_alignment = 1
 
 [node name="Sensitivity" type="HSlider" parent="TabContainer/Gameplay"]
 layout_mode = 2
-min_value = 0.001
-max_value = 0.1
-value = 0.001
+min_value = 0.3
+max_value = 3.0
+step = 0.1
+value = 0.5
+script = ExtResource("3_2iy26")
 
 [node name="InvertY" type="CheckBox" parent="TabContainer/Gameplay"]
 layout_mode = 2
 text = "Invert Vertical View"
+alignment = 1
 
 [node name="fovlbl" type="Label" parent="TabContainer/Gameplay"]
 layout_mode = 2
@@ -164,6 +168,30 @@ layout_mode = 2
 min_value = 70.0
 max_value = 110.0
 value = 70.0
+script = ExtResource("3_2iy26")
+
+[node name="GlassIntensitylbl" type="Label" parent="TabContainer/Gameplay"]
+layout_mode = 2
+text = "Background Visibility (in reverse)"
+horizontal_alignment = 1
+
+[node name="GlassIntensity" type="HSlider" parent="TabContainer/Gameplay"]
+layout_mode = 2
+max_value = 5.0
+step = 0.1
+script = ExtResource("3_2iy26")
+
+[node name="Back" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back"
 
 [connection signal="item_selected" from="TabContainer/Video/vsync" to="." method="_on_vsync_item_selected"]
 [connection signal="item_selected" from="TabContainer/Video/AntiAliasing" to="." method="_on_anti_aliasing_item_selected"]
@@ -173,3 +201,5 @@ value = 70.0
 [connection signal="value_changed" from="TabContainer/Gameplay/Sensitivity" to="." method="_on_sensitivity_value_changed"]
 [connection signal="toggled" from="TabContainer/Gameplay/InvertY" to="." method="_on_invert_y_toggled"]
 [connection signal="value_changed" from="TabContainer/Gameplay/Fov" to="." method="_on_fov_value_changed"]
+[connection signal="value_changed" from="TabContainer/Gameplay/GlassIntensity" to="." method="_on_glass_intensity_value_changed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

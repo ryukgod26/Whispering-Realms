@@ -27,5 +27,3 @@ func rotate_from_vector(v:Vector2):
 		rotation.x -= v.y
 	rotation.x = clamp(rotation.x,min_limit_x,max_limit_x)
 	#rotation.x = clamp(rotation.x,deg_to_rad(-90),deg_to_rad(90))
-	
-	

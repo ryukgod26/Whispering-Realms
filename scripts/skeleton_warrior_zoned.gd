@@ -27,7 +27,6 @@ func _on_attack_timer_timeout() -> void:
 			#print(attack_animation.animation)
 			$AnimationTree.set("parameters/AttackOneShot/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
-
 func _on_detection_area_body_exited(body: Node3D) -> void:
 	if body.is_in_group('Player'):
 		player = null

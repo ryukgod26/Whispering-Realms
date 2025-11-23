@@ -1,4 +1,4 @@
-[gd_scene load_steps=792 format=3 uid="uid://brt83m705ova0"]
+[gd_scene load_steps=793 format=3 uid="uid://brt83m705ova0"]
 
 [ext_resource type="PackedScene" uid="uid://xs4k0bcewmjw" path="res://scenes/level.tscn" id="1_ntpey"]
 [ext_resource type="Script" uid="uid://b3yobdrhdad7o" path="res://scripts/over_world.gd" id="2_6gcac"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://jsgoc4j0rq5g" path="res://scenes/water.tscn" id="21_uhkmt"]
 [ext_resource type="AudioStream" uid="uid://cvq05fj2rym4b" path="res://assets/audio/stream.mp3" id="22_qp3h1"]
 [ext_resource type="PackedScene" uid="uid://ea7hvimnpbpr" path="res://scenes/pause_menu.tscn" id="26_kc3io"]
+[ext_resource type="PackedScene" uid="uid://cjwsx3i32lomh" path="res://scenes/options.tscn" id="27_h60du"]
 [ext_resource type="Shader" uid="uid://cghvekeqkuo05" path="res://shaders/grass_blade.gdshader" id="33_6vxvs"]
 [ext_resource type="ArrayOccluder3D" uid="uid://b46osglfy8adn" path="res://occluders/over_world.occ" id="33_vsre4"]
 [ext_resource type="ArrayMesh" uid="uid://k1syv00tyig8" path="res://assets/vfx/grass_blade.obj" id="34_7wui2"]
@@ -8680,5 +8681,7 @@ multimesh = SubResource("MultiMesh_754et")
 occluder = ExtResource("33_vsre4")
 
 [node name="PauseMenu" parent="." index="6" instance=ExtResource("26_kc3io")]
+
+[node name="Options" parent="." index="7" instance=ExtResource("27_h60du")]
 
 [connection signal="body_entered" from="Enviorment/castle/CastleArea" to="." method="_on_castle_area_body_entered"]

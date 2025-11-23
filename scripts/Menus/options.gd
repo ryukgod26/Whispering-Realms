@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 #For Audio
 @onready var master_slider: HSlider = $TabContainer/Audio/MasterSlider
@@ -25,7 +25,9 @@ func _ready() -> void:
 	$TabContainer/Gameplay/Sensitivity.value = GameSettings.mouse_sensitivity
 	$TabContainer/Gameplay/InvertY.button_pressed = GameSettings.invert_y_axis
 	$TabContainer/Gameplay/Fov.value = GameSettings.fov
-
+	
+	$TabContainer/Gameplay/GlassIntensity.value = $ColorRect.material.get_shader_parameter('glass_intensity')
+	$".".visible = false
 
 #For Video
 func _on_vsync_item_selected(index: int) -> void:
@@ -107,3 +109,9 @@ func _on_invert_y_toggled(toggled_on: bool) -> void:
 
 func _on_fov_value_changed(value: float) -> void:
 	GameSettings.fov = value
+
+func _on_back_pressed() -> void:
+	$".".visible = false
+
+func _on_glass_intensity_value_changed(value: float) -> void:
+	$ColorRect.material.set_shader_parameter('glass_intensity',value)

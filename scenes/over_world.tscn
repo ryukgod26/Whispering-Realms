@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://1k1awrxpa5nt" path="res://scenes/overworld_skin.tscn" id="2_rhs6x"]
 [ext_resource type="PackedScene" uid="uid://cdfsyc4afu8b7" path="res://scenes/bird.tscn" id="3_5v57w"]
 [ext_resource type="PackedScene" uid="uid://017tob8o06v3" path="res://assets/environment/objects/log.glb" id="4_c68g0"]
-[ext_resource type="PackedScene" uid="uid://hxch1lfr7rrq" path="res://scenes/skeleton_warrior_zoned.tscn" id="4_qp3h1"]
+[ext_resource type="PackedScene" uid="uid://l327rwd5wiad" path="res://scenes/boss.tscn" id="4_h60du"]
 [ext_resource type="PackedScene" uid="uid://bkmfvv8om32xq" path="res://assets/environment/objects/tree1.glb" id="5_lengd"]
 [ext_resource type="PackedScene" uid="uid://cnx8e4v6j3cwv" path="res://assets/environment/objects/tree4.glb" id="5_vybw3"]
 [ext_resource type="PackedScene" uid="uid://cmmdtdawyvkdr" path="res://assets/environment/objects/tree3.glb" id="7_tuc5b"]
@@ -4627,8 +4627,8 @@ curve = SubResource("Curve3D_3x5pm")
 transform = Transform3D(-0.31321916, 0.17766178, 0.9329146, 7.4505793e-09, 0.9823454, -0.18707524, -0.9496807, -0.058595553, -0.30768946, 77, 87, -260)
 use_model_front = true
 
-[node name="Skeleton_Warrior_zoned" parent="Entities" index="2" instance=ExtResource("4_qp3h1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.1, -20.600002, -401)
+[node name="Boss" parent="Entities" index="2" instance=ExtResource("4_h60du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -23, -380)
 
 [node name="bridge" parent="Enviorment" index="0" instance=ExtResource("18_3x5pm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199, -75.74031, -63)

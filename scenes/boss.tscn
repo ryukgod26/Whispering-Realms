@@ -65,6 +65,9 @@ radius = 3.9716122
 
 [node name="Boss" instance=ExtResource("1_dlmty")]
 script = ExtResource("2_jncid")
+walk_speed = null
+detection_radius = null
+attack_radius = null
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.372878, -1.5687456)

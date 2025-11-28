@@ -11,34 +11,40 @@ script = ExtResource("2_4fj2k")
 player_detection_radius = 25
 
 [node name="Skeleton3D" parent="skin/Rig" index="0"]
-bones/1/position = Vector3(0, 0.37016618, 0)
-bones/4/rotation = Quaternion(-0.5504364, -0.0585773, -0.64603674, 0.52557117)
-bones/5/rotation = Quaternion(2.8729897e-08, -3.6874294e-08, -0.50101185, 0.8654405)
-bones/7/rotation = Quaternion(-0.31899884, -0.3365149, 0.14330667, 0.8743344)
-bones/8/rotation = Quaternion(0.0014468125, 0.0014468017, -0.701775, 0.71239585)
-bones/9/rotation = Quaternion(-0.6095083, 0.07902457, 0.6205905, 0.4869521)
-bones/10/rotation = Quaternion(2.974628e-08, 5.206466e-08, 0.52393043, 0.8517611)
-bones/12/rotation = Quaternion(-0.3180323, 0.31184068, -0.22532302, 0.86651045)
-bones/13/rotation = Quaternion(0.00433271, 0.0051032966, 0.70258605, 0.7115673)
-bones/16/rotation = Quaternion(0.9897786, 0.08365729, 0.07859747, 0.08463076)
-bones/17/rotation = Quaternion(0.38859496, 5.7024458e-08, -2.6517876e-07, 0.9214088)
-bones/18/rotation = Quaternion(-0.6181299, -0.20122217, 0.07556305, 0.75611854)
-bones/19/rotation = Quaternion(-2.243216e-06, 0.92015594, -0.39155215, 5.9089115e-07)
-bones/20/rotation = Quaternion(0.9916746, -0.0332214, 0.029863067, 0.12077277)
-bones/21/rotation = Quaternion(0.43337518, -5.9013736e-08, 3.014804e-07, 0.9012137)
-bones/22/rotation = Quaternion(-0.6443741, 0.11258219, -0.022808447, 0.7560339)
-bones/39/position = Vector3(0.52084064, 0.76901853, -0.057637356)
-bones/41/position = Vector3(-0.5108437, 0.7690185, 0.059736915)
-bones/41/rotation = Quaternion(-0.7582528, -1.527369e-07, 0.65196073, -1.1175871e-08)
+bones/1/position = Vector3(0, 0.3909052, 0)
+bones/4/rotation = Quaternion(-0.55892503, -0.061455593, -0.6466177, 0.5154721)
+bones/5/rotation = Quaternion(2.0070145e-08, -4.1027544e-08, -0.49029845, 0.8715547)
+bones/7/rotation = Quaternion(-0.32023272, -0.32537985, 0.14340414, 0.87807417)
+bones/8/rotation = Quaternion(0.00037187536, 0.00037184352, -0.7057405, 0.70847017)
+bones/9/rotation = Quaternion(-0.61746126, 0.08131378, 0.6203556, 0.47674784)
+bones/10/rotation = Quaternion(2.0543634e-08, 5.518992e-08, 0.51371723, 0.85795957)
+bones/12/rotation = Quaternion(-0.31848827, 0.3003324, -0.22501749, 0.8704786)
+bones/13/rotation = Quaternion(0.0006677516, 0.00078651047, 0.70641404, 0.70779806)
+bones/15/rotation = Quaternion(0.99361604, 0.08356069, 0.07392716, 0.016724918)
+bones/16/rotation = Quaternion(0.21067421, 6.489917e-08, -1.3825039e-07, 0.9775564)
+bones/17/rotation = Quaternion(-0.52539915, -0.2090548, 0.045932923, 0.8234938)
+bones/18/rotation = Quaternion(8.812387e-05, 0.92023665, -0.39136258, -1.9889789e-05)
+bones/19/rotation = Quaternion(0.9970572, -0.029684143, 0.031419273, 0.06331501)
+bones/20/rotation = Quaternion(0.28497824, -6.4000005e-08, 1.9715168e-07, 0.958534)
+bones/21/rotation = Quaternion(-0.5648694, 0.11444181, -0.009537319, 0.8171505)
+bones/38/position = Vector3(0.52084064, 0.78536093, -0.057637352)
+bones/40/position = Vector3(-0.5108437, 0.7853608, 0.05973692)
 
-[node name="Skeleton_Warrior_Helmet" parent="skin/Rig/Skeleton3D" index="0"]
-transform = Transform3D(0.99972045, -1.4014349e-09, 0.023646593, 1.3934147e-09, 0.9999998, 3.5568637e-10, -0.023646593, -3.2263736e-10, 0.99972045, -7.483345e-09, 1.1803756, -1.3592684e-07)
+[node name="head" parent="skin/Rig/Skeleton3D" index="0"]
+transform = Transform3D(0.99972045, -1.4014349e-09, 0.023646593, 1.3934147e-09, 0.9999998, 3.5568637e-10, -0.023646593, -3.2263736e-10, 0.99972045, -4.3038546e-09, 1.2266672, 1.5739471e-15)
 
-[node name="RigthHandSlot" parent="skin/Rig/Skeleton3D" index="10"]
-transform = Transform3D(0.003064499, -0.16305539, -0.98661184, -0.9999176, -0.0127073405, -0.0010050201, -0.012373788, 0.98653454, -0.16308168, -0.490502, 0.6214718, 0.10680017)
+[node name="@BoneAttachment3D@31347" type="BoneAttachment3D" parent="skin/Rig/Skeleton3D" index="10"]
+transform = Transform3D(1.4652032e-06, 0.26286393, 0.96483254, 0.9999904, -0.0038599912, 0.0010512077, 0.004000981, 0.96482456, -0.2628622, 0.5077148, 0.6335766, -0.018842477)
+bone_name = "handslot.l"
+bone_idx = 8
 
-[node name="LeftHandSlot" parent="skin/Rig/Skeleton3D" index="11"]
-transform = Transform3D(2.2305176e-07, 0.26286387, 0.96483254, 0.99987745, -0.0150191905, 0.0040926547, 0.015567204, 0.9647152, -0.26283243, 0.50726825, 0.6171076, -0.018333048)
+[node name="RightHandSlot" parent="skin/Rig/Skeleton3D" index="11"]
+transform = Transform3D(0.00046295393, -0.15192729, -0.98839116, -0.99999696, -0.0019572077, -0.00016674252, -0.0019097225, 0.988389, -0.15192866, -0.49106535, 0.6378474, 0.106279045)
+
+[node name="@BoneAttachment3D@127550" type="BoneAttachment3D" parent="skin/Rig/Skeleton3D" index="12"]
+transform = Transform3D(1.4652032e-06, 0.26286393, 0.96483254, 0.9999904, -0.0038599912, 0.0010512077, 0.004000981, 0.96482456, -0.2628622, 0.5077148, 0.6335766, -0.018842477)
+bone_name = "handslot.l"
+bone_idx = 8
 
 [node name="DetectionArea" type="Area3D" parent="." index="4"]
 collision_layer = 0

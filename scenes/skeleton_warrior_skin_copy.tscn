@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dabpqxs3hp5ve"]
+
+[ext_resource type="PackedScene" uid="uid://vxu5qetj0wbq" path="res://assets/audio/Skeleton_Warrior.glb" id="1_ovq0j"]
+
+[node name="Skeleton_Warrior_skin_copy" instance=ExtResource("1_ovq0j")]

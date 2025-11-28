@@ -92,5 +92,5 @@ func shoot_fireball() -> void:
 	emit_signal("cast_spell","fireball",$skin/Rig/Skeleton3D/handslot_r/Nagonford_Axe/Marker3D.global_position,Vector2(dir.x,dir.z),3.)
 
 func _hit_effect(val: float):
-	$skin/Rig/Skeleton3D/Nagonford_Body.material_overlay.set_material_parameter('color',Color.RED)
-	$skin/Rig/Skeleton3D/Nagonford_Body.material_overlay.set_material_parameter('alpha',val)
+	$skin/Rig/Skeleton3D/Nagonford_Body.material_overlay.set_shader_parameter('color',Color.RED)
+	$skin/Rig/Skeleton3D/Nagonford_Body.material_overlay.set_shader_parameter('alpha',val)

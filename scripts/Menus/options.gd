@@ -89,7 +89,7 @@ func select_anti_aliasing() -> void:
 func _on_master_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(master_bus_index,linear_to_db(value))
 	AudioServer.set_bus_mute(master_bus_index,value < 0.05)
-
+	
 func _on_music_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(music_bus_index,linear_to_db(value))
 	AudioServer.set_bus_mute(music_bus_index,value < 0.05)

@@ -24,9 +24,7 @@
         <li><a href="#about">About The Project</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#project-structure">Project Structure</a></li>
-        <li><a href="#getting-started">Getting Started</a></li>
         <li><a href="#gameplay">Gameplay</a></li>
-        <li><a href="#license">License</a></li>
     </ol>
 </details>
 
@@ -34,42 +32,42 @@
 
 ## About
 
-**Whispering Realms** is a fantasy 3D action-adventure game developed in Godot 4.5. Players embark on an epic journey through mystical dungeons and vast landscapes, encountering formidable enemies and legendary bosses. The game combines exploration, combat, magic, and puzzle-solving for an immersive experience.
+This is my First 3D Game. I have Learned a lot (by lot I mean really lot) of things about godot and 3D Game Development by making this Game. Since This is my First 3D Game I have Used a lot of free (almost all) assets availaible on Internet to make this Game. I learned a lot of new things. All the features in this Game Which I have Created like Loading Screen, Using Animation Player, Good Pause Menu etc. are the features I have Implemented First Time in any Game. Currently This Game does not have any Specifc Stortyline or Anything because I only created this game to learn about how to create a 3D game in Godot and I also did not knew how to create and animate Models in Blender (Which I have been learning now). So In the Future I will be adding new characters and a storyline to the game. I will also Recreate many Characters Like the Player and will give It a cool look in the future. I also have Plan to add a Dragon Boss But the model I found had mixed up animations SO I will take that for next Update.
 
 ---
 
 ## Features
 
-✨ **Core Gameplay**
-- 🗺️ Expansive overworld with multiple environments
-- 🏰 Dungeon exploration with dynamic environments
-- ⚔️ Real-time combat system with various enemies
-- 👹 Epic boss encounters including dragon and skeleton warriors
-- 🎭 Multiple character skins and customization
+**Core Gameplay**
+- Expansive overworld with multiple environments
+-  Dungeon exploration with dynamic environments
+-  Real-time combat system with various enemies
+- Simple Boss Encounter For now
 
-🎮 **Combat & Magic**
+ **Combat & Magic**
 - Melee sword combat
 - Fireball spell system
 - Healing magic
-- Enemy AI with different behaviors
+- Enemy AI with many attack like fireball
 
-🎨 **Visual Features**
+ **Visual Features**
 - 3D terrain with Terrain3D plugin
 - Dynamic lighting and effects
 - Particle effects for spells and movement
 - Environmental objects and props
+- Grass with Proton Scatter
 
-🎵 **Audio**
+ **Audio**
 - Background music system
 - Sound effects integration
+- Water Sound
 
-📱 **UI/UX**
+    **UI/UX**
 - Main menu
 - Pause menu
 - Options menu
 - Loading screens
 - Health/UI system
-- Inventory (in development)
 
 ---
 
@@ -111,44 +109,6 @@ whispering-realms/
 └── project.godot       # Project configuration
 ```
 
-## Getting Started
-
-### Prerequisites
-- **Godot Engine 4.5** or later
-- Git
-
-### Installation
-
-1. **Clone the repository**
-   ```sh
-   git clone https://github.com/ryukgod26/Whispering-Realms.git
-   cd Whispering-Realms
-   ```
-
-2. **Open in Godot**
-   - Launch Godot Engine
-   - Select "Import" and navigate to the project folder
-   - Open `project.godot`
-
-3. **Run the game**
-   - Press `F5` or click the Play button in the editor
-   - The game will start from the main menu
-
-### Controls
-
-| Action | Key |
-|--------|-----|
-| Move Forward | W / Up Arrow |
-| Move Backward | S / Down Arrow |
-| Move Left/Right | A / D |
-| Run | Shift |
-| Jump | Space |
-| Attack | Left Click |
-| Cast Spell | Right Click |
-| Pause | ESC |
-
----
-
 ## Gameplay
 
 ### Main Features
@@ -172,3 +132,17 @@ whispering-realms/
 - Collect health pickups (hearts)
 - Defeat enemies to progress
 - Unlock new areas as you advance
+
+### Controls
+
+| Action | Key |
+|--------|-----|
+| Move Forward | W / Up Arrow |
+| Move Backward | S / Down Arrow |
+| Move Left/Right | A / D or Left Arrow / Right Arrow|
+| Run | Shift |
+| Jump | Space |
+| Attack | Left Click |
+| Shield| Right Click |
+| Switch Weapon| Mouse Middle Click|
+| Pause | ESC |

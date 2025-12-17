@@ -10,7 +10,6 @@ var master_bus_index
 var music_bus_index
 var sfx_bus_index
 
-
 func _ready() -> void:
 	#For Audio
 	master_bus_index = AudioServer.get_bus_index("Master")
@@ -28,7 +27,7 @@ func _ready() -> void:
 	
 	$TabContainer/Gameplay/GlassIntensity.value = $ColorRect.material.get_shader_parameter('glass_intensity')
 	$".".visible = false
-
+ 
 #For Video
 func _on_vsync_item_selected(index: int) -> void:
 	match index:

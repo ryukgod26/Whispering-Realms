@@ -1,12 +1,13 @@
-[gd_scene load_steps=793 format=3 uid="uid://brt83m705ova0"]
+[gd_scene load_steps=794 format=3 uid="uid://brt83m705ova0"]
 
 [ext_resource type="PackedScene" uid="uid://xs4k0bcewmjw" path="res://scenes/level.tscn" id="1_ntpey"]
 [ext_resource type="Script" uid="uid://b3yobdrhdad7o" path="res://scripts/over_world.gd" id="2_6gcac"]
 [ext_resource type="PackedScene" uid="uid://1k1awrxpa5nt" path="res://scenes/overworld_skin.tscn" id="2_rhs6x"]
 [ext_resource type="PackedScene" uid="uid://cdfsyc4afu8b7" path="res://scenes/bird.tscn" id="3_5v57w"]
 [ext_resource type="PackedScene" uid="uid://017tob8o06v3" path="res://assets/environment/objects/log.glb" id="4_c68g0"]
-[ext_resource type="PackedScene" uid="uid://l327rwd5wiad" path="res://scenes/boss.tscn" id="4_h60du"]
+[ext_resource type="PackedScene" uid="uid://1dc77eeueln0" path="res://scenes/skeleton_mage.tscn" id="4_h60du"]
 [ext_resource type="PackedScene" uid="uid://bkmfvv8om32xq" path="res://assets/environment/objects/tree1.glb" id="5_lengd"]
+[ext_resource type="PackedScene" uid="uid://cc5h1qvje3d1y" path="res://scenes/skeleton_warrior.tscn" id="5_smv31"]
 [ext_resource type="PackedScene" uid="uid://cnx8e4v6j3cwv" path="res://assets/environment/objects/tree4.glb" id="5_vybw3"]
 [ext_resource type="PackedScene" uid="uid://cmmdtdawyvkdr" path="res://assets/environment/objects/tree3.glb" id="7_tuc5b"]
 [ext_resource type="PackedScene" uid="uid://ddsvnkbeyypbu" path="res://assets/environment/objects/tree2.glb" id="8_x7jyi"]
@@ -4627,8 +4628,38 @@ curve = SubResource("Curve3D_3x5pm")
 transform = Transform3D(-0.31321916, 0.17766178, 0.9329146, 7.4505793e-09, 0.9823454, -0.18707524, -0.9496807, -0.058595553, -0.30768946, 77, 87, -260)
 use_model_front = true
 
-[node name="Boss" parent="Entities" index="2" instance=ExtResource("4_h60du")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, -23, -380)
+[node name="Enemies" type="Node3D" parent="Entities" index="2"]
+
+[node name="Mages" type="Node3D" parent="Entities/Enemies" index="0"]
+
+[node name="Skeleton_Mage" parent="Entities/Enemies/Mages" index="0" instance=ExtResource("4_h60du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.5, -71.1, -107.4)
+
+[node name="Skeleton_Mage2" parent="Entities/Enemies/Mages" index="1" instance=ExtResource("4_h60du")]
+transform = Transform3D(-0.51868373, 0, 0.8549662, 0, 1, 0, -0.8549662, 0, -0.51868373, 135.79866, -68.758194, 22.828236)
+
+[node name="Skeleton_Mage3" parent="Entities/Enemies/Mages" index="2" instance=ExtResource("4_h60du")]
+transform = Transform3D(-0.51868373, 0, 0.8549662, 0, 1, 0, -0.8549662, 0, -0.51868373, 135.79866, -68.758194, 19.242643)
+
+[node name="Skeleton_Warriors" type="Node3D" parent="Entities/Enemies" index="1"]
+
+[node name="Skeleton_Warrior" parent="Entities/Enemies/Skeleton_Warriors" index="0" instance=ExtResource("5_smv31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114, -23.4, -394)
+
+[node name="Skeleton_Warrior2" parent="Entities/Enemies/Skeleton_Warriors" index="1" instance=ExtResource("5_smv31")]
+transform = Transform3D(-0.8193522, 0, -0.5732905, 0, 1, 0, 0.5732905, 0, -0.8193522, 177.7, -75.08542, -87)
+
+[node name="Skeleton_Warrior3" parent="Entities/Enemies/Skeleton_Warriors" index="2" instance=ExtResource("5_smv31")]
+transform = Transform3D(-0.8898389, 0, -0.456275, 0, 1, 0, 0.456275, 0, -0.8898389, 187.64635, -75.70627, -87)
+
+[node name="Skeleton_Warrior4" parent="Entities/Enemies/Skeleton_Warriors" index="3" instance=ExtResource("5_smv31")]
+transform = Transform3D(-0.8193522, 0, -0.5732905, 0, 1, 0, 0.5732905, 0, -0.8193522, 129.31241, -68.97472, 10.389826)
+
+[node name="Skeleton_Warrior5" parent="Entities/Enemies/Skeleton_Warriors" index="4" instance=ExtResource("5_smv31")]
+transform = Transform3D(-0.17586511, 0, 0.98441434, 0, 1, 0, -0.98441434, 0, -0.17586511, 132.24379, -68.97472, 5.25764)
+
+[node name="Skeleton_Warrior6" parent="Entities/Enemies/Skeleton_Warriors" index="5" instance=ExtResource("5_smv31")]
+transform = Transform3D(-0.17586511, 0, 0.98441434, 0, 1, 0, -0.98441434, 0, -0.17586511, 132.24379, -68.97472, 15.887094)
 
 [node name="bridge" parent="Enviorment" index="0" instance=ExtResource("18_3x5pm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199, -75.74031, -63)

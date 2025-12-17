@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhnyvqt3jempp"]
+
+[ext_resource type="PackedScene" uid="uid://bp2loi22eepgt" path="res://scenes/player.tscn" id="1_jk1vg"]
+[ext_resource type="MeshLibrary" uid="uid://81a2bo56ksgs" path="res://Mesh_Library/DragonDungeon/floor.tres" id="1_sl0xw"]
+[ext_resource type="MeshLibrary" uid="uid://chadvb2g8jkti" path="res://Mesh_Library/DragonDungeon/objects.tres" id="2_ke80g"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sl0xw"]
+sky_top_color = Color(0.36862746, 0.77254903, 0.95686275, 1)
+sky_horizon_color = Color(0.86956257, 0.962793, 0.99987143, 1)
+ground_horizon_color = Color(0.86956257, 0.962793, 0.99987143, 1)
+
+[sub_resource type="Sky" id="Sky_ke80g"]
+sky_material = SubResource("ProceduralSkyMaterial_sl0xw")
+
+[sub_resource type="Environment" id="Environment_kwoca"]
+background_mode = 2
+sky = SubResource("Sky_ke80g")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="DragonBossDungeonScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kwoca")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Gridmaps" type="Node3D" parent="."]
+
+[node name="Floor" type="GridMap" parent="Gridmaps"]
+mesh_library = ExtResource("1_sl0xw")
+cell_size = Vector3(4, 2, 4)
+data = {
+"cells": PackedInt32Array(0, 1, 0, 1, 1, 0, 1, 0, 0, 2, 1, 0, 2, 0, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 0, 0, 0, 0, 65535, 0, 1, 65535, 0, 2, 65535, 0, 65535, 0, 0, 65535, 1, 0, 65535, 2, 0, 65535, 3, 0, 0, 3, 0, 65534, 3, 0, 65534, 2, 0, 65534, 1, 0, 65534, 0, 0, 65534, 65535, 0, 65535, 65535, 0, 65535, 65534, 0, 0, 65534, 0, 1, 65534, 0, 2, 65534, 0, 65534, 65533, 0, 65534, 65534, 0, 65533, 3, 0, 65533, 2, 0, 65533, 1, 0, 65533, 0, 0, 65533, 65535, 0, 65533, 65534, 0, 65533, 65532, 0, 65533, 65533, 0, 65535, 65533, 0, 65534, 65532, 0, 0, 65533, 0, 65535, 65532, 0, 0, 65532, 0, 1, 65533, 0, 1, 65531, 0, 1, 65532, 0, 2, 65533, 0, 2, 65532, 0, 2, 65531, 0, 0, 65531, 0, 65535, 65531, 0, 65534, 65531, 0, 65533, 65531, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 3, 2, 0, 3, 1, 0, 3, 0, 0, 3, 65535, 0, 3, 65534, 0, 3, 65533, 0, 3, 65532, 0, 3, 65531, 0, 65532, 3, 0, 65532, 2, 0, 65532, 1, 0, 65532, 0, 0, 65532, 65535, 0, 65532, 65534, 0, 65532, 65533, 0, 65532, 65532, 0, 65532, 65531, 0, 65531, 3, 0, 65531, 2, 0, 65531, 1, 0, 65531, 0, 0, 65531, 65535, 0, 65531, 65534, 0, 65531, 65533, 0, 65531, 65532, 0, 65531, 65531, 0, 3, 65530, 0, 2, 65530, 0, 1, 65530, 0, 0, 65530, 0, 65535, 65530, 0, 65534, 65530, 0, 65533, 65530, 0, 65532, 65530, 0, 65531, 65530, 0, 65530, 3, 0, 65530, 2, 0, 65530, 1, 0, 65530, 0, 0, 65530, 65535, 0, 65530, 65534, 0, 65530, 65533, 0, 65530, 65532, 0, 65530, 65531, 0, 65530, 65530, 0)
+}
+
+[node name="Objects" type="GridMap" parent="Gridmaps"]
+mesh_library = ExtResource("2_ke80g")
+
+[node name="Entities" type="Node3D" parent="."]
+
+[node name="Player" parent="Entities" instance=ExtResource("1_jk1vg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7139616, 0)

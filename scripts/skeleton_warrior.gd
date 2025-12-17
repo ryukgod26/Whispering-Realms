@@ -2,8 +2,8 @@ class_name Skeleton_Warrior
 extends Enemy
 
 const attack_names = ['1H_Melle_Attack_Chop','1H_Melle_Attack_Jump_Chop','1H_Melle_Attack_Slice_Diagonal',
-					'1H_Melle_Attack_Slice_Horizontal','1H_Melle_Attack_Stab','2H_Melle_Attack_Chop',
-					'2H_Melle_Attack_Slice']
+					'1H_Melle_Attack_Slice_Horizontal','1H_Melle_Attack_Stab',
+					]
 var can_damage = false
 
 func _ready() -> void:
@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	move_to_player(delta)
-	print("Normal")
+	#print("Normal")
 
 func _on_attack_timer_timeout() -> void:
 	$Timers/AttackTimer.wait_time = rng.randf_range(1.5,2.5)
@@ -22,8 +22,11 @@ func _on_attack_timer_timeout() -> void:
 		$AnimationTree.set("parameters/AttackOneShot/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
 func die() -> void:
-	print("Tst")
 	$AnimationTree.set("parameters/DeathOneShot/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	set_physics_process(false)
+	$CollisionShape3D.set_deferred("disabled",true)
+	await  get_tree().create_timer(1.5).timeout
+	queue_free()
 
 func can_damage_toggle(val: bool):
 	can_damage = val

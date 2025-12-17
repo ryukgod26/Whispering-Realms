@@ -1,8 +1,8 @@
 [gd_scene load_steps=76 format=3 uid="uid://vy8e5k646h2n"]
 
+[ext_resource type="Script" uid="uid://bggcwwc4y4qys" path="res://scripts/loading_screens/overworld_loading_screen.gd" id="1_4c78i"]
 [ext_resource type="Texture2D" uid="uid://b61ari1w60iy8" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L1/File1.png" id="1_qygbf"]
 [ext_resource type="Texture2D" uid="uid://1yrnv1uavg1f" path="res://assets/Main_menu/Images/loading_screen.png" id="1_ri1c0"]
-[ext_resource type="Script" uid="uid://im7w8pgej6s" path="res://scripts/loading_screen.gd" id="1_t1rtf"]
 [ext_resource type="Texture2D" uid="uid://bqijevm46jamf" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L1/File2.png" id="2_pu4a1"]
 [ext_resource type="Texture2D" uid="uid://bhba7nveigw4u" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L1/File3.png" id="3_if62a"]
 [ext_resource type="Texture2D" uid="uid://yuqjbp4dbhry" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L1/File4.png" id="4_f7y4a"]
@@ -292,8 +292,8 @@ region = Rect2(626, 136, 275.00006, 58.000015)
 atlas = ExtResource("63_pdu2y")
 region = Rect2(625.3884, 287.63635, 267.76868, 45.45456)
 
-[node name="loading_screen" type="CanvasLayer"]
-script = ExtResource("1_t1rtf")
+[node name="overworld_loading_screen" type="CanvasLayer"]
+script = ExtResource("1_4c78i")
 
 [node name="background" type="Panel" parent="."]
 anchors_preset = 15

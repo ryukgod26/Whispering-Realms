@@ -76,6 +76,6 @@
 			#elif p_event.keycode == KEY_C:
 				#collision_enabled = ! collision_enabled
 #
-		## Else if up/down released
+		# Else if up/down released
 		#elif p_event.keycode in [ KEY_Q, KEY_E, KEY_SPACE ]:
 			#velocity.y = 0

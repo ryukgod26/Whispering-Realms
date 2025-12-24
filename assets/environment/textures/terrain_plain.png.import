@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dw2hpeitelcfx"
 path.s3tc="res://.godot/imported/terrain_plain.png-60173a5689af7d349d45769258f6e16b.s3tc.ctex"
+path.etc2="res://.godot/imported/terrain_plain.png-60173a5689af7d349d45769258f6e16b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/environment/textures/terrain_plain.png"
-dest_files=["res://.godot/imported/terrain_plain.png-60173a5689af7d349d45769258f6e16b.s3tc.ctex"]
+dest_files=["res://.godot/imported/terrain_plain.png-60173a5689af7d349d45769258f6e16b.s3tc.ctex", "res://.godot/imported/terrain_plain.png-60173a5689af7d349d45769258f6e16b.etc2.ctex"]
 
 [params]
 

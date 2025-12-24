@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://x5f7j7abquak"
 path.s3tc="res://.godot/imported/tree4_nagon_texture.png-4ec9c1e733791ef7b676962a3295dd08.s3tc.ctex"
+path.etc2="res://.godot/imported/tree4_nagon_texture.png-4ec9c1e733791ef7b676962a3295dd08.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/environment/objects/tree4_nagon_texture.png"
-dest_files=["res://.godot/imported/tree4_nagon_texture.png-4ec9c1e733791ef7b676962a3295dd08.s3tc.ctex"]
+dest_files=["res://.godot/imported/tree4_nagon_texture.png-4ec9c1e733791ef7b676962a3295dd08.s3tc.ctex", "res://.godot/imported/tree4_nagon_texture.png-4ec9c1e733791ef7b676962a3295dd08.etc2.ctex"]
 
 [params]
 

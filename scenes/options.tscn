@@ -45,7 +45,6 @@ horizontal_alignment = 1
 
 [node name="DisplayMode" type="OptionButton" parent="TabContainer/Video"]
 layout_mode = 2
-selected = 0
 item_count = 2
 popup/item_0/text = "Windowed"
 popup/item_0/id = 0
@@ -59,7 +58,6 @@ horizontal_alignment = 1
 
 [node name="Resolution" type="OptionButton" parent="TabContainer/Video"]
 layout_mode = 2
-selected = 0
 item_count = 3
 popup/item_0/text = "1600 x 900"
 popup/item_0/id = 0
@@ -193,6 +191,8 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Back"
 
+[connection signal="item_selected" from="TabContainer/Video/DisplayMode" to="." method="_on_display_mode_item_selected"]
+[connection signal="item_selected" from="TabContainer/Video/Resolution" to="." method="_on_resolution_item_selected"]
 [connection signal="item_selected" from="TabContainer/Video/vsync" to="." method="_on_vsync_item_selected"]
 [connection signal="item_selected" from="TabContainer/Video/AntiAliasing" to="." method="_on_anti_aliasing_item_selected"]
 [connection signal="value_changed" from="TabContainer/Audio/MasterSlider" to="." method="_on_master_slider_value_changed"]

@@ -27,8 +27,60 @@ func _ready() -> void:
 	
 	$TabContainer/Gameplay/GlassIntensity.value = $ColorRect.material.get_shader_parameter('glass_intensity')
 	$".".visible = false
+	
+	match DisplayServer.window_get_mode():
+		DisplayServer.WINDOW_MODE_WINDOWED:
+			$TabContainer/Video/DisplayMode.select(0)
+		DisplayServer.WINDOW_MODE_FULLSCREEN:
+			$TabContainer/Video/DisplayMode.select(1)
+		_:
+			$TabContainer/Video/DisplayMode.select(-1)
+	
+	match DisplayServer.window_get_size():
+		Vector2i(1600,900):
+			$TabContainer/Video/Resolution.select(0)
+		Vector2i(1920,1080):
+			$TabContainer/Video/Resolution.select(1)
+		Vector2i(2560,1440):
+			$TabContainer/Video/Resolution.select(2)
+		_:
+			$TabContainer/Video/Resolution.select(-1)
+	
+	match DisplayServer.window_get_vsync_mode():
+		DisplayServer.VSYNC_DISABLED:
+			$TabContainer/Video/vsync.select(0)
+		DisplayServer.VSYNC_ENABLED:
+			$TabContainer/Video/vsync.select(1)
+		DisplayServer.VSYNC_ADAPTIVE:
+			$TabContainer/Video/vsync.select(2)
+		DisplayServer.VSYNC_MAILBOX:
+			$TabContainer/Video/vsync.select(3)
+		_:
+			$TabContainer/Video/vsync.select(-1)
+	
  
 #For Video
+
+func _on_display_mode_item_selected(index: int) -> void:
+	match index:
+		0:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		1:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		_:
+			pass
+
+func _on_resolution_item_selected(index: int) -> void:
+	match index:
+		0:
+			DisplayServer.window_set_size(Vector2i(1600,900))
+		1:
+			DisplayServer.window_set_size(Vector2i(1920,1080))
+		2:
+			DisplayServer.window_set_size(Vector2i(2560,1440))
+		_:
+			pass
+
 func _on_vsync_item_selected(index: int) -> void:
 	match index:
 		0:

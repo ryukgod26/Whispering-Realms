@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctpnl30whgmef"
 path.bptc="res://.godot/imported/nagon_texture.png-d3ffa7bd9204dd4226b0ee513aec3882.bptc.ctex"
+path.astc="res://.godot/imported/nagon_texture.png-d3ffa7bd9204dd4226b0ee513aec3882.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/environment/textures/nagon_texture.png"
-dest_files=["res://.godot/imported/nagon_texture.png-d3ffa7bd9204dd4226b0ee513aec3882.bptc.ctex"]
+dest_files=["res://.godot/imported/nagon_texture.png-d3ffa7bd9204dd4226b0ee513aec3882.bptc.ctex", "res://.godot/imported/nagon_texture.png-d3ffa7bd9204dd4226b0ee513aec3882.astc.ctex"]
 
 [params]
 

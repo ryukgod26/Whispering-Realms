@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d27wf73ads5d7"
 path.s3tc="res://.godot/imported/chest_nagon_texture.png-0c42b4852f03c5bb7fe621cb22f555b9.s3tc.ctex"
+path.etc2="res://.godot/imported/chest_nagon_texture.png-0c42b4852f03c5bb7fe621cb22f555b9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/environment/objects/chest_nagon_texture.png"
-dest_files=["res://.godot/imported/chest_nagon_texture.png-0c42b4852f03c5bb7fe621cb22f555b9.s3tc.ctex"]
+dest_files=["res://.godot/imported/chest_nagon_texture.png-0c42b4852f03c5bb7fe621cb22f555b9.s3tc.ctex", "res://.godot/imported/chest_nagon_texture.png-0c42b4852f03c5bb7fe621cb22f555b9.etc2.ctex"]
 
 [params]
 

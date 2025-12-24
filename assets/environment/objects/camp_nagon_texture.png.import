@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://canvd3xbiqsqa"
 path.s3tc="res://.godot/imported/camp_nagon_texture.png-4d5ed46a02deab570ea29555389c4993.s3tc.ctex"
+path.etc2="res://.godot/imported/camp_nagon_texture.png-4d5ed46a02deab570ea29555389c4993.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/environment/objects/camp_nagon_texture.png"
-dest_files=["res://.godot/imported/camp_nagon_texture.png-4d5ed46a02deab570ea29555389c4993.s3tc.ctex"]
+dest_files=["res://.godot/imported/camp_nagon_texture.png-4d5ed46a02deab570ea29555389c4993.s3tc.ctex", "res://.godot/imported/camp_nagon_texture.png-4d5ed46a02deab570ea29555389c4993.etc2.ctex"]
 
 [params]
 

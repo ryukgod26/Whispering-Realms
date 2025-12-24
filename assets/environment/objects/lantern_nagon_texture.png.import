@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cym71lt01lx5p"
 path.s3tc="res://.godot/imported/lantern_nagon_texture.png-bef4ba32ef2bd9de8cdac5ba99722d47.s3tc.ctex"
+path.etc2="res://.godot/imported/lantern_nagon_texture.png-bef4ba32ef2bd9de8cdac5ba99722d47.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/environment/objects/lantern_nagon_texture.png"
-dest_files=["res://.godot/imported/lantern_nagon_texture.png-bef4ba32ef2bd9de8cdac5ba99722d47.s3tc.ctex"]
+dest_files=["res://.godot/imported/lantern_nagon_texture.png-bef4ba32ef2bd9de8cdac5ba99722d47.s3tc.ctex", "res://.godot/imported/lantern_nagon_texture.png-bef4ba32ef2bd9de8cdac5ba99722d47.etc2.ctex"]
 
 [params]
 

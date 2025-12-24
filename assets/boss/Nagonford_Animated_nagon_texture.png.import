@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bksrj23hmso1m"
 path.s3tc="res://.godot/imported/Nagonford_Animated_nagon_texture.png-8625b25e1c54a514e9b53fa41e0a0c0f.s3tc.ctex"
+path.etc2="res://.godot/imported/Nagonford_Animated_nagon_texture.png-8625b25e1c54a514e9b53fa41e0a0c0f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/boss/Nagonford_Animated_nagon_texture.png"
-dest_files=["res://.godot/imported/Nagonford_Animated_nagon_texture.png-8625b25e1c54a514e9b53fa41e0a0c0f.s3tc.ctex"]
+dest_files=["res://.godot/imported/Nagonford_Animated_nagon_texture.png-8625b25e1c54a514e9b53fa41e0a0c0f.s3tc.ctex", "res://.godot/imported/Nagonford_Animated_nagon_texture.png-8625b25e1c54a514e9b53fa41e0a0c0f.etc2.ctex"]
 
 [params]
 

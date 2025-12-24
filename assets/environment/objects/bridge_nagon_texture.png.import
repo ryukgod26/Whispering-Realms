@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://xg0kr2v8lf36"
 path.s3tc="res://.godot/imported/bridge_nagon_texture.png-7c021e9007a8624edd9efb4a9d063387.s3tc.ctex"
+path.etc2="res://.godot/imported/bridge_nagon_texture.png-7c021e9007a8624edd9efb4a9d063387.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/environment/objects/bridge_nagon_texture.png"
-dest_files=["res://.godot/imported/bridge_nagon_texture.png-7c021e9007a8624edd9efb4a9d063387.s3tc.ctex"]
+dest_files=["res://.godot/imported/bridge_nagon_texture.png-7c021e9007a8624edd9efb4a9d063387.s3tc.ctex", "res://.godot/imported/bridge_nagon_texture.png-7c021e9007a8624edd9efb4a9d063387.etc2.ctex"]
 
 [params]
 

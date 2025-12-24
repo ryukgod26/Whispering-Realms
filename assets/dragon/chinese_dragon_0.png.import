@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://5p1iwwbg17aw"
 path.s3tc="res://.godot/imported/chinese_dragon_0.png-2a4fa01654ea8b79cf714831bb992557.s3tc.ctex"
+path.etc2="res://.godot/imported/chinese_dragon_0.png-2a4fa01654ea8b79cf714831bb992557.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/dragon/chinese_dragon_0.png"
-dest_files=["res://.godot/imported/chinese_dragon_0.png-2a4fa01654ea8b79cf714831bb992557.s3tc.ctex"]
+dest_files=["res://.godot/imported/chinese_dragon_0.png-2a4fa01654ea8b79cf714831bb992557.s3tc.ctex", "res://.godot/imported/chinese_dragon_0.png-2a4fa01654ea8b79cf714831bb992557.etc2.ctex"]
 
 [params]
 

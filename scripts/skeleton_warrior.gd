@@ -25,8 +25,7 @@ func die() -> void:
 	$AnimationTree.set("parameters/DeathOneShot/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	set_physics_process(false)
 	$CollisionShape3D.set_deferred("disabled",true)
-	await  get_tree().create_timer(1.5).timeout
-	queue_free()
+
 
 func can_damage_toggle(val: bool):
 	can_damage = val

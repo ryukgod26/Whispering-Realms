@@ -6,8 +6,9 @@ var fire_texture = preload("res://assets/ui/fire.png")
 var heal_texture = preload("res://assets/ui/heal.png")
 @onready var spell_texture = $Spells/MarginContainer/TextureRect
 @onready var energybar: TextureProgressBar = $EnergyBar/MarginContainer/energybar
-@onready var stamina_progress_bar: TextureProgressBar = $StaminaBar/CenterContainer/MarginContainer/StaminaProgressBar
-@onready var fill: TextureRect = $StaminaBar/CenterContainer/MarginContainer/Fill
+#@onready var stamina_progress_bar: TextureProgressBar = $StaminaBar/CenterContainer/MarginContainer/StaminaProgressBar
+@onready var fill: TextureRect = $StaminaBar/Fill
+@onready var stamina_bar: Control = $StaminaBar
 
 
 func setup(val: int) -> void:
@@ -48,7 +49,7 @@ func update_energy(val: int) -> void:
 
 func update_stamina(current: int,target: int) -> void:
 	var tween = create_tween()
-	tween.tween_method(_change_stamina,current,target,0.2)
+	tween.tween_method(_change_stamina,float(current),float(target),0.2)
 
 func _change_stamina(val: float):
 	#stamina_progress_bar.value = val
@@ -60,4 +61,7 @@ func change_stamina_alpha(val: float) -> void:
 	tween.tween_method(_change_alpha,1-val,val,0.2)
 
 func _change_alpha(val: float):
-	stamina_progress_bar.modulate.a = val
+	#stamina_bar.modulate.a = val
+	$StaminaBar/Background.modulate.a = val
+	$StaminaBar/Fill.modulate.a = val
+	stamina_bar.visible = val

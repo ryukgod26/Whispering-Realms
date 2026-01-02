@@ -12,7 +12,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p7vwb"]
 shader = ExtResource("5_wm3ai")
 shader_parameter/mask_texture = ExtResource("6_ktti3")
-shader_parameter/fill_value = 0.33600001596
+shader_parameter/fill_value = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8dubc"]
 shader = ExtResource("5_wm3ai")
@@ -87,31 +87,45 @@ tint_progress = Color(0.23273933, 0.4776308, 1, 1)
 
 [node name="StaminaBar" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.27, 0.27)
 
-[node name="CenterContainer" type="CenterContainer" parent="StaminaBar"]
+[node name="Background" type="TextureRect" parent="StaminaBar"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="StaminaBar/CenterContainer"]
-layout_mode = 2
-
-[node name="Background" type="TextureRect" parent="StaminaBar/CenterContainer/MarginContainer"]
-layout_mode = 2
 texture = ExtResource("4_p7vwb")
 
-[node name="Fill" type="TextureRect" parent="StaminaBar/CenterContainer/MarginContainer"]
+[node name="Fill" type="TextureRect" parent="StaminaBar"]
 modulate = Color(0, 1, 0, 1)
 material = SubResource("ShaderMaterial_p7vwb")
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("5_ktti3")
 
 [node name="StaminaBar2" type="Control" parent="."]

@@ -55,6 +55,7 @@ var stamina = 100:
 		ui.update_stamina(stamina,value)
 		if stamina == 100 and value < 100:
 			ui.change_stamina_alpha(1.0)
+			print("Stamina Bar Visible")
 		if value == 100:
 			ui.change_stamina_alpha(0.0)
 		stamina = clamp(value,0,100)
@@ -154,7 +155,7 @@ func stop_movement(start_duration: float,end_duration: float) -> void:
 	tween.tween_property(self,"speed_modifier",1.0,end_duration)
 
 func hit() -> void:
-	if not invul_timer.time_left:
+	if not invul_timer.time_left and not defend:
 		godettte_skin.hit()
 		stop_movement(0.3,0.5)
 		health -= 1

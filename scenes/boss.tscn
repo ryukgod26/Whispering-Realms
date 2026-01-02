@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://l327rwd5wiad"]
+[gd_scene load_steps=21 format=3 uid="uid://l327rwd5wiad"]
 
 [ext_resource type="PackedScene" uid="uid://cmtblc2xgh7u4" path="res://scenes/enemy.tscn" id="1_dlmty"]
 [ext_resource type="Script" uid="uid://dgmlvh70kdf2l" path="res://scripts/boss.gd" id="2_jncid"]
@@ -15,6 +15,10 @@ animation = &"1H_Melee_Attack_Slice_Horizontal"
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_wqpjq"]
 fadein_time = 0.2
 fadeout_time = 0.2
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2cdgk"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_qsl3t"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jncid"]
 animation = &"Idle"
@@ -44,8 +48,8 @@ animation = &"2H_Melee_Attack_Spinning"
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_jncid"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_neq0i"]
-graph_offset = Vector2(-227.30444, 246.71606)
-nodes/output/position = Vector2(720, 380)
+graph_offset = Vector2(-210.16327, 110.43945)
+nodes/output/position = Vector2(1280, 460)
 nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_qsl3t")
 nodes/MoveStateMachine/position = Vector2(-40, 160)
 nodes/AttackAnimation/node = SubResource("AnimationNodeAnimation_r3bxh")
@@ -53,21 +57,22 @@ nodes/AttackAnimation/position = Vector2(-120, 360)
 nodes/AttackOneShot/node = SubResource("AnimationNodeOneShot_wqpjq")
 nodes/AttackOneShot/position = Vector2(280, 360)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_jncid")
-nodes/TimeScale/position = Vector2(760, 540)
+nodes/TimeScale/position = Vector2(780, 440)
 nodes/SpinBlend/node = SubResource("AnimationNodeBlend2_jncid")
 nodes/SpinBlend/position = Vector2(540, 420)
 nodes/SpinAnimation/node = SubResource("AnimationNodeAnimation_wqpjq")
 nodes/SpinAnimation/position = Vector2(80, 680)
-node_connections = [&"output", 0, &"TimeScale", &"AttackOneShot", 0, &"MoveStateMachine", &"AttackOneShot", 1, &"AttackAnimation", &"TimeScale", 0, &"SpinBlend", &"SpinBlend", 0, &"AttackOneShot", &"SpinBlend", 1, &"SpinAnimation"]
+nodes/DeathAnimation/node = SubResource("AnimationNodeOneShot_qsl3t")
+nodes/DeathAnimation/position = Vector2(1040, 460)
+"nodes/DeathAnimation /node" = SubResource("AnimationNodeAnimation_2cdgk")
+"nodes/DeathAnimation /position" = Vector2(760, 680)
+node_connections = [&"output", 0, &"DeathAnimation", &"AttackOneShot", 0, &"MoveStateMachine", &"AttackOneShot", 1, &"AttackAnimation", &"TimeScale", 0, &"SpinBlend", &"SpinBlend", 0, &"AttackOneShot", &"SpinBlend", 1, &"SpinAnimation", &"DeathAnimation", 0, &"TimeScale", &"DeathAnimation", 1, &"DeathAnimation "]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jncid"]
 radius = 3.9716122
 
 [node name="Boss" instance=ExtResource("1_dlmty")]
 script = ExtResource("2_jncid")
-walk_speed = null
-detection_radius = null
-attack_radius = null
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.372878, -1.5687456)
@@ -170,6 +175,9 @@ parameters/AttackOneShot/internal_active = false
 parameters/AttackOneShot/request = 0
 parameters/TimeScale/scale = 0.5
 parameters/SpinBlend/blend_amount = 0.0
+parameters/DeathAnimation/active = false
+parameters/DeathAnimation/internal_active = false
+parameters/DeathAnimation/request = 0
 
 [node name="AttackTimer" parent="Timers" index="0"]
 wait_time = 5.0

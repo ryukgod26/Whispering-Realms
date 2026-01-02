@@ -18,3 +18,6 @@ func shoot_fireball() -> void:
 	var dir = (player.position - position).normalized()
 	print("Shoot Fireball")
 	emit_signal("cast_spell","fireball",$skin/Rig/Skeleton3D/RightHandSlot/wand/wand/Marker3D.global_position,Vector2(dir.x,dir.z),1.)
+
+func die() -> void:
+	$AnimationTree.set("parameters/DeathOneSHot/request",AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)

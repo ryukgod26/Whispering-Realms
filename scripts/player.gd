@@ -157,7 +157,7 @@ func stop_movement(start_duration: float,end_duration: float) -> void:
 func hit() -> void:
 	if defend:
 		$Sounds/ShieldSound.play()
-		
+
 	elif not invul_timer.time_left:
 		godettte_skin.hit()
 		stop_movement(0.3,0.5)

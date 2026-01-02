@@ -1,9 +1,10 @@
-[gd_scene load_steps=782 format=3 uid="uid://brt83m705ova0"]
+[gd_scene load_steps=759 format=3 uid="uid://brt83m705ova0"]
 
 [ext_resource type="PackedScene" uid="uid://xs4k0bcewmjw" path="res://scenes/level.tscn" id="1_ntpey"]
 [ext_resource type="Script" uid="uid://b3yobdrhdad7o" path="res://scripts/over_world.gd" id="2_6gcac"]
 [ext_resource type="PackedScene" uid="uid://1k1awrxpa5nt" path="res://scenes/overworld_skin.tscn" id="2_rhs6x"]
 [ext_resource type="PackedScene" uid="uid://cdfsyc4afu8b7" path="res://scenes/bird.tscn" id="3_5v57w"]
+[ext_resource type="PackedScene" uid="uid://bp2loi22eepgt" path="res://scenes/player.tscn" id="3_lviba"]
 [ext_resource type="Script" uid="uid://7j7r64a8oxts" path="res://scripts/Birds/path_3d.gd" id="3_smv31"]
 [ext_resource type="PackedScene" uid="uid://017tob8o06v3" path="res://assets/environment/objects/log.glb" id="4_c68g0"]
 [ext_resource type="PackedScene" uid="uid://1dc77eeueln0" path="res://scenes/skeleton_mage.tscn" id="4_h60du"]
@@ -3069,18 +3070,6 @@ instance_count = 2
 mesh = ExtResource("34_7wui2")
 buffer = PackedFloat32Array(0.72705305, 0.3242209, 0.73961896, 1.6165771, -0.16888645, 1.0342458, -0.2873571, -0.06788635, -0.7897042, 0.07731456, 0.7423956, -2.0767784, 0.813434, 0.0093072085, 0.5899138, -1.6165771, -0.0049870005, 1.0048156, -0.008976622, 0.06788635, -0.5899661, 0.004338867, 0.8134377, 2.0767784)
 
-[sub_resource type="MultiMesh" id="MultiMesh_63wps"]
-transform_format = 1
-instance_count = 1
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(0.5973576, -0.16109335, 0.79501903, 0, -0.02968746, 0.9823256, 0.22135341, 0, -0.8106324, -0.1546855, 0.57774544, 0)
-
-[sub_resource type="MultiMesh" id="MultiMesh_i2c2b"]
-transform_format = 1
-instance_count = 3
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(-0.42111853, 0.36510065, 0.92287266, -2.2189388, 0.14742336, 1.0144044, -0.3340407, 0, -0.9814575, -0.0042831595, -0.44615704, -3.747345, 0.9700596, -0.3169606, -0.27187037, 2.2189379, 0.30892316, 1.0073497, -0.07215312, 0, 0.28096974, -0.013250577, 1.0179752, -1.6641312, -0.545678, -0.4196318, 0.8407018, 0.14051056, -0.05723338, 0.9852293, 0.45462328, 0, -0.93786705, 0.18403018, -0.51688784, 3.7473373)
-
 [sub_resource type="MultiMesh" id="MultiMesh_jj55n"]
 transform_format = 1
 instance_count = 1
@@ -3122,18 +3111,6 @@ transform_format = 1
 instance_count = 2
 mesh = ExtResource("34_7wui2")
 buffer = PackedFloat32Array(0.053153638, 0.058888577, -1.0511527, -5.1351166, -0.0051317583, 1.0524935, 0.058704197, 0.38633347, 1.0527884, 0.0021571286, 0.053357203, 3.3110886, -0.5214441, -0.32802105, -0.88747025, 5.1351166, -0.1253446, 1.0283421, -0.30644146, -0.38633347, 0.93781126, -0.04494242, -0.53441125, -3.3110886)
-
-[sub_resource type="MultiMesh" id="MultiMesh_lljml"]
-transform_format = 1
-instance_count = 3
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(0.98843193, -0.37525707, -0.16215156, -3.0314426, 0.33024403, 0.98306626, -0.26196992, 0, 0.24093543, 0.19201949, 1.0242984, 3.8524246, -0.8825128, -0.16238156, -0.47162324, 3.0314429, -0.23470257, 0.9809434, 0.101438805, 0, 0.44012606, 0.19750279, -0.89157546, -3.8524284, 0.9780353, -0.09107936, 0.25972545, -1.8073082, 0.15668298, 0.9725046, -0.24897973, 0, -0.22628123, 0.2797231, 0.95018816, -0.17808533)
-
-[sub_resource type="MultiMesh" id="MultiMesh_5bg5r"]
-transform_format = 1
-instance_count = 6
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(1.0452646, -0.08528783, -0.20678656, -1.6359437, 0.057799965, 1.0576038, -0.14403492, 0, 0.21608764, 0.1296645, 1.0388004, -3.230751, 1.0398991, -0.071868695, 0.26394215, 0.9101658, -0.021394074, 1.0129588, 0.36010805, 0, -0.2727139, -0.3535115, 0.9782012, 4.7946396, 0.31014135, 0.006056038, -1.0348065, 0.7280083, -0.021163192, 1.080093, -2.1739983e-05, 0, 1.0346078, 0.020278204, 0.31020048, 2.651558, -0.34955195, 0.17146379, 1.0239071, -3.4272316, -0.056794677, 1.0756122, -0.19951148, 0, -1.0366098, -0.116750345, -0.3343375, -4.794647, -0.098201446, -0.30933344, 1.0509008, 3.4272318, -0.002473916, 1.0551746, 0.31036028, 0, -1.0954787, 0.025346523, -0.094906256, 4.408867, -0.5714387, -0.56884927, 0.74663514, 2.0933795, -0.17485408, 0.92332554, 0.5696418, 0, -0.9222145, 0.17741562, -0.5706486, -0.60422516)
 
 [sub_resource type="MultiMesh" id="MultiMesh_7lir7"]
 transform_format = 1
@@ -3207,18 +3184,6 @@ instance_count = 4
 mesh = ExtResource("34_7wui2")
 buffer = PackedFloat32Array(1.0070932, 0.10167227, -0.19735995, 3.963791, -0.039456323, 0.98414576, 0.30565548, 0.3735962, 0.21847516, -0.2909378, 0.96496046, 2.4642677, 0.24241975, -0.53589857, 0.91616553, -3.1278381, 0.06281433, 0.94535464, 0.5363515, -0.1632843, -1.0595287, -0.066567875, 0.24141602, -1.5375099, -0.2553413, -0.30991444, -1.0124847, -3.963791, -0.08102045, 1.0441732, -0.29918128, -0.3735962, 1.05575, 0.0051768185, -0.26783708, -2.4642677, -0.96292466, -0.21542297, -0.28173238, 0.8700104, -0.15536237, 0.9890098, -0.22522503, 0.1409607, 0.31881455, -0.1686912, -0.96067935, -0.20977402)
 
-[sub_resource type="MultiMesh" id="MultiMesh_3f4wa"]
-transform_format = 1
-instance_count = 1
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(-0.81557727, -0.2836384, 0.648453, 0, -0.21798939, 1.0419303, 0.18157713, 0, -0.67336667, 0.0062362645, -0.8441841, 0)
-
-[sub_resource type="MultiMesh" id="MultiMesh_x81uc"]
-transform_format = 1
-instance_count = 5
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(-1.0218602, 0.27204195, 0.06923916, 4.3634367, 0.28053263, 0.99906486, 0.2148723, 0, -0.010116037, 0.2255257, -1.0353913, -2.5587082, 0.3047194, 0.007005261, 1.047094, -2.3722596, 0.057456437, 1.0887752, -0.024004757, 0, -1.0455399, 0.061874047, 0.3038532, -0.9403229, 0.23861077, 0.4172099, 0.95540607, -2.310717, -0.016839096, 0.98152554, -0.42441025, 0, -1.0423921, 0.07964639, 0.2255551, 5.6779327, 0.07562679, -0.12912737, -1.0659738, -5.1877947, 0.020236423, 1.0685959, -0.12800935, 0, 1.0735755, -0.011046331, 0.07750422, -5.6779327, 0.7880739, 0.03815388, 0.70719504, 5.1877947, 0.008130717, 1.0574517, -0.06611118, 0, -0.7081768, 0.054599244, 0.7862223, -0.19432068)
-
 [sub_resource type="MultiMesh" id="MultiMesh_emtat"]
 transform_format = 1
 instance_count = 1
@@ -3273,23 +3238,11 @@ instance_count = 3
 mesh = ExtResource("34_7wui2")
 buffer = PackedFloat32Array(0.06992194, -0.207763, -0.99492335, -4.183258, -0.00045483257, 0.99726844, -0.20828468, -0.08734894, 1.0163846, 0.014739283, 0.068352304, -1.5341377, -0.14733768, 0.04728415, -1.0444486, 4.183258, -0.019127639, 1.0544703, 0.050436143, 0.07872009, 1.0453435, 0.025959184, -0.1462887, 0.60868454, -0.9531476, 0.3814468, 0.38622245, -1.6910095, 0.2545517, 1.0033756, -0.36276785, 0.08734894, -0.47945058, -0.22560012, -0.96041214, 1.5341377)
 
-[sub_resource type="MultiMesh" id="MultiMesh_dyrnl"]
-transform_format = 1
-instance_count = 1
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(0.9485517, -0.050015066, 0.31762493, 0, 0.108137414, 0.9813676, -0.16840859, 0, -0.30280918, 0.19378762, 0.934821, 0)
-
 [sub_resource type="MultiMesh" id="MultiMesh_3oopy"]
 transform_format = 1
 instance_count = 4
 mesh = ExtResource("34_7wui2")
 buffer = PackedFloat32Array(-0.8731549, 0.019533658, 0.50234425, -1.1505585, 0.02727331, 1.0071341, 0.008242978, 0.19229507, -0.5019835, 0.020741656, -0.87333447, 2.007267, -0.091367334, -0.03638018, -1.0686653, 1.8825836, -0.031471, 1.0721862, -0.033809394, -0.364048, 1.0688211, 0.028460156, -0.09234952, -3.2477608, -0.14647269, 0.5431161, 0.8958887, -1.8825836, 0.0434762, 0.906974, -0.54272825, 0.364048, -1.0467576, -0.038327787, -0.1479034, 3.2477608, 0.58632594, 0.31730497, -0.77033687, 0.1436615, -0.20830175, 0.96789694, 0.24013624, 0.06908035, 0.80666703, 0.019302249, 0.6219286, 1.3847771)
-
-[sub_resource type="MultiMesh" id="MultiMesh_8rdkf"]
-transform_format = 1
-instance_count = 4
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(-0.64182645, -0.3851231, -0.72298706, -2.7823362, -0.16697326, 0.9607001, -0.36351958, 0, 0.8019663, -0.10819775, -0.6543046, -0.39767456, -1.0104039, -0.010145078, 0.009695251, -2.0101013, -0.011993806, 0.9867648, -0.21740349, 0, -0.0072848564, -0.21749762, -0.98679, -1.9100723, 0.9639083, 0.23400773, -0.33817774, 2.7823372, -0.15083069, 1.0028818, 0.26404792, 0, 0.38258842, -0.1941947, 0.95611584, 2.8692322, 0.32200634, -0.20475915, -0.9861489, -0.6762142, 0.03198503, 1.0368791, -0.20484847, 0, 1.0066742, 0.032551877, 0.32194954, -2.8692398)
 
 [sub_resource type="MultiMesh" id="MultiMesh_27oig"]
 transform_format = 1
@@ -3350,18 +3303,6 @@ transform_format = 1
 instance_count = 2
 mesh = ExtResource("34_7wui2")
 buffer = PackedFloat32Array(0.9561921, 0.17750174, -0.30288377, -1.6590576, -0.1602084, 1.002593, 0.08178715, 0.3958702, 0.31237593, -0.029137697, 0.96908253, 1.8189735, 0.41760877, 0.56689584, -0.7796905, 1.6590576, -0.15025423, 0.87760097, 0.55760694, -0.3958702, 0.95221424, -0.11014057, 0.4299331, -1.8189735)
-
-[sub_resource type="MultiMesh" id="MultiMesh_j6aba"]
-transform_format = 1
-instance_count = 1
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(-0.53027314, 0.07076216, 0.8567107, 0, -0.064654924, 1.0004628, -0.122654796, 0, -0.85719323, -0.11923579, -0.5207232, 0)
-
-[sub_resource type="MultiMesh" id="MultiMesh_ye2l1"]
-transform_format = 1
-instance_count = 2
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(0.92516226, 0.026715374, 0.44317332, 1.8189678, 0.085131265, 0.9946374, -0.23767754, 0, -0.43573958, 0.2510463, 0.89451015, -2.1724854, -0.5770131, 0.24200283, -0.833074, -1.8189678, 0.15241972, 1.0132403, 0.18876937, 0, 0.85401744, -0.017328713, -0.5965531, 2.1724854)
 
 [sub_resource type="MultiMesh" id="MultiMesh_6g4id"]
 transform_format = 1
@@ -3524,12 +3465,6 @@ transform_format = 1
 instance_count = 3
 mesh = ExtResource("34_7wui2")
 buffer = PackedFloat32Array(-0.42111853, 0.36510065, 0.92287266, 3.0969543, 0.14742336, 1.0144044, -0.3340407, 0.03425598, -0.9814575, -0.0042831595, -0.44615704, 2.1047287, 0.9673716, 0.37422937, -0.046485234, -3.0969543, -0.34398726, 0.9281334, 0.31346047, -0.011917114, 0.15453567, -0.27665335, 0.9887355, 1.0833206, 0.0782456, -0.3536387, 1.0238279, 1.8830872, 0.02476244, 1.0268114, 0.35277677, -0.03425598, -1.0828992, -0.0020725096, 0.08204425, -2.1047287)
-
-[sub_resource type="MultiMesh" id="MultiMesh_3c146"]
-transform_format = 1
-instance_count = 2
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(0.2944742, 0.26775542, 1.0062966, -4.8006783, -0.08303466, 1.0484681, -0.2546779, 0, -1.0379938, -0.007911516, 0.30585495, 2.0389805, -0.8827536, 0.06647785, -0.54259574, 4.8006783, -0.10008989, 0.99352396, 0.28456187, 0, 0.53741175, 0.29423484, -0.8382707, -2.0389805)
 
 [sub_resource type="MultiMesh" id="MultiMesh_6opuj"]
 transform_format = 1
@@ -3873,30 +3808,6 @@ instance_count = 2
 mesh = ExtResource("34_7wui2")
 buffer = PackedFloat32Array(0.92516226, 0.026715374, 0.44317332, -0.1326294, 0.085131265, 0.9946374, -0.23767754, 0.0024757385, -0.43573958, 0.2510463, 0.89451015, 1.6414795, -0.63949525, -0.0045255455, 0.77556014, 0.1326294, -0.14777814, 0.98749834, -0.11608957, -0.0024757385, -0.7613643, -0.18786879, -0.62888616, -1.6414795)
 
-[sub_resource type="MultiMesh" id="MultiMesh_1d45h"]
-transform_format = 1
-instance_count = 1
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(0.90910137, -0.055665627, 0.47206122, 0, -0.052182764, 1.0009636, 0.21852821, 0, -0.4724589, -0.21766709, 0.8841999, 0)
-
-[sub_resource type="MultiMesh" id="MultiMesh_lnc0n"]
-transform_format = 1
-instance_count = 3
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(-0.4309727, 0.044695348, 0.9357835, -2.1197767, 0.0012000471, 1.0300767, -0.04864635, 0, -0.93684953, -0.01924144, -0.4305446, -1.8018646, 0.9862147, -0.3700027, 0.26460204, 0.34872627, 0.3513875, 1.0208701, 0.11784197, 0, -0.28886518, -0.021398023, 1.0467257, 2.0208282, -0.67674106, -0.16047142, 0.82535565, 2.1197758, -0.07000473, 1.0665599, 0.14996848, 0, -0.8378916, 0.040498503, -0.67914575, -2.0208282)
-
-[sub_resource type="MultiMesh" id="MultiMesh_uj3px"]
-transform_format = 1
-instance_count = 1
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(0.46014032, 0.1446973, -0.96682054, 0, -0.15903042, 1.0654112, 0.08376512, 0, 0.9645665, 0.10663001, 0.47502613, 0)
-
-[sub_resource type="MultiMesh" id="MultiMesh_swj4c"]
-transform_format = 1
-instance_count = 1
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(0.44820324, -0.3997732, -0.86334515, 0, 0.13755253, 0.9715508, -0.37846798, 0, 0.9414153, 0.04837439, 0.4663333, 0)
-
 [sub_resource type="MultiMesh" id="MultiMesh_wkh80"]
 transform_format = 1
 instance_count = 1
@@ -3908,18 +3819,6 @@ transform_format = 1
 instance_count = 6
 mesh = ExtResource("34_7wui2")
 buffer = PackedFloat32Array(-0.0045704776, -0.11074478, 1.0108279, 4.148239, 0.00045271142, 1.0108378, 0.11074792, -0.0935688, -1.0168762, 0.0009477794, -0.0044939877, 3.9704056, -0.8506206, 0.41506305, 0.39852747, -4.148239, 0.27185258, 0.91676533, -0.374559, 0.024419785, -0.50714654, -0.20474595, -0.8692171, -3.9704056, -1.0055788, -0.015095321, -0.23577459, 1.4223328, -0.00029428914, 1.0309285, -0.064749405, -0.0890789, 0.23625717, -0.0629659, -1.0036055, 0.91587067, -0.93335056, -0.38669816, -0.27698803, -2.4158783, -0.24776268, 0.9159596, -0.44388366, 0.0935688, 0.4060437, -0.32997513, -0.9075495, 2.0417252, -0.5814538, 0.057641782, -0.81478506, -1.2364807, -0.030865002, 0.9978751, 0.092620604, -0.07331276, 0.8162381, 0.07879496, -0.5769164, -1.8131332, -0.86688435, 0.0134478705, 0.514536, -3.659729, -0.09714766, 0.98544186, -0.18942867, 0.09110451, -0.5054607, -0.21246186, -0.8460414, -0.40332794)
-
-[sub_resource type="MultiMesh" id="MultiMesh_wy8he"]
-transform_format = 1
-instance_count = 1
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(0.5370398, 0.19964077, 0.8378391, 0, -0.10171804, 0.9951567, -0.17192711, 0, -0.8552685, 0.0070032445, 0.546543, 0)
-
-[sub_resource type="MultiMesh" id="MultiMesh_7vyum"]
-transform_format = 1
-instance_count = 1
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(-0.42111853, 0.36510065, 0.92287266, 0, 0.14742336, 1.0144044, -0.3340407, 0, -0.9814575, -0.0042831595, -0.44615704, 0)
 
 [sub_resource type="MultiMesh" id="MultiMesh_uyou2"]
 transform_format = 1
@@ -3939,18 +3838,6 @@ instance_count = 3
 mesh = ExtResource("34_7wui2")
 buffer = PackedFloat32Array(-0.3241822, -0.19125207, -0.97519445, 1.6280441, -0.021174248, 1.0268674, -0.19434705, 0.008874893, 0.99354583, -0.04051889, -0.3223363, 4.1756363, -0.23550417, -0.28612873, -0.98800665, 3.4570084, -0.035337474, 1.015224, -0.2855878, -0.008874893, 1.0279971, -0.030650914, -0.23615983, 3.7020493, -0.31694227, -0.20740192, -1.026055, -3.4570084, -0.06624128, 1.0738782, -0.19660717, -0.007829666, 1.0447087, 0.0051695025, -0.32374927, -4.1756363)
 
-[sub_resource type="MultiMesh" id="MultiMesh_ra4f0"]
-transform_format = 1
-instance_count = 1
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(0.72705305, 0.3242209, 0.73961896, 0, -0.16888645, 1.0342458, -0.2873571, 0, -0.7897042, 0.07731456, 0.7423956, 0)
-
-[sub_resource type="MultiMesh" id="MultiMesh_2546y"]
-transform_format = 1
-instance_count = 1
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(1.0452646, -0.08528783, -0.20678656, 0, 0.057799965, 1.0576038, -0.14403492, 0, 0.21608764, 0.1296645, 1.0388004, 0)
-
 [sub_resource type="MultiMesh" id="MultiMesh_5jdku"]
 transform_format = 1
 instance_count = 3
@@ -3969,47 +3856,17 @@ instance_count = 4
 mesh = ExtResource("34_7wui2")
 buffer = PackedFloat32Array(-1.0332541, -0.32776353, 0.14501934, -0.32134247, -0.2677661, 1.0000685, 0.35247406, 0.008880615, -0.23824537, 0.29750243, -1.0250878, -1.7900085, 0.24241975, -0.53589857, 0.91616553, 4.1672287, 0.06281433, 0.94535464, 0.5363515, -0.008880615, -1.0595287, -0.066567875, 0.24141602, 4.704178, -0.5218762, 0.14976938, -0.9246554, -4.1672287, 0.13231805, 1.0596533, 0.096954994, 0.008808136, 0.9273135, -0.066913895, -0.53421474, -4.704178, -0.2553413, -0.30991444, -1.0124847, 3.8205032, -0.08102045, 1.0441732, -0.29918128, -0.0027275085, 1.05575, 0.0051768185, -0.26783708, 3.5979996)
 
-[sub_resource type="MultiMesh" id="MultiMesh_v7uxx"]
-transform_format = 1
-instance_count = 2
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(0.99224395, -0.27243653, -0.28039995, 1.9221573, 0.32087767, 1.0044811, 0.15952772, -0.147995, 0.22334574, -0.23278724, 1.0165237, -2.6534882, -1.0079018, 0.2286828, 0.15917332, -1.9221573, 0.26519445, 0.97060186, 0.28478387, 0.147995, -0.08546273, 0.31485572, -0.9935089, 2.6534882)
-
-[sub_resource type="MultiMesh" id="MultiMesh_8nb3d"]
-transform_format = 1
-instance_count = 1
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(1.0398991, -0.071868695, 0.26394215, 0, -0.021394074, 1.0129588, 0.36010805, 0, -0.2727139, -0.3535115, 0.9782012, 0)
-
-[sub_resource type="MultiMesh" id="MultiMesh_qitnv"]
-transform_format = 1
-instance_count = 2
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(-0.90003026, 0.42816198, 0.254905, 2.3016968, 0.32462323, 0.9030799, -0.3707021, -0.29611206, -0.37804627, -0.24388023, -0.9251795, -1.8431091, -0.64182645, -0.3851231, -0.72298706, -2.3016968, -0.16697326, 0.9607001, -0.36351958, 0.29611206, 0.8019663, -0.10819775, -0.6543046, 1.8431091)
-
 [sub_resource type="MultiMesh" id="MultiMesh_c58x0"]
 transform_format = 1
 instance_count = 1
 mesh = ExtResource("34_7wui2")
 buffer = PackedFloat32Array(0.099066705, 0.27943242, 1.0175105, 0, -0.02096908, 1.0223047, -0.2787074, 0, -1.0549743, 0.0059201987, 0.1010884, 0)
 
-[sub_resource type="MultiMesh" id="MultiMesh_vj1jr"]
-transform_format = 1
-instance_count = 1
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(-1.0218602, 0.27204195, 0.06923916, 0, 0.28053263, 0.99906486, 0.2148723, 0, -0.010116037, 0.2255257, -1.0353913, 0)
-
 [sub_resource type="MultiMesh" id="MultiMesh_rqyoh"]
 transform_format = 1
 instance_count = 1
 mesh = ExtResource("34_7wui2")
 buffer = PackedFloat32Array(-1.0206597, -0.016157435, -0.37653992, 0, -0.091022916, 1.06541, 0.20101227, 0, 0.36572966, 0.22006828, -1.0008005, 0)
-
-[sub_resource type="MultiMesh" id="MultiMesh_nhknf"]
-transform_format = 1
-instance_count = 1
-mesh = ExtResource("34_7wui2")
-buffer = PackedFloat32Array(-0.98751706, -0.3614928, -0.22861753, 0, -0.25911456, 0.96326405, -0.40387517, 0, 0.34029788, -0.31556055, -0.9709541, 0)
 
 [sub_resource type="MultiMesh" id="MultiMesh_3wnhb"]
 transform_format = 1
@@ -4547,8 +4404,12 @@ camera_attributes = SubResource("CameraAttributesPractical_3x5pm")
 
 [node name="Player" parent="Entities" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.60922, -36.594666, -488.53778)
+visible = false
 
-[node name="Path3D" type="Path3D" parent="Entities" index="1"]
+[node name="Player2" parent="Entities" index="1" instance=ExtResource("3_lviba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.40024, -62.404263, 12.563112)
+
+[node name="Path3D" type="Path3D" parent="Entities" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.100002, 19, -37.6)
 curve = SubResource("Curve3D_3x5pm")
 script = ExtResource("3_smv31")
@@ -4556,7 +4417,7 @@ bird_scene = ExtResource("3_5v57w")
 distance_between_birds = 10
 speed = 30.0
 
-[node name="Enemies" type="Node3D" parent="Entities" index="2"]
+[node name="Enemies" type="Node3D" parent="Entities" index="3"]
 
 [node name="Mages" type="Node3D" parent="Entities/Enemies" index="0"]
 
@@ -7326,307 +7187,257 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.158783, 6.7347946, 47.769
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_36qd5")
 
-[node name="MultiMeshInstance3D_2_3_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="23"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.119234, 7, 68.63594)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_63wps")
-
-[node name="MultiMeshInstance3D_2_3_7" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="24"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.950281, 7, 77.07034)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_i2c2b")
-
-[node name="MultiMeshInstance3D_2_4_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="25"]
+[node name="MultiMeshInstance3D_2_4_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="23"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.564026, 7.4793243, 49.701828)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_jj55n")
 
-[node name="MultiMeshInstance3D_2_7_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="26"]
+[node name="MultiMeshInstance3D_2_7_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="24"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.383682, 11.480564, 68.46779)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_jv4n0")
 
-[node name="MultiMeshInstance3D_3_1_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="27"]
+[node name="MultiMeshInstance3D_3_1_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="25"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7109222, 3.6351814, -13.523613)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_bxwq2")
 
-[node name="MultiMeshInstance3D_3_1_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="28"]
+[node name="MultiMeshInstance3D_3_1_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="26"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8431854, 4.458679, -5.6812057)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_didq0")
 
-[node name="MultiMeshInstance3D_3_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="29"]
+[node name="MultiMeshInstance3D_3_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="27"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5341797, 4.9753494, 1.259243)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_tuby3")
 
-[node name="MultiMeshInstance3D_3_2_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="30"]
+[node name="MultiMeshInstance3D_3_2_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="28"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.294174, 5.4707184, 26.07098)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_jkmpn")
 
-[node name="MultiMeshInstance3D_3_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="31"]
+[node name="MultiMeshInstance3D_3_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="29"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.547989, 6.271984, 38.165855)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_68xlo")
 
-[node name="MultiMeshInstance3D_3_3_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="32"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7985296, 7, 66.32414)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_lljml")
-
-[node name="MultiMeshInstance3D_3_3_7" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="33"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9900153, 7, 78.39493)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_5bg5r")
-
-[node name="MultiMeshInstance3D_3_4_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="34"]
+[node name="MultiMeshInstance3D_3_4_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="30"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4011765, 7.4459076, 43.60051)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_7lir7")
 
-[node name="MultiMeshInstance3D_3_4_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="35"]
+[node name="MultiMeshInstance3D_3_4_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="31"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1593323, 7.6157, 46.32712)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_otq5l")
 
-[node name="MultiMeshInstance3D_3_5_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="36"]
+[node name="MultiMeshInstance3D_3_5_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="32"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3953094, 8.603886, 53.205315)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_e1sd6")
 
-[node name="MultiMeshInstance3D_3_6_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="37"]
+[node name="MultiMeshInstance3D_3_6_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="33"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2048416, 10.20676, 55.684235)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_yo446")
 
-[node name="MultiMeshInstance3D_3_7_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="38"]
+[node name="MultiMeshInstance3D_3_7_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="34"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2614594, 11.693481, 60.627808)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_uw8dd")
 
-[node name="MultiMeshInstance3D_4_0_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="39"]
+[node name="MultiMeshInstance3D_4_0_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="35"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.623352, 3.1799622, -19.175083)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_tcden")
 
-[node name="MultiMeshInstance3D_4_1_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="40"]
+[node name="MultiMeshInstance3D_4_1_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="36"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.464691, 4.2623024, -9.905582)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_d0crp")
 
-[node name="MultiMeshInstance3D_4_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="41"]
+[node name="MultiMeshInstance3D_4_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="37"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9450684, 4.913162, 0.53845215)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_wtrec")
 
-[node name="MultiMeshInstance3D_4_2_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="42"]
+[node name="MultiMeshInstance3D_4_2_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="38"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.293457, 5.2008095, 13.183971)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_drlap")
 
-[node name="MultiMeshInstance3D_4_2_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="43"]
+[node name="MultiMeshInstance3D_4_2_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="39"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.721817, 5.3953934, 25.13937)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_erva5")
 
-[node name="MultiMeshInstance3D_4_2_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="44"]
+[node name="MultiMeshInstance3D_4_2_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="40"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.265991, 5.7118073, 32.702667)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_tec6f")
 
-[node name="MultiMeshInstance3D_4_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="45"]
+[node name="MultiMeshInstance3D_4_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="41"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.12822, 6.3652344, 39.181965)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_lgbhs")
 
-[node name="MultiMeshInstance3D_4_3_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="46"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.243554, 7, 61.9673)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_3f4wa")
-
-[node name="MultiMeshInstance3D_4_3_7" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="47"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.148176, 7, 76.78829)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_x81uc")
-
-[node name="MultiMeshInstance3D_4_5_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="48"]
+[node name="MultiMeshInstance3D_4_5_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="42"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8099365, 8.717934, 47.604935)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_emtat")
 
-[node name="MultiMeshInstance3D_4_6_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="49"]
+[node name="MultiMeshInstance3D_4_6_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="43"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8694, 10.660374, 55.444817)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_w2vfi")
 
-[node name="MultiMeshInstance3D_4_7_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="50"]
+[node name="MultiMeshInstance3D_4_7_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="44"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.165466, 11.936653, 62.295807)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_ybr82")
 
-[node name="MultiMeshInstance3D_5_0_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="51"]
+[node name="MultiMeshInstance3D_5_0_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="45"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.490982, 2.9608765, -13.681252)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_5d3sd")
 
-[node name="MultiMeshInstance3D_5_1_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="52"]
+[node name="MultiMeshInstance3D_5_1_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="46"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.855591, 3.6277962, -11.534042)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_sgfdq")
 
-[node name="MultiMeshInstance3D_5_1_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="53"]
+[node name="MultiMeshInstance3D_5_1_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="47"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.383453, 4.5359497, -6.275688)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_1w81g")
 
-[node name="MultiMeshInstance3D_5_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="54"]
+[node name="MultiMeshInstance3D_5_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="48"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.559586, 4.8704414, 1.321434)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_dq15t")
 
-[node name="MultiMeshInstance3D_5_2_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="55"]
+[node name="MultiMeshInstance3D_5_2_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="49"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.895126, 5.1562653, 12.449036)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_17lky")
 
-[node name="MultiMeshInstance3D_5_2_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="56"]
+[node name="MultiMeshInstance3D_5_2_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="50"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.567719, 5.572258, 29.29311)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_1x18b")
 
-[node name="MultiMeshInstance3D_5_3_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="57"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.059647, 7, -18.503927)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_dyrnl")
-
-[node name="MultiMeshInstance3D_5_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="58"]
+[node name="MultiMeshInstance3D_5_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="51"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.262955, 6.287426, 38.036686)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_3oopy")
 
-[node name="MultiMeshInstance3D_5_3_7" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="59"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.201696, 7, 76.79384)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_8rdkf")
-
-[node name="MultiMeshInstance3D_5_4_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="60"]
+[node name="MultiMeshInstance3D_5_4_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="52"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.052246, 7.437458, 48.52356)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_27oig")
 
-[node name="MultiMeshInstance3D_5_5_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="61"]
+[node name="MultiMeshInstance3D_5_5_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="53"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.640564, 9.0696335, 53.51039)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_ro2j4")
 
-[node name="MultiMeshInstance3D_5_6_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="62"]
+[node name="MultiMeshInstance3D_5_6_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="54"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.590805, 10.076502, 56.030045)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_68did")
 
-[node name="MultiMeshInstance3D_5_6_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="63"]
+[node name="MultiMeshInstance3D_5_6_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="55"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.285828, 10.277592, 61.4075)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_k51sr")
 
-[node name="MultiMeshInstance3D_5_7_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="64"]
+[node name="MultiMeshInstance3D_5_7_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="56"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.989197, 11.296598, 66.789536)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_iq8bn")
 
-[node name="MultiMeshInstance3D_6_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="65"]
+[node name="MultiMeshInstance3D_6_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="57"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.845108, 5.077507, 2.167244)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_jb3jg")
 
-[node name="MultiMeshInstance3D_6_2_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="66"]
+[node name="MultiMeshInstance3D_6_2_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="58"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.292603, 5.1918716, 13.600296)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_irpcg")
 
-[node name="MultiMeshInstance3D_6_2_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="67"]
+[node name="MultiMeshInstance3D_6_2_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="59"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.70276, 5.4407578, 25.195644)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_bcxi5")
 
-[node name="MultiMeshInstance3D_6_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="68"]
+[node name="MultiMeshInstance3D_6_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="60"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.225296, 6.0105286, 39.880665)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_s1buu")
 
-[node name="MultiMeshInstance3D_6_3_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="69"]
+[node name="MultiMeshInstance3D_6_3_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="61"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.906708, 6.593128, 47.49087)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_jwp1g")
 
-[node name="MultiMeshInstance3D_6_3_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="70"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.499361, 7, 69.6817)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_j6aba")
-
-[node name="MultiMeshInstance3D_6_3_7" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="71"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.662603, 7, 73.46664)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_ye2l1")
-
-[node name="MultiMeshInstance3D_6_4_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="72"]
+[node name="MultiMeshInstance3D_6_4_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="62"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.404144, 7.8277893, 53.091347)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_6g4id")
 
-[node name="MultiMeshInstance3D_6_5_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="73"]
+[node name="MultiMeshInstance3D_6_5_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="63"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.426407, 8.423752, 55.86447)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_pwwt3")
 
-[node name="MultiMeshInstance3D_6_5_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="74"]
+[node name="MultiMeshInstance3D_6_5_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="64"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.16237, 9.253223, 59.141685)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_6hx3r")
 
-[node name="MultiMeshInstance3D_6_6_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="75"]
+[node name="MultiMeshInstance3D_6_6_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="65"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.25003, 9.856354, 65.37306)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_11hiu")
 
-[node name="MultiMeshInstance3D_6_7_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="76"]
+[node name="MultiMeshInstance3D_6_7_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="66"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.684258, 11.162094, 66.056595)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_k0epc")
 
-[node name="MultiMeshInstance3D_7_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="77"]
+[node name="MultiMeshInstance3D_7_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="67"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.678802, 5.1915665, 2.483467)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_46qsd")
 
-[node name="MultiMeshInstance3D_7_2_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="78"]
+[node name="MultiMeshInstance3D_7_2_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="68"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.72921, 5.2501106, 11.449684)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_j0hl1")
 
-[node name="MultiMeshInstance3D_7_2_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="79"]
+[node name="MultiMeshInstance3D_7_2_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="69"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.521393, 5.3859825, 25.664593)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_adi4x")
 
-[node name="MultiMeshInstance3D_7_2_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="80"]
+[node name="MultiMeshInstance3D_7_2_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="70"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.820663, 5.635483, 35.77881)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_mv6ct")
 
-[node name="MultiMeshInstance3D_7_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="81"]
+[node name="MultiMeshInstance3D_7_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="71"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.220337, 5.802025, 40.915436)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_6bh0e")
 
-[node name="MultiMeshInstance3D_7_3_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="82"]
+[node name="MultiMeshInstance3D_7_3_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="72"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.64862, 6.953369, 53.893753)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_alswx")
 
-[node name="MultiMeshInstance3D_7_4_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="83"]
+[node name="MultiMeshInstance3D_7_4_6" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput10/ScatterItem" index="73"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.172974, 8.223694, 59.8275)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_unqvl")
@@ -7711,157 +7522,152 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8153381, 5.3259583, 46.138
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_lrwr3")
 
-[node name="MultiMeshInstance3D_1_5_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="15"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.369093, 7, -13.888574)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_3c146")
-
-[node name="MultiMeshInstance3D_2_0_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="16"]
+[node name="MultiMeshInstance3D_2_0_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="15"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.303162, 2.713581, -14.831171)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_6opuj")
 
-[node name="MultiMeshInstance3D_2_1_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="17"]
+[node name="MultiMeshInstance3D_2_1_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="16"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1575775, 3.4932442, -8.344664)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_38sqk")
 
-[node name="MultiMeshInstance3D_2_1_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="18"]
+[node name="MultiMeshInstance3D_2_1_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.183136, 3.7900238, -5.9141197)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_pqo5t")
 
-[node name="MultiMeshInstance3D_2_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="19"]
+[node name="MultiMeshInstance3D_2_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="18"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.396576, 4.3353195, -4.0456047)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_v7x4f")
 
-[node name="MultiMeshInstance3D_2_3_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="20"]
+[node name="MultiMeshInstance3D_2_3_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="19"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2507477, 5.1097984, 13.915232)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_6q1ck")
 
-[node name="MultiMeshInstance3D_2_3_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="21"]
+[node name="MultiMeshInstance3D_2_3_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="20"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7552643, 5.2121315, 26.141048)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_lk6xx")
 
-[node name="MultiMeshInstance3D_2_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="22"]
+[node name="MultiMeshInstance3D_2_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="21"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.239273, 5.3022957, 37.970123)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_h0s85")
 
-[node name="MultiMeshInstance3D_2_3_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="23"]
+[node name="MultiMeshInstance3D_2_3_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="22"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8870544, 5.385498, 50.088768)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_dt7qk")
 
-[node name="MultiMeshInstance3D_3_0_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="24"]
+[node name="MultiMeshInstance3D_3_0_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="23"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.475525, 2.7477646, -18.98085)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_gwv7g")
 
-[node name="MultiMeshInstance3D_3_1_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="25"]
+[node name="MultiMeshInstance3D_3_1_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="24"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.24649, 3.756195, -12.37145)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_gx2cv")
 
-[node name="MultiMeshInstance3D_3_2_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="26"]
+[node name="MultiMeshInstance3D_3_2_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="25"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.773178, 4.3761673, -8.545397)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_cfvus")
 
-[node name="MultiMeshInstance3D_3_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="27"]
+[node name="MultiMeshInstance3D_3_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="26"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.114243, 4.580944, -3.926035)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_j0eu2")
 
-[node name="MultiMeshInstance3D_3_3_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="28"]
+[node name="MultiMeshInstance3D_3_3_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="27"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.62996, 4.833317, -2.288269)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_7xv3w")
 
-[node name="MultiMeshInstance3D_3_3_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="29"]
+[node name="MultiMeshInstance3D_3_3_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="28"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.363083, 5.0951385, 11.52438)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_mb147")
 
-[node name="MultiMeshInstance3D_3_3_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="30"]
+[node name="MultiMeshInstance3D_3_3_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="29"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.806961, 5.1896667, 24.298206)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_x78i8")
 
-[node name="MultiMeshInstance3D_3_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="31"]
+[node name="MultiMeshInstance3D_3_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="30"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.916931, 5.300968, 37.44168)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_45ng1")
 
-[node name="MultiMeshInstance3D_3_3_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="32"]
+[node name="MultiMeshInstance3D_3_3_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="31"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.13739, 5.4408836, 50.81647)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_blv5q")
 
-[node name="MultiMeshInstance3D_4_2_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="33"]
+[node name="MultiMeshInstance3D_4_2_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="32"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.75557, 4.15728, -13.960541)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_k5ovn")
 
-[node name="MultiMeshInstance3D_4_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="34"]
+[node name="MultiMeshInstance3D_4_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="33"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.059784, 4.6926193, -5.9864693)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_soaaj")
 
-[node name="MultiMeshInstance3D_4_3_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="35"]
+[node name="MultiMeshInstance3D_4_3_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="34"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.890594, 4.9121246, -1.0557194)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_w3k8o")
 
-[node name="MultiMeshInstance3D_4_3_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="36"]
+[node name="MultiMeshInstance3D_4_3_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="35"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.570572, 5.121002, 13.947901)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_a2obi")
 
-[node name="MultiMeshInstance3D_4_3_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="37"]
+[node name="MultiMeshInstance3D_4_3_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="36"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.00081, 5.2231064, 29.3629)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_ll7ol")
 
-[node name="MultiMeshInstance3D_4_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="38"]
+[node name="MultiMeshInstance3D_4_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="37"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.614899, 5.3140106, 35.42585)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_ad4ju")
 
-[node name="MultiMeshInstance3D_4_3_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="39"]
+[node name="MultiMeshInstance3D_4_3_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="38"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.255737, 5.4322357, 43.498833)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_mkb0u")
 
-[node name="MultiMeshInstance3D_4_4_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="40"]
+[node name="MultiMeshInstance3D_4_4_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="39"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.26822, 5.5869026, 42.857296)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_ao8ox")
 
-[node name="MultiMeshInstance3D_4_4_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="41"]
+[node name="MultiMeshInstance3D_4_4_5" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="40"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.339035, 5.64077, 49.26823)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_7l3of")
 
-[node name="MultiMeshInstance3D_5_3_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="42"]
+[node name="MultiMeshInstance3D_5_3_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="41"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.177963, 5.0395317, -2.2137794)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_ssnt7")
 
-[node name="MultiMeshInstance3D_5_3_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="43"]
+[node name="MultiMeshInstance3D_5_3_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="42"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.486115, 5.148464, 13.215023)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_yrljs")
 
-[node name="MultiMeshInstance3D_5_3_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="44"]
+[node name="MultiMeshInstance3D_5_3_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="43"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.10045, 5.2088203, 23.466095)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_pncwh")
 
-[node name="MultiMeshInstance3D_5_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="45"]
+[node name="MultiMeshInstance3D_5_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput11/ScatterItem" index="44"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.26471, 5.404072, 36.16668)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_ggond")
@@ -8011,187 +7817,122 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77, -74, -23)
 
 [node name="ScatterItem" type="Node3D" parent="Enviorment/Grass/ScatterOutput13" index="0"]
 
-[node name="MultiMeshInstance3D_0_0_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.887459, 7, 52.97089)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_1d45h")
-
-[node name="MultiMeshInstance3D_0_0_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.934547, 7, 59.78953)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_lnc0n")
-
-[node name="MultiMeshInstance3D_0_0_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5797005, 7, 72.576584)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_uj3px")
-
-[node name="MultiMeshInstance3D_0_0_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2859764, 7, 78.862274)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_swj4c")
-
-[node name="MultiMeshInstance3D_0_4_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="4"]
+[node name="MultiMeshInstance3D_0_4_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4977188, 11.593025, 39.671547)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_wkh80")
 
-[node name="MultiMeshInstance3D_0_4_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="5"]
+[node name="MultiMeshInstance3D_0_4_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.762596, 11.697115, 46.87017)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_t3exm")
 
-[node name="MultiMeshInstance3D_0_4_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44825, 11.760735, 57.308846)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_wy8he")
-
-[node name="MultiMeshInstance3D_1_0_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.420572, 7, 83.160164)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_7vyum")
-
-[node name="MultiMeshInstance3D_1_4_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="8"]
+[node name="MultiMeshInstance3D_1_4_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8146896, 11.593025, 39.77446)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_uyou2")
 
-[node name="MultiMeshInstance3D_1_4_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="9"]
+[node name="MultiMeshInstance3D_1_4_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2457504, 11.593025, 48.390274)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_yn0nt")
 
-[node name="MultiMeshInstance3D_1_4_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="10"]
+[node name="MultiMeshInstance3D_1_4_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4850922, 11.611013, 60.476265)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_4uuru")
 
-[node name="MultiMeshInstance3D_1_4_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9749374, 11.701099, 68.10799)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_ra4f0")
-
-[node name="MultiMeshInstance3D_2_0_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="12"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.390067, 7, 83.74786)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_2546y")
-
-[node name="MultiMeshInstance3D_2_4_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="13"]
+[node name="MultiMeshInstance3D_2_4_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.437302, 11.488119, 34.76256)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_5jdku")
 
-[node name="MultiMeshInstance3D_2_4_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="14"]
+[node name="MultiMeshInstance3D_2_4_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.151741, 11.589664, 47.572094)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_hf6bi")
 
-[node name="MultiMeshInstance3D_2_4_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="15"]
+[node name="MultiMeshInstance3D_2_4_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.644638, 11.584217, 58.407562)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_i5sfk")
 
-[node name="MultiMeshInstance3D_2_4_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="16"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.623322, 11.678856, 71.80629)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_v7uxx")
-
-[node name="MultiMeshInstance3D_2_4_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="17"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.35807, 11.731701, 89.100876)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_8nb3d")
-
-[node name="MultiMeshInstance3D_3_1_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="18"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.717537, 8.03791, 83.13353)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_qitnv")
-
-[node name="MultiMeshInstance3D_3_2_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="19"]
+[node name="MultiMeshInstance3D_3_2_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.970802, 9.682968, 33.07666)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_c58x0")
 
-[node name="MultiMeshInstance3D_3_2_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="20"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.824013, 9.487457, 83.91991)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_vj1jr")
-
-[node name="MultiMeshInstance3D_3_3_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="21"]
+[node name="MultiMeshInstance3D_3_3_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.735008, 10.811546, 43.264366)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_rqyoh")
 
-[node name="MultiMeshInstance3D_3_3_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="22"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.399406, 9.983078, 77.73236)
-material_override = SubResource("ShaderMaterial_pd73r")
-multimesh = SubResource("MultiMesh_nhknf")
-
-[node name="MultiMeshInstance3D_3_4_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="23"]
+[node name="MultiMeshInstance3D_3_4_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.63601, 11.074457, 38.950275)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_3wnhb")
 
-[node name="MultiMeshInstance3D_3_4_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="24"]
+[node name="MultiMeshInstance3D_3_4_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.561882, 11.420021, 44.959686)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_wgsky")
 
-[node name="MultiMeshInstance3D_3_4_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="25"]
+[node name="MultiMeshInstance3D_3_4_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="12"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.679832, 11.503744, 62.61012)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_kpdm5")
 
-[node name="MultiMeshInstance3D_3_4_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="26"]
+[node name="MultiMeshInstance3D_3_4_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="13"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.653404, 10.950943, 74.90756)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_dscyk")
 
-[node name="MultiMeshInstance3D_4_0_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="27"]
+[node name="MultiMeshInstance3D_4_0_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4289, 7.3130264, 72.75816)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_5myrn")
 
-[node name="MultiMeshInstance3D_4_0_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="28"]
+[node name="MultiMeshInstance3D_4_0_4" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="15"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.228783, 7.025738, 80.35509)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_5bm5e")
 
-[node name="MultiMeshInstance3D_4_1_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="29"]
+[node name="MultiMeshInstance3D_4_1_0" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="16"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.16105, 7.8686523, 40.233894)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_akpu1")
 
-[node name="MultiMeshInstance3D_4_1_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="30"]
+[node name="MultiMeshInstance3D_4_1_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.566154, 8.519722, 45.46324)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_2qulw")
 
-[node name="MultiMeshInstance3D_4_1_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="31"]
+[node name="MultiMeshInstance3D_4_1_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="18"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.925926, 8.482941, 56.218437)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_rkb16")
 
-[node name="MultiMeshInstance3D_4_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="32"]
+[node name="MultiMeshInstance3D_4_2_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="19"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.72045, 9.730209, 43.49724)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_nxyrj")
 
-[node name="MultiMeshInstance3D_4_2_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="33"]
+[node name="MultiMeshInstance3D_4_2_3" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="20"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.143944, 9.344658, 68.60508)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_hi8xv")
 
-[node name="MultiMeshInstance3D_4_3_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="34"]
+[node name="MultiMeshInstance3D_4_3_1" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="21"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.807732, 10.657066, 46.769226)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_jfs27")
 
-[node name="MultiMeshInstance3D_4_3_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="35"]
+[node name="MultiMeshInstance3D_4_3_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="22"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.888046, 9.846462, 61.226974)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_orsep")
 
-[node name="MultiMeshInstance3D_4_4_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="36"]
+[node name="MultiMeshInstance3D_4_4_2" type="MultiMeshInstance3D" parent="Enviorment/Grass/ScatterOutput13/ScatterItem" index="23"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.447533, 11.026417, 57.927338)
 material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_5l03a")

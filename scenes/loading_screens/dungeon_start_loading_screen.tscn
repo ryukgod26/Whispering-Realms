@@ -1,6 +1,7 @@
-[gd_scene load_steps=71 format=3 uid="uid://blm346e0bo85n"]
+[gd_scene load_steps=72 format=3 uid="uid://blm346e0bo85n"]
 
 [ext_resource type="Texture2D" uid="uid://bamsctjmm2xv6" path="res://assets/Main_menu/Images/dungeon_start_loading_screen.png" id="1_gf0fi"]
+[ext_resource type="Script" uid="uid://bx27p7jw3btsj" path="res://scripts/loading_screens/dungeon_start_loading_screen.gd" id="1_vorv0"]
 [ext_resource type="Texture2D" uid="uid://bqgyrqsfv12dh" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L7/File1.png" id="2_xvvju"]
 [ext_resource type="Texture2D" uid="uid://ngft7u6v3215" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L7/File2.png" id="3_hmskn"]
 [ext_resource type="Texture2D" uid="uid://053jl46nwghs" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L7/File3.png" id="4_vorv0"]
@@ -273,6 +274,7 @@ atlas = ExtResource("62_jpcfo")
 region = Rect2(625.3884, 287.63635, 267.76868, 45.45456)
 
 [node name="Dungeon_start_loading_screen" type="CanvasLayer"]
+script = ExtResource("1_vorv0")
 
 [node name="background" type="Panel" parent="."]
 anchors_preset = 15

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bp2loi22eepgt"]
+[gd_scene load_steps=14 format=3 uid="uid://bp2loi22eepgt"]
 
 [ext_resource type="Script" uid="uid://bfg0a8r6ugcwp" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://dkfv8vhpntupw" path="res://scenes/godettte_skin.tscn" id="3_dqkch"]
@@ -34,9 +34,15 @@ scale_min = 0.099999994
 scale_max = 0.29999998
 turbulence_noise_speed_random = 3.35
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tuyoq"]
+albedo_color = Color(0.71216977, 0.59967214, 0.2653519, 1)
+emission_enabled = true
+emission = Color(0.20511743, 0.20511743, 0.20511743, 1)
+
 [sub_resource type="SphereMesh" id="SphereMesh_tuyoq"]
-radial_segments = 32
-rings = 16
+material = SubResource("StandardMaterial3D_tuyoq")
+radial_segments = 16
+rings = 8
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
@@ -84,6 +90,7 @@ draw_pass_1 = SubResource("SphereMesh_qlg0r")
 emitting = false
 amount = 20
 lifetime = 0.4
+one_shot = true
 process_material = SubResource("ParticleProcessMaterial_tuyoq")
 draw_pass_1 = SubResource("SphereMesh_tuyoq")
 

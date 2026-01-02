@@ -1,14 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2umfcxy7lgy1"]
+[gd_scene load_steps=11 format=3 uid="uid://d2umfcxy7lgy1"]
 
 [ext_resource type="Script" uid="uid://brnvv1tby4vw3" path="res://scripts/ui.gd" id="1_nt7q6"]
 [ext_resource type="Texture2D" uid="uid://3vh0pug1ilge" path="res://assets/ui/fire.png" id="2_x4jx1"]
 [ext_resource type="Texture2D" uid="uid://gi44t0kmhjr8" path="res://assets/ui/bar_color.png" id="3_yev5y"]
 [ext_resource type="Texture2D" uid="uid://ca408dm1c5imy" path="res://assets/ui/circle.png" id="4_gdt2y"]
+[ext_resource type="Texture2D" uid="uid://bf4mltalqpcum" path="res://assets/Progress_Bar/bg.png" id="4_p7vwb"]
+[ext_resource type="Texture2D" uid="uid://gqp3w4aslw5y" path="res://assets/Progress_Bar/fill.png" id="5_ktti3"]
 [ext_resource type="Shader" uid="uid://bvplgnut3w1jl" path="res://shaders/stamina_bar.gdshader" id="5_wm3ai"]
+[ext_resource type="Texture2D" uid="uid://bbjkpj7h614my" path="res://assets/Progress_Bar/mask1.png" id="6_ktti3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p7vwb"]
+shader = ExtResource("5_wm3ai")
+shader_parameter/mask_texture = ExtResource("6_ktti3")
+shader_parameter/fill_value = 0.33600001596
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8dubc"]
 shader = ExtResource("5_wm3ai")
-shader_parameter/value = 0.0
+shader_parameter/fill_value = 1.0
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -96,7 +104,37 @@ grow_vertical = 2
 [node name="MarginContainer" type="MarginContainer" parent="StaminaBar/CenterContainer"]
 layout_mode = 2
 
-[node name="StaminaProgressBar" type="TextureProgressBar" parent="StaminaBar/CenterContainer/MarginContainer"]
+[node name="Background" type="TextureRect" parent="StaminaBar/CenterContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("4_p7vwb")
+
+[node name="Fill" type="TextureRect" parent="StaminaBar/CenterContainer/MarginContainer"]
+modulate = Color(0, 1, 0, 1)
+material = SubResource("ShaderMaterial_p7vwb")
+layout_mode = 2
+texture = ExtResource("5_ktti3")
+
+[node name="StaminaBar2" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="StaminaBar2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="StaminaBar2/CenterContainer"]
+layout_mode = 2
+
+[node name="StaminaProgressBar" type="TextureProgressBar" parent="StaminaBar2/CenterContainer/MarginContainer"]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
@@ -107,6 +145,6 @@ texture_progress = ExtResource("4_gdt2y")
 tint_under = Color(0.14406255, 0.14406255, 0.14406255, 1)
 tint_progress = Color(0.30870825, 0.27288035, 0.8288386, 1)
 
-[node name="ColorRect" type="ColorRect" parent="StaminaBar/CenterContainer/MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="StaminaBar2/CenterContainer/MarginContainer"]
 material = SubResource("ShaderMaterial_8dubc")
 layout_mode = 2

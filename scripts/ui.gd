@@ -7,6 +7,8 @@ var heal_texture = preload("res://assets/ui/heal.png")
 @onready var spell_texture = $Spells/MarginContainer/TextureRect
 @onready var energybar: TextureProgressBar = $EnergyBar/MarginContainer/energybar
 @onready var stamina_progress_bar: TextureProgressBar = $StaminaBar/CenterContainer/MarginContainer/StaminaProgressBar
+@onready var fill: TextureRect = $StaminaBar/CenterContainer/MarginContainer/Fill
+
 
 func setup(val: int) -> void:
 	for i in val:
@@ -48,8 +50,10 @@ func update_stamina(current: int,target: int) -> void:
 	var tween = create_tween()
 	tween.tween_method(_change_stamina,current,target,0.2)
 
-func _change_stamina(val: int):
-	stamina_progress_bar.value = val
+func _change_stamina(val: float):
+	#stamina_progress_bar.value = val
+	val = val/100
+	fill.material.set_shader_parameter("fill_value",val)
 
 func change_stamina_alpha(val: float) -> void:
 	var tween = create_tween()

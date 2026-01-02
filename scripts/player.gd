@@ -15,6 +15,7 @@ extends CharacterBody3D
 @onready var ui: Control = $UI
 @onready var invul_timer: Timer = $Timers/InvulTimer
 @onready var run_particles: GPUParticles3D = $RunParticles
+@onready var jump_particles: GPUParticles3D = $JumpParticles
 
 enum spells{FIREBALL,HEAL}
 
@@ -141,6 +142,7 @@ func jump_logic(delta) ->void:
 			velocity.y = -jump_velocity
 			do_squash_and_strecth(1.2,0.3)
 			stamina -= 20
+			jump_particles.emitting = true
 	else:
 		godettte_skin.set_move_state("Jump")
 	var gravity = jump_gravity if velocity.y > 0.0 else fall_gravity

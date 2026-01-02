@@ -10,6 +10,7 @@ const scenes = {
 var fireball_scene: PackedScene =  preload("res://scenes/fireball.tscn")
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	for entity in $Entities.get_children():
 		if entity.has_signal("cast_spell"):
 			entity.connect("cast_spell",create_fireball)

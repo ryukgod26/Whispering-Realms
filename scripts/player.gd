@@ -135,7 +135,7 @@ func move_logic(delta) ->void:
 		$Sounds/StepSound.playing = false
 
 func jump_logic(delta) ->void:
-	#Handling Jumnp
+	#Handling Jump
 	if is_on_floor():
 		if Input.is_action_just_pressed("Jump") and stamina >= 20: 
 			velocity.y = -jump_velocity

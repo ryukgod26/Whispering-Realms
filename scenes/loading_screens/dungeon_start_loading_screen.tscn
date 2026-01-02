@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://blm346e0bo85n"]
+[gd_scene load_steps=71 format=3 uid="uid://blm346e0bo85n"]
 
 [ext_resource type="Texture2D" uid="uid://bamsctjmm2xv6" path="res://assets/Main_menu/Images/dungeon_start_loading_screen.png" id="1_gf0fi"]
 [ext_resource type="Texture2D" uid="uid://bqgyrqsfv12dh" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L7/File1.png" id="2_xvvju"]
@@ -63,6 +63,7 @@
 [ext_resource type="Texture2D" uid="uid://dku865gpgbxul" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L7/File60.png" id="61_64n27"]
 [ext_resource type="Texture2D" uid="uid://bt20yho6sivkd" path="res://assets/Main_menu/loading_screen/GUI Interface Kit Free/GUI Interface Kit Free/Sprite Sheet/sprites.png" id="62_jpcfo"]
 [ext_resource type="FontFile" uid="uid://8p2lryul1tq7" path="res://assets/Main_menu/Fonts/cash_paper/Cash Paper.otf" id="63_wyv2a"]
+[ext_resource type="AudioStream" uid="uid://dchqhl5ndvs2" path="res://assets/audio/loading_screen.wav" id="64_hmskn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tqy0c"]
 texture = ExtResource("1_gf0fi")
@@ -307,3 +308,8 @@ theme_override_fonts/font = ExtResource("63_wyv2a")
 theme_override_font_sizes/font_size = 36
 text = "0%"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("64_hmskn")
+volume_db = -20.353
+autoplay = true

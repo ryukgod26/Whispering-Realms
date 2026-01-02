@@ -8,10 +8,15 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed('pause') and not $"../Options".visible:
 		visible = !visible
 		get_tree().paused = !get_tree().paused
+		if visible:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _on_resume_pressed() -> void:
 	visible = false
 	get_tree().paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _on_options_pressed() -> void:
 	$"../Options".visible = true

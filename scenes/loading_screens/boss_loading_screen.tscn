@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://da5vjqy1r5lls"]
+[gd_scene load_steps=71 format=3 uid="uid://da5vjqy1r5lls"]
 
 [ext_resource type="Texture2D" uid="uid://dy0a3hlqpm03t" path="res://assets/Main_menu/Images/boss_loading_screen.png" id="1_4dqdu"]
 [ext_resource type="Script" uid="uid://dlapipyhm882x" path="res://scripts/loading_screens/boss_level_loading_screen.gd" id="1_ccww1"]
@@ -64,6 +64,7 @@
 [ext_resource type="Texture2D" uid="uid://docv1a7hcpqbu" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L3/File60.png" id="61_ivcv3"]
 [ext_resource type="Texture2D" uid="uid://bt20yho6sivkd" path="res://assets/Main_menu/loading_screen/GUI Interface Kit Free/GUI Interface Kit Free/Sprite Sheet/sprites.png" id="62_kerri"]
 [ext_resource type="FontFile" uid="uid://8p2lryul1tq7" path="res://assets/Main_menu/Fonts/cash_paper/Cash Paper.otf" id="63_iplvh"]
+[ext_resource type="AudioStream" uid="uid://dchqhl5ndvs2" path="res://assets/audio/loading_screen.wav" id="65_juvrj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fdxio"]
 texture = ExtResource("1_4dqdu")
@@ -306,3 +307,8 @@ theme_override_fonts/font = ExtResource("63_iplvh")
 theme_override_font_sizes/font_size = 36
 text = "0%"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("65_juvrj")
+volume_db = -20.353
+autoplay = true

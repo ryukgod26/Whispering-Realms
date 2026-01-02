@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bggcwwc4y4qys" path="res://scripts/loading_screens/overworld_loading_screen.gd" id="1_4c78i"]
 [ext_resource type="Texture2D" uid="uid://b61ari1w60iy8" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L1/File1.png" id="1_qygbf"]
-[ext_resource type="Texture2D" uid="uid://1yrnv1uavg1f" path="res://assets/Main_menu/Images/loading_screen.png" id="1_ri1c0"]
+[ext_resource type="Texture2D" uid="uid://cehh18pixs1d8" path="res://assets/Main_menu/Images/Self/loading_screen.png" id="2_4c78i"]
 [ext_resource type="Texture2D" uid="uid://bqijevm46jamf" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L1/File2.png" id="2_pu4a1"]
 [ext_resource type="Texture2D" uid="uid://bhba7nveigw4u" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L1/File3.png" id="3_if62a"]
 [ext_resource type="Texture2D" uid="uid://yuqjbp4dbhry" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L1/File4.png" id="4_f7y4a"]
@@ -66,7 +66,7 @@
 [ext_resource type="FontFile" uid="uid://8p2lryul1tq7" path="res://assets/Main_menu/Fonts/cash_paper/Cash Paper.otf" id="64_ukoiq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oveia"]
-texture = ExtResource("1_ri1c0")
+texture = ExtResource("2_4c78i")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v1mdd"]
 atlas = ExtResource("1_qygbf")

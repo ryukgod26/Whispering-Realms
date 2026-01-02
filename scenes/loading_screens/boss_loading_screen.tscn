@@ -1,8 +1,8 @@
 [gd_scene load_steps=71 format=3 uid="uid://da5vjqy1r5lls"]
 
-[ext_resource type="Texture2D" uid="uid://dy0a3hlqpm03t" path="res://assets/Main_menu/Images/boss_loading_screen.png" id="1_4dqdu"]
 [ext_resource type="Script" uid="uid://dlapipyhm882x" path="res://scripts/loading_screens/boss_level_loading_screen.gd" id="1_ccww1"]
 [ext_resource type="Texture2D" uid="uid://cbvsuunnd3led" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L3/File1.png" id="2_4dqdu"]
+[ext_resource type="Texture2D" uid="uid://f2gq5ojsyy7n" path="res://assets/Main_menu/Images/Self/boss_loading_screen.png" id="2_juvrj"]
 [ext_resource type="Texture2D" uid="uid://g1cbl00a1xdx" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L3/File2.png" id="3_ccww1"]
 [ext_resource type="Texture2D" uid="uid://dqwr6wc6v1wdx" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L3/File3.png" id="4_juvrj"]
 [ext_resource type="Texture2D" uid="uid://cwegijbqojfcx" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L3/File4.png" id="5_4frln"]
@@ -67,7 +67,7 @@
 [ext_resource type="AudioStream" uid="uid://dchqhl5ndvs2" path="res://assets/audio/loading_screen.wav" id="65_juvrj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fdxio"]
-texture = ExtResource("1_4dqdu")
+texture = ExtResource("2_juvrj")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p8tjt"]
 animations = [{

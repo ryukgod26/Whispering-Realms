@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjwsx3i32lomh"]
+[gd_scene load_steps=7 format=3 uid="uid://cjwsx3i32lomh"]
 
 [ext_resource type="Script" uid="uid://vcda3q7of4pu" path="res://scripts/Menus/options.gd" id="1_c2u1v"]
 [ext_resource type="Shader" uid="uid://cmklbql0553mf" path="res://shaders/options.gdshader" id="2_yjkok"]
@@ -7,6 +7,30 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2iy26"]
 shader = ExtResource("2_yjkok")
 shader_parameter/glass_intensity = 2.50000011875
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2iy26"]
+bg_color = Color(0.7529412, 1, 0.40784314, 1)
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.26657525, 0.26657513, 0.26657534, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_top = 8.0
+expand_margin_right = 6.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kv8mn"]
+bg_color = Color(0, 0.670933, 0.6225157, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+shadow_color = Color(0.11119685, 0.11119684, 0.11119684, 0.6)
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
 
 [node name="Options" type="CanvasLayer"]
 process_mode = 3
@@ -140,26 +164,34 @@ script = ExtResource("3_2iy26")
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Sensitivitylbl" type="Label" parent="TabContainer/Gameplay"]
-layout_mode = 2
-text = "Sensitivity"
-horizontal_alignment = 1
-
 [node name="Sensitivity" type="HSlider" parent="TabContainer/Gameplay"]
 layout_mode = 2
+theme_override_constants/center_grabber = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_2iy26")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_kv8mn")
 min_value = 0.3
 max_value = 3.0
 step = 0.1
-value = 0.5
+value = 3.0
 script = ExtResource("3_2iy26")
+
+[node name="Sensitivitylbl" type="Label" parent="TabContainer/Gameplay/Sensitivity"]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Sensitivity"
+horizontal_alignment = 1
 
 [node name="InvertY" type="CheckBox" parent="TabContainer/Gameplay"]
 layout_mode = 2
 text = "Invert Vertical View"
-alignment = 1
 
 [node name="fovlbl" type="Label" parent="TabContainer/Gameplay"]
 layout_mode = 2
+text = "FOV"
+horizontal_alignment = 1
 
 [node name="Fov" type="HSlider" parent="TabContainer/Gameplay"]
 layout_mode = 2

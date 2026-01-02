@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bp2loi22eepgt"]
+[gd_scene load_steps=15 format=3 uid="uid://bp2loi22eepgt"]
 
 [ext_resource type="Script" uid="uid://bfg0a8r6ugcwp" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://dkfv8vhpntupw" path="res://scenes/godettte_skin.tscn" id="3_dqkch"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d2umfcxy7lgy1" path="res://scenes/ui.tscn" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://brog30lvnpr6b" path="res://assets/audio/sword sound.wav" id="5_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://q016xqptbrb" path="res://assets/audio/steps.mp3" id="6_fjrip"]
+[ext_resource type="AudioStream" uid="uid://bf4lj0r3spkhn" path="res://assets/audio/shield_block.wav" id="7_fjrip"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
 radius = 0.6660156
@@ -104,6 +105,10 @@ bus = &"SFX"
 stream = ExtResource("6_fjrip")
 volume_db = -20.0
 bus = &"SFX"
+
+[node name="ShieldSound" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource("7_fjrip")
+volume_db = -8.0
 
 [connection signal="timeout" from="Timers/EnergyRecoveryTimer" to="." method="_on_energy_recovery_timer_timeout"]
 [connection signal="timeout" from="Timers/StaminaRecoveryTimer" to="." method="_on_stamina_recovery_timer_timeout"]

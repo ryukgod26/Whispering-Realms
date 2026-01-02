@@ -155,7 +155,10 @@ func stop_movement(start_duration: float,end_duration: float) -> void:
 	tween.tween_property(self,"speed_modifier",1.0,end_duration)
 
 func hit() -> void:
-	if not invul_timer.time_left and not defend:
+	if defend:
+		$Sounds/ShieldSound.play()
+		
+	elif not invul_timer.time_left:
 		godettte_skin.hit()
 		stop_movement(0.3,0.5)
 		health -= 1

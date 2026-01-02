@@ -4552,10 +4552,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.60922, -36.594666, -488.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.100002, 19, -37.6)
 curve = SubResource("Curve3D_3x5pm")
 script = ExtResource("3_smv31")
-
-[node name="Bird" parent="Entities/Path3D" index="0" instance=ExtResource("3_5v57w")]
-transform = Transform3D(-0.31321916, 0.17766178, 0.9329146, 7.4505793e-09, 0.9823454, -0.18707524, -0.9496807, -0.058595553, -0.30768946, 77, 87, -260)
-use_model_front = true
+bird_scene = ExtResource("3_5v57w")
+distance_between_birds = 10
+speed = 30.0
 
 [node name="Enemies" type="Node3D" parent="Entities" index="2"]
 

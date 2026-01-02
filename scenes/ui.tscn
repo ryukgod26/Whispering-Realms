@@ -86,6 +86,7 @@ tint_under = Color(0.14044744, 0.14044744, 0.14044744, 1)
 tint_progress = Color(0.23273933, 0.4776308, 1, 1)
 
 [node name="StaminaBar" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

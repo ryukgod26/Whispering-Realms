@@ -1,9 +1,10 @@
-[gd_scene load_steps=781 format=3 uid="uid://brt83m705ova0"]
+[gd_scene load_steps=782 format=3 uid="uid://brt83m705ova0"]
 
 [ext_resource type="PackedScene" uid="uid://xs4k0bcewmjw" path="res://scenes/level.tscn" id="1_ntpey"]
 [ext_resource type="Script" uid="uid://b3yobdrhdad7o" path="res://scripts/over_world.gd" id="2_6gcac"]
 [ext_resource type="PackedScene" uid="uid://1k1awrxpa5nt" path="res://scenes/overworld_skin.tscn" id="2_rhs6x"]
 [ext_resource type="PackedScene" uid="uid://cdfsyc4afu8b7" path="res://scenes/bird.tscn" id="3_5v57w"]
+[ext_resource type="Script" uid="uid://7j7r64a8oxts" path="res://scripts/Birds/path_3d.gd" id="3_smv31"]
 [ext_resource type="PackedScene" uid="uid://017tob8o06v3" path="res://assets/environment/objects/log.glb" id="4_c68g0"]
 [ext_resource type="PackedScene" uid="uid://1dc77eeueln0" path="res://scenes/skeleton_mage.tscn" id="4_h60du"]
 [ext_resource type="PackedScene" uid="uid://bkmfvv8om32xq" path="res://assets/environment/objects/tree1.glb" id="5_lengd"]
@@ -4550,6 +4551,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.60922, -36.594666, -488.5
 [node name="Path3D" type="Path3D" parent="Entities" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.100002, 19, -37.6)
 curve = SubResource("Curve3D_3x5pm")
+script = ExtResource("3_smv31")
 
 [node name="Bird" parent="Entities/Path3D" index="0" instance=ExtResource("3_5v57w")]
 transform = Transform3D(-0.31321916, 0.17766178, 0.9329146, 7.4505793e-09, 0.9823454, -0.18707524, -0.9496807, -0.058595553, -0.30768946, 77, 87, -260)

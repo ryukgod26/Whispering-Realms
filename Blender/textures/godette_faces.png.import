@@ -2,18 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clnunndbkj57x"
-path.s3tc="res://.godot/imported/nagon_texture.png-7c895babe3e30532c6d1ae78b2f46b63.s3tc.ctex"
-path.etc2="res://.godot/imported/nagon_texture.png-7c895babe3e30532c6d1ae78b2f46b63.etc2.ctex"
+uid="uid://c8aqffxt22ptk"
+path.s3tc="res://.godot/imported/godette_faces.png-b076a2e660c36511fc29287dcd1b3a8f.s3tc.ctex"
+path.etc2="res://.godot/imported/godette_faces.png-b076a2e660c36511fc29287dcd1b3a8f.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://Blender/textures/nagon_texture.png"
-dest_files=["res://.godot/imported/nagon_texture.png-7c895babe3e30532c6d1ae78b2f46b63.s3tc.ctex", "res://.godot/imported/nagon_texture.png-7c895babe3e30532c6d1ae78b2f46b63.etc2.ctex"]
+source_file="res://Blender/textures/godette_faces.png"
+dest_files=["res://.godot/imported/godette_faces.png-b076a2e660c36511fc29287dcd1b3a8f.s3tc.ctex", "res://.godot/imported/godette_faces.png-b076a2e660c36511fc29287dcd1b3a8f.etc2.ctex"]
 
 [params]
 

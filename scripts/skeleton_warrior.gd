@@ -8,7 +8,9 @@ var can_damage = false
 
 func _ready() -> void:
 	attack_radius = 1.5
-	health = 2
+	health = 4
+	health_bar = $SubViewport/HealthBar
+	health_bar._init_health(health)
 
 func _physics_process(delta: float) -> void:
 	move_to_player(delta)

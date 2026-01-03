@@ -17,6 +17,9 @@ signal cast_spell
 
 func _ready() -> void:
 	attack_radius = 6.0
+	health = 20
+	health_bar = $SubViewport/HealthBar
+	health_bar._init_health(health)
 
 func _process(_delta: float) -> void:
 	attack_logic()

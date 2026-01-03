@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://l327rwd5wiad"]
+[gd_scene load_steps=23 format=3 uid="uid://l327rwd5wiad"]
 
 [ext_resource type="PackedScene" uid="uid://cmtblc2xgh7u4" path="res://scenes/enemy.tscn" id="1_dlmty"]
 [ext_resource type="Script" uid="uid://dgmlvh70kdf2l" path="res://scripts/boss.gd" id="2_jncid"]
 [ext_resource type="PackedScene" uid="uid://c5prpq86esdet" path="res://assets/boss/Nagonford_Animated.glb" id="2_neq0i"]
 [ext_resource type="Material" uid="uid://c747p0wjj6ifu" path="res://shaders/boss_overlay.tres" id="4_qnbj4"]
+[ext_resource type="PackedScene" uid="uid://dsmullyfe6rlc" path="res://scenes/HealthBar/health_bar.tscn" id="5_r3bxh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jncid"]
 radius = 2.0830078
@@ -48,7 +49,6 @@ animation = &"2H_Melee_Attack_Spinning"
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_jncid"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_neq0i"]
-graph_offset = Vector2(-210.16327, 110.43945)
 nodes/output/position = Vector2(1280, 460)
 nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_qsl3t")
 nodes/MoveStateMachine/position = Vector2(-40, 160)
@@ -70,6 +70,9 @@ node_connections = [&"output", 0, &"DeathAnimation", &"AttackOneShot", 0, &"Move
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jncid"]
 radius = 3.9716122
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_r3bxh"]
+viewport_path = NodePath("SubViewport")
 
 [node name="Boss" instance=ExtResource("1_dlmty")]
 script = ExtResource("2_jncid")
@@ -190,6 +193,17 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpinArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10895929, 2.9607432, -1.6407151)
 shape = SubResource("SphereShape3D_jncid")
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="5"]
+transform = Transform3D(2.3517041, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.703219, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_r3bxh")
+
+[node name="SubViewport" type="SubViewport" parent="." index="6"]
+transparent_bg = true
+render_target_update_mode = 3
+
+[node name="HealthBar" parent="SubViewport" index="0" instance=ExtResource("5_r3bxh")]
 
 [connection signal="timeout" from="Timers/AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="SpinArea" to="." method="_on_spin_area_body_entered"]

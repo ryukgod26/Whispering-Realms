@@ -13,9 +13,6 @@ extends CharacterBody3D
 
 var health_bar:ProgressBar
 
-func _ready() -> void:
-	health_bar = $SubViewport/HealthBar  
-
 var rng = RandomNumberGenerator.new()
 var speed_modifier := 1.0
 var squash_and_stretch := 1.0:
@@ -30,9 +27,6 @@ var health = 5:
 			die()
 		if health_bar:
 			health_bar._set_health(value)
-			print("Updated Health Bar")
-		else:
-			print("Does Not Updated Health")
 
 
 func move_to_player(delta) -> void:
@@ -64,7 +58,6 @@ func hit() -> void:
 		do_squash_and_strecth(1.2,0.15)
 		$Timers/InvulTimer.start()
 		health -= 1
-		print(health)
 
 func do_squash_and_strecth(value: float,duration: float = 0.1) -> void:
 	var tween = create_tween()

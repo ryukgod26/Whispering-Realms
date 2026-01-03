@@ -5,7 +5,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fx7q8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n702l"]
-bg_color = Color(0.20406228, 0.73320264, 0.9999998, 1)
+bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fx7q8"]
 bg_color = Color(0, 0, 0, 1)
@@ -39,5 +39,7 @@ value = 80.0
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

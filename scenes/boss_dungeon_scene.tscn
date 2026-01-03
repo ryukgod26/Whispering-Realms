@@ -72,5 +72,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 3, 0)
 [node name="Projectiles" type="Node3D" parent="."]
 
 [node name="Options" parent="." instance=ExtResource("7_mtxaj")]
+visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("8_7ey1t")]
+visible = false

@@ -5,6 +5,8 @@ signal cast_spell
 func _ready() -> void:
 	attack_radius = 10
 	health = 2
+	health_bar = $SubViewport/HealthBar
+	health_bar._init_health(health)
 
 func _physics_process(delta: float) -> void:
 	move_to_player(delta)

@@ -11,6 +11,11 @@ extends CharacterBody3D
 @export var detection_radius := 30.0
 @export var attack_radius := 3.0
 
+var health_bar:ProgressBar
+
+func _ready() -> void:
+	health_bar = $SubViewport/HealthBar  
+
 var rng = RandomNumberGenerator.new()
 var speed_modifier := 1.0
 var squash_and_stretch := 1.0:
@@ -23,6 +28,12 @@ var health = 5:
 		health = value
 		if health <= 0:
 			die()
+		if health_bar:
+			health_bar._set_health(value)
+			print("Updated Health Bar")
+		else:
+			print("Does Not Updated Health")
+
 
 func move_to_player(delta) -> void:
 	if position.distance_to(player.position) < detection_radius:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=72 format=3 uid="uid://blm346e0bo85n"]
 
-[ext_resource type="Texture2D" uid="uid://bamsctjmm2xv6" path="res://assets/Main_menu/Images/dungeon_start_loading_screen.png" id="1_gf0fi"]
 [ext_resource type="Script" uid="uid://bx27p7jw3btsj" path="res://scripts/loading_screens/dungeon_start_loading_screen.gd" id="1_vorv0"]
+[ext_resource type="Texture2D" uid="uid://beljnw3w47ia" path="res://assets/Main_menu/Images/Self/dungeon_start.png" id="2_vorv0"]
 [ext_resource type="Texture2D" uid="uid://bqgyrqsfv12dh" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L7/File1.png" id="2_xvvju"]
 [ext_resource type="Texture2D" uid="uid://ngft7u6v3215" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L7/File2.png" id="3_hmskn"]
 [ext_resource type="Texture2D" uid="uid://053jl46nwghs" path="res://assets/Main_menu/loading_screen/Loading Screen Text/Loading Screen Text/L7/File3.png" id="4_vorv0"]
@@ -67,7 +67,7 @@
 [ext_resource type="AudioStream" uid="uid://dchqhl5ndvs2" path="res://assets/audio/loading_screen.wav" id="64_hmskn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tqy0c"]
-texture = ExtResource("1_gf0fi")
+texture = ExtResource("2_vorv0")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3hwoe"]
 atlas = ExtResource("2_xvvju")
@@ -284,32 +284,43 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_tqy0c")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer"]
 position = Vector2(567.00006, 385)
 scale = Vector2(0.73636365, 0.575)
 sprite_frames = SubResource("SpriteFrames_17jif")
+autoplay = "default"
 frame_progress = 0.8679688
 
 [node name="LoadingProgressBar" type="TextureProgressBar" parent="."]
-offset_left = 137.00003
-offset_top = 556.0
-offset_right = 412.00003
-offset_bottom = 614.0
+anchors_preset = -1
+anchor_left = 0.118923634
+anchor_top = 0.8580247
+anchor_right = 0.94965225
+anchor_bottom = 0.94753087
+offset_right = -681.9994
 scale = Vector2(3.4799976, 1)
 rounded = true
 texture_under = SubResource("AtlasTexture_4h1qr")
 texture_over = SubResource("AtlasTexture_ym55w")
 texture_progress = SubResource("AtlasTexture_suvub")
+metadata/_edit_use_anchors_ = true
 
 [node name="ProgressText" type="Label" parent="."]
-offset_left = 491.0
-offset_top = 508.0
-offset_right = 731.0
-offset_bottom = 531.0
+anchors_preset = -1
+anchor_left = 0.4262153
+anchor_top = 0.7839506
+anchor_right = 0.6345486
+anchor_bottom = 0.85493827
+offset_bottom = -23.0
 theme_override_fonts/font = ExtResource("63_wyv2a")
 theme_override_font_sizes/font_size = 36
 text = "0%"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("64_hmskn")

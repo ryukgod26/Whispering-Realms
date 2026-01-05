@@ -1,13 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://vxrejy2781k3"]
+[gd_scene load_steps=22 format=3 uid="uid://vxrejy2781k3"]
 
 [ext_resource type="Script" uid="uid://cv6py7o7cwupx" path="res://scripts/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://depeqn1x5o6g2" path="res://assets/Main_menu/Images/Self/main_menupng.png" id="2_8ln24"]
+[ext_resource type="Texture2D" uid="uid://b2esmy6afa4wm" path="res://assets/Main_menu/Images/Self/main_menu_background - Copy.png" id="2_8ln24"]
 [ext_resource type="Texture2D" uid="uid://dg3mfta5qfvvr" path="res://assets/Main_menu/Buttons/glossy-web-buttons-set-different-colors/Adobe_transparent.png" id="3_bqqt6"]
+[ext_resource type="FontFile" uid="uid://bse1fd6ahrjkt" path="res://assets/Main_menu/Fonts/Alegreya_SC,Cinzel,Cinzel_Decorative/Alegreya_SC/AlegreyaSC-Bold.ttf" id="3_rtw2f"]
 [ext_resource type="FontFile" uid="uid://cuop6ykcnce6p" path="res://assets/Main_menu/Fonts/cinzel/Cinzel-Bold.otf" id="3_wu84c"]
 [ext_resource type="PackedScene" uid="uid://cjwsx3i32lomh" path="res://scenes/options.tscn" id="5_8ln24"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vue75"]
 texture = ExtResource("2_8ln24")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+bg_color = Color(0, 0.84705883, 0.54509807, 0.09019608)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wu84c"]
 atlas = ExtResource("3_bqqt6")
@@ -70,7 +74,26 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vue75")
 
-[node name="ButtonManager" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -303.5
+offset_right = 303.5
+offset_bottom = 122.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 90
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.6313726, 1)
+theme_override_fonts/font = ExtResource("3_rtw2f")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_rtw2f")
+text = "WHISPERING REALMS"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -82,9 +105,12 @@ offset_top = -156.0
 offset_bottom = 156.0
 grow_horizontal = 0
 grow_vertical = 2
+
+[node name="ButtonManager" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
 theme_override_constants/separation = 48
 
-[node name="Start" type="Button" parent="ButtonManager"]
+[node name="Start" type="Button" parent="CenterContainer/ButtonManager"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.00011382764, 0.00011382824, 0.000113827795, 1)
 theme_override_colors/font_focus_color = Color(0.29586628, 0.29586652, 0.29586715, 1)
@@ -99,7 +125,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_rtw2f")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wu84c")
 text = "START"
 
-[node name="Option" type="Button" parent="ButtonManager"]
+[node name="Option" type="Button" parent="CenterContainer/ButtonManager"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0.29586628, 0.29586652, 0.29586715, 1)
@@ -114,7 +140,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_jk1qb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8ln24")
 text = "Options"
 
-[node name="Quit" type="Button" parent="ButtonManager"]
+[node name="Quit" type="Button" parent="CenterContainer/ButtonManager"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0.29586628, 0.29586652, 0.29586715, 1)
@@ -132,6 +158,6 @@ text = "QUIT"
 [node name="Options" parent="." instance=ExtResource("5_8ln24")]
 visible = false
 
-[connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="ButtonManager/Option" to="." method="_on_option_pressed"]
-[connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CenterContainer/ButtonManager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CenterContainer/ButtonManager/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="CenterContainer/ButtonManager/Quit" to="." method="_on_quit_pressed"]

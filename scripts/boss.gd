@@ -72,7 +72,7 @@ func _on_spin_area_body_entered(_body: Node3D) -> void:
 func hit() -> void:
 	if not $Timers/InvulTimer.time_left:
 		#do_squash_and_strecth(1.2,0.15)
-		print("Boss is getting Hit.")
+		#print("Boss is getting Hit.")
 		$Timers/InvulTimer.start()
 		health -= 1
 		var tween = create_tween()

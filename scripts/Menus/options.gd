@@ -69,6 +69,8 @@ func _on_display_mode_item_selected(index: int) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		_:
 			pass
+	$OptionSound.pitch_scale = randf_range(0.9, 1.1)
+	$OptionSound.play()
 
 func _on_resolution_item_selected(index: int) -> void:
 	match index:
@@ -80,6 +82,8 @@ func _on_resolution_item_selected(index: int) -> void:
 			DisplayServer.window_set_size(Vector2i(2560,1440))
 		_:
 			pass
+	$OptionSound.pitch_scale = randf_range(0.9, 1.1)
+	$OptionSound.play()
 
 func _on_vsync_item_selected(index: int) -> void:
 	match index:
@@ -91,6 +95,8 @@ func _on_vsync_item_selected(index: int) -> void:
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
 		3:
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_MAILBOX)
+	$OptionSound.pitch_scale = randf_range(0.9, 1.1)
+	$OptionSound.play()
 
 func _on_anti_aliasing_item_selected(index: int) -> void:
 	var vp = get_viewport()
@@ -112,6 +118,8 @@ func _on_anti_aliasing_item_selected(index: int) -> void:
 			vp.msaa_3d = Viewport.MSAA_8X
 		5:
 			vp.use_taa = true
+	$OptionSound.pitch_scale = randf_range(0.9, 1.1)
+	$OptionSound.play()
 
 func select_vsync_mode() -> void:
 	var vsync_mode = DisplayServer.window_get_vsync_mode(0)
@@ -166,3 +174,15 @@ func _on_back_pressed() -> void:
 
 func _on_glass_intensity_value_changed(value: float) -> void:
 	$ColorRect.material.set_shader_parameter('glass_intensity',value)
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		
+		var hovered_control = get_viewport().gui_get_hovered_control()
+		
+		if hovered_control and hovered_control is Button:
+			
+			if !hovered_control.disabled:
+				$ClickSound.pitch_scale = randf_range(0.9, 1.1)
+				$ClickSound.play()

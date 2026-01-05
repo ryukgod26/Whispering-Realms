@@ -1,12 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjwsx3i32lomh"]
+[gd_scene load_steps=13 format=3 uid="uid://cjwsx3i32lomh"]
 
 [ext_resource type="Script" uid="uid://vcda3q7of4pu" path="res://scripts/Menus/options.gd" id="1_c2u1v"]
 [ext_resource type="Shader" uid="uid://cmklbql0553mf" path="res://shaders/options.gdshader" id="2_yjkok"]
 [ext_resource type="Script" uid="uid://bitblbksv56rj" path="res://scripts/Menus/Hslider.gd" id="3_2iy26"]
+[ext_resource type="FontFile" uid="uid://bqn7o1mnnp4qx" path="res://assets/fonts/tab_container_title/Orbitron/Orbitron-VariableFont_wght.ttf" id="3_e6vpq"]
+[ext_resource type="AudioStream" uid="uid://bn53p58wruyri" path="res://assets/audio/option_select.wav" id="4_kv8mn"]
+[ext_resource type="FontFile" uid="uid://nmief6ij1i8r" path="res://assets/fonts/tab_container_title/Cinzel/Cinzel-VariableFont_wght.ttf" id="4_o7i7e"]
+[ext_resource type="AudioStream" uid="uid://cdkd0u55w3g4u" path="res://assets/audio/button_click.wav" id="6_o7i7e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2iy26"]
 shader = ExtResource("2_yjkok")
 shader_parameter/glass_intensity = 2.50000011875
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1sggn"]
+bg_color = Color(0.15847227, 0.15847233, 0.15847221, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2iy26"]
 bg_color = Color(0.7529412, 1, 0.40784314, 1)
@@ -32,6 +43,9 @@ shadow_color = Color(0.11119685, 0.11119684, 0.11119684, 0.6)
 shadow_size = 1
 shadow_offset = Vector2(2, 2)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6vpq"]
+bg_color = Color(0.15127608, 0.15127608, 0.15127605, 1)
+
 [node name="Options" type="CanvasLayer"]
 process_mode = 3
 layer = 100
@@ -52,6 +66,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_hovered_color = Color(0.68235296, 0.68235296, 0.68235296, 1)
+theme_override_colors/font_unselected_color = Color(0.3529412, 0.3529412, 0.3529412, 1)
+theme_override_fonts/font = ExtResource("3_e6vpq")
 tab_alignment = 1
 current_tab = 2
 clip_tabs = false
@@ -64,11 +81,13 @@ metadata/_tab_index = 0
 
 [node name="DisplayModelbl" type="Label" parent="TabContainer/Video"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o7i7e")
 text = "Display Mode"
 horizontal_alignment = 1
 
 [node name="DisplayMode" type="OptionButton" parent="TabContainer/Video"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1sggn")
 item_count = 2
 popup/item_0/text = "Windowed"
 popup/item_0/id = 0
@@ -77,6 +96,7 @@ popup/item_1/id = 1
 
 [node name="Resolutionlbl" type="Label" parent="TabContainer/Video"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o7i7e")
 text = "Resolution"
 horizontal_alignment = 1
 
@@ -92,6 +112,7 @@ popup/item_2/id = 2
 
 [node name="vsynclbl" type="Label" parent="TabContainer/Video"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o7i7e")
 text = "VSync "
 horizontal_alignment = 1
 
@@ -110,6 +131,7 @@ popup/item_3/id = 3
 
 [node name="AntiAliasinglbl" type="Label" parent="TabContainer/Video"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o7i7e")
 text = "Anti Aliasing"
 horizontal_alignment = 1
 
@@ -135,29 +157,44 @@ metadata/_tab_index = 1
 
 [node name="MasterSliderlbl" type="Label" parent="TabContainer/Audio"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o7i7e")
 text = "Master Volume"
 horizontal_alignment = 1
 
 [node name="MasterSlider" type="HSlider" parent="TabContainer/Audio"]
 layout_mode = 2
+theme_override_constants/center_grabber = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_2iy26")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_kv8mn")
 script = ExtResource("3_2iy26")
 
 [node name="MusicSliderlbl" type="Label" parent="TabContainer/Audio"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o7i7e")
 text = "Music Volume"
 horizontal_alignment = 1
 
 [node name="MusicSlider" type="HSlider" parent="TabContainer/Audio"]
 layout_mode = 2
+theme_override_constants/center_grabber = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_2iy26")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_kv8mn")
 script = ExtResource("3_2iy26")
 
 [node name="SfxSliderlbl" type="Label" parent="TabContainer/Audio"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o7i7e")
 text = "Sound Effects"
 horizontal_alignment = 1
 
 [node name="SfxSlider" type="HSlider" parent="TabContainer/Audio"]
 layout_mode = 2
+theme_override_constants/center_grabber = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_2iy26")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_kv8mn")
 script = ExtResource("3_2iy26")
 
 [node name="Gameplay" type="VBoxContainer" parent="TabContainer"]
@@ -181,20 +218,27 @@ layout_mode = 1
 offset_right = 1152.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_o7i7e")
 text = "Sensitivity"
 horizontal_alignment = 1
 
 [node name="InvertY" type="CheckBox" parent="TabContainer/Gameplay"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o7i7e")
 text = "Invert Vertical View"
 
 [node name="fovlbl" type="Label" parent="TabContainer/Gameplay"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o7i7e")
 text = "FOV"
 horizontal_alignment = 1
 
 [node name="Fov" type="HSlider" parent="TabContainer/Gameplay"]
 layout_mode = 2
+theme_override_constants/center_grabber = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_2iy26")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_kv8mn")
 min_value = 70.0
 max_value = 110.0
 value = 70.0
@@ -202,11 +246,16 @@ script = ExtResource("3_2iy26")
 
 [node name="GlassIntensitylbl" type="Label" parent="TabContainer/Gameplay"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o7i7e")
 text = "Background Visibility (in reverse)"
 horizontal_alignment = 1
 
 [node name="GlassIntensity" type="HSlider" parent="TabContainer/Gameplay"]
 layout_mode = 2
+theme_override_constants/center_grabber = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_2iy26")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kv8mn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_kv8mn")
 max_value = 5.0
 step = 0.1
 script = ExtResource("3_2iy26")
@@ -219,7 +268,14 @@ anchor_bottom = 1.0
 offset_top = 0.104003906
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
 text = "Back"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_o7i7e")
+
+[node name="OptionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kv8mn")
 
 [connection signal="item_selected" from="TabContainer/Video/DisplayMode" to="." method="_on_display_mode_item_selected"]
 [connection signal="item_selected" from="TabContainer/Video/Resolution" to="." method="_on_resolution_item_selected"]

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 BgSound="*res://scenes/bg_sound.tscn"
 GameSettings="*res://scripts/Menus/GameSettings.gd"
+SaveManager="*res://scripts/SaveLoad/save_manager.gd"
 
 [editor_plugins]
 

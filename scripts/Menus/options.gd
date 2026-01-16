@@ -177,6 +177,10 @@ func _on_glass_intensity_value_changed(value: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("pause"):
+		_on_back_pressed()
+	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		
 		var hovered_control = get_viewport().gui_get_hovered_control()

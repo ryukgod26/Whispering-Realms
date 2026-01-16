@@ -34,12 +34,12 @@ func update_label_position():
 	var grabber_icon = get_theme_icon("grabber")
 	var grabber_width = grabber_icon.get_width()
 	
-	var ratio = 0.0
+	var ratioH = 0.0
 	if max_value > min_value:
-		ratio = (value - min_value) / (max_value - min_value)
+		ratioH = (value - min_value) / (max_value - min_value)
 	
 	var available_width = size.x - grabber_width
-	var grabber_x = (ratio * available_width) + (grabber_width / 2.0)
+	var grabber_x = (ratioH * available_width) + (grabber_width / 2.0)
 	
 	label.position.x = grabber_x - (label.size.x / 2.0)
 	label.position.y = -label.size.y - vertical_offset

@@ -59,7 +59,7 @@ var stamina = 100:
 		if value == 100:
 			ui.change_stamina_alpha(0.0)
 		stamina = clamp(value,0,100)
- 
+
 signal cast_spell(type: String,position: Vector3,direction: Vector2,size: float)
 
 func _ready() -> void:

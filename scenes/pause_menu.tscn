@@ -1,103 +1,222 @@
-[gd_scene load_steps=16 format=3 uid="uid://ea7hvimnpbpr"]
+[gd_scene load_steps=9 format=3 uid="uid://ea7hvimnpbpr"]
 
 [ext_resource type="Script" uid="uid://b2suwayxl185a" path="res://scripts/pause_menu.gd" id="1_n87rw"]
-[ext_resource type="FontFile" uid="uid://prpprug22h3q" path="res://assets/Main_menu/Fonts/cinzel/Cinzel-Black.otf" id="2_myx47"]
-[ext_resource type="Texture2D" uid="uid://dg3mfta5qfvvr" path="res://assets/Main_menu/Buttons/glossy-web-buttons-set-different-colors/Adobe_transparent.png" id="3_kukqi"]
+[ext_resource type="FontFile" uid="uid://cx1srhm1xxxal" path="res://assets/fonts/tab_container_title/Cinzel/static/Cinzel-Bold.ttf" id="2_kukqi"]
+[ext_resource type="FontFile" uid="uid://c7cgy5ft5bi70" path="res://assets/fonts/tab_container_title/Cinzel_Decorative/CinzelDecorative-Bold.ttf" id="4_5d2l8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5d2l8"]
-atlas = ExtResource("3_kukqi")
-region = Rect2(2069.0964, 2461.615, 1714.2292, 454.22583)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v4r4p"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7l7mv"]
-texture = SubResource("AtlasTexture_5d2l8")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d2l8"]
+bg_color = Color(0.5870761, 0.7030345, 0.9645613, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1.4439225e-06, 0.9411523, 0.669652, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_88e76"]
-texture = SubResource("AtlasTexture_5d2l8")
-modulate_color = Color(0.3515629, 0.3515629, 0.35156286, 1)
+[sub_resource type="Animation" id="Animation_v4r4p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pauselbl1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-210, -2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pauselbl2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(400, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pauselbl1:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pauselbl2:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5d2l8"]
-texture = SubResource("AtlasTexture_5d2l8")
-modulate_color = Color(0.69965345, 0.69965345, 0.69965345, 1)
+[sub_resource type="Animation" id="Animation_7l7mv"]
+resource_name = "pause_menu_open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pauselbl1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-210, -2), Vector2(4, -2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pauselbl2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 55), Vector2(125, 55)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pauselbl1:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pauselbl2:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kukqi"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kukqi"]
-texture = SubResource("AtlasTexture_5d2l8")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_knqa7"]
-texture = SubResource("AtlasTexture_5d2l8")
-modulate_color = Color(0.3515629, 0.3515629, 0.35156286, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v4r4p"]
-texture = SubResource("AtlasTexture_5d2l8")
-modulate_color = Color(0.69965345, 0.69965345, 0.69965345, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5d2l8"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_71k7c"]
-texture = SubResource("AtlasTexture_5d2l8")
-modulate_color = Color(0.3515629, 0.3515629, 0.35156286, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1s2dm"]
-texture = SubResource("AtlasTexture_5d2l8")
-modulate_color = Color(0.69965345, 0.69965345, 0.69965345, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7l7mv"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1s2dm"]
+_data = {
+&"RESET": SubResource("Animation_v4r4p"),
+&"pause_menu_open": SubResource("Animation_7l7mv")
+}
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_n87rw")
 
-[node name="ButtonManager" type="VBoxContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
+[node name="ButtonContainer" type="VBoxContainer" parent="."]
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -311.0
-offset_top = -188.0
-offset_right = 280.0
-offset_bottom = 197.0
-grow_horizontal = 2
+offset_top = -192.5
+offset_right = 591.0
+offset_bottom = 143.92859
 grow_vertical = 2
-theme_override_constants/separation = 20
+scale = Vector2(0.7, 0.7)
+theme_override_constants/separation = 60
 
-[node name="Resume" type="Button" parent="ButtonManager"]
+[node name="Resume" type="Button" parent="ButtonContainer"]
+material = SubResource("ShaderMaterial_v4r4p")
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_myx47")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxTexture_7l7mv")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_88e76")
-theme_override_styles/hover = SubResource("StyleBoxTexture_5d2l8")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_kukqi")
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
 text = "RESUME"
 
-[node name="Options" type="Button" parent="ButtonManager"]
+[node name="Options" type="Button" parent="ButtonContainer"]
+material = SubResource("ShaderMaterial_v4r4p")
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_myx47")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxTexture_kukqi")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_knqa7")
-theme_override_styles/hover = SubResource("StyleBoxTexture_v4r4p")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5d2l8")
-text = "OPTIONS"
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
+text = "Options"
 
-[node name="MainMenu" type="Button" parent="ButtonManager"]
+[node name="Save" type="Button" parent="ButtonContainer"]
+material = SubResource("ShaderMaterial_v4r4p")
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_myx47")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxTexture_7l7mv")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_71k7c")
-theme_override_styles/hover = SubResource("StyleBoxTexture_1s2dm")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_7l7mv")
-text = "BACK TO MAIN MENU"
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
+text = "Save Game"
 
-[connection signal="pressed" from="ButtonManager/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="ButtonManager/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="ButtonManager/MainMenu" to="." method="_on_main_menu_pressed"]
+[node name="Load" type="Button" parent="ButtonContainer"]
+material = SubResource("ShaderMaterial_v4r4p")
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
+text = "Load Game
+"
+
+[node name="MainMenu" type="Button" parent="ButtonContainer"]
+material = SubResource("ShaderMaterial_v4r4p")
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_kukqi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
+text = "Main Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1s2dm")
+}
+
+[node name="Pauselbl1" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -210.0
+offset_top = -2.0
+offset_right = -40.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("4_5d2l8")
+theme_override_font_sizes/font_size = 50
+text = "PAUSE"
+horizontal_alignment = 1
+
+[node name="Pauselbl2" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 400.0
+offset_right = 788.99976
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("4_5d2l8")
+theme_override_font_sizes/font_size = 50
+text = "MENU"
+horizontal_alignment = 1
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="ButtonContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="ButtonContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ButtonContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="ButtonContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="ButtonContainer/MainMenu" to="." method="_on_main_menu_pressed"]

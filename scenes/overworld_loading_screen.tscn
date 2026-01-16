@@ -317,6 +317,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(25, 39)
 scale = Vector2(0.73636365, 0.575)
 sprite_frames = SubResource("SpriteFrames_ndlxt")
+autoplay = "default"
 frame_progress = 0.6001362
 
 [node name="LoadingProgressBar" type="TextureProgressBar" parent="."]

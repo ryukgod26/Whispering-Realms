@@ -1,9 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://vxrejy2781k3"]
+[gd_scene load_steps=25 format=3 uid="uid://vxrejy2781k3"]
 
 [ext_resource type="Script" uid="uid://cv6py7o7cwupx" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://b2esmy6afa4wm" path="res://assets/Main_menu/Images/Self/main_menu_background - Copy.png" id="2_8ln24"]
 [ext_resource type="Texture2D" uid="uid://dg3mfta5qfvvr" path="res://assets/Main_menu/Buttons/glossy-web-buttons-set-different-colors/Adobe_transparent.png" id="3_bqqt6"]
-[ext_resource type="FontFile" uid="uid://bse1fd6ahrjkt" path="res://assets/Main_menu/Fonts/Alegreya_SC,Cinzel,Cinzel_Decorative/Alegreya_SC/AlegreyaSC-Bold.ttf" id="3_rtw2f"]
+[ext_resource type="FontFile" uid="uid://c7cgy5ft5bi70" path="res://assets/fonts/tab_container_title/Cinzel_Decorative/CinzelDecorative-Bold.ttf" id="3_rtw2f"]
 [ext_resource type="FontFile" uid="uid://cuop6ykcnce6p" path="res://assets/Main_menu/Fonts/cinzel/Cinzel-Bold.otf" id="3_wu84c"]
 [ext_resource type="PackedScene" uid="uid://cjwsx3i32lomh" path="res://scenes/options.tscn" id="5_8ln24"]
 
@@ -56,6 +56,162 @@ modulate_color = Color(0.5330367, 0.5330367, 0.5330367, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rtw2f"]
 
+[sub_resource type="Animation" id="Animation_rtw2f"]
+resource_name = "main_screen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainTextlbl1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-715, 90), Vector2(105, 90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainTextlbl2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1172, 90), Vector2(630, 90)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainTextlbl3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(568, -84), Vector2(568, 90)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainTextlbl1:theme_override_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.33062804, 0.32389846, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainTextlbl2:theme_override_colors/font_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.33062804, 0.32389846, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MainTextlbl3:theme_override_colors/font_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.33062804, 0.32389846, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oa1go"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainTextlbl1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-715, 90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainTextlbl2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1172, 90)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainTextlbl3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(568, -84)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainTextlbl1:theme_override_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.33062804, 0.32389846, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainTextlbl2:theme_override_colors/font_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.33062804, 0.32389846, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MainTextlbl3:theme_override_colors/font_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.33062804, 0.32389846, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbmy8"]
+_data = {
+&"RESET": SubResource("Animation_oa1go"),
+&"main_screen": SubResource("Animation_rtw2f")
+}
+
 [node name="Main Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -74,24 +230,45 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vue75")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -303.5
-offset_right = 303.5
-offset_bottom = 122.0
-grow_horizontal = 2
-theme_override_constants/margin_top = 90
-
-[node name="Label" type="Label" parent="MarginContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 0.6313726, 1)
+[node name="MainTextlbl1" type="Label" parent="."]
+layout_mode = 0
+offset_left = -715.0
+offset_top = 90.0
+offset_right = -22.0
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(0.33062804, 0.32389846, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.88235295)
 theme_override_fonts/font = ExtResource("3_rtw2f")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_rtw2f")
-text = "WHISPERING REALMS"
+text = "WHISPERING "
+
+[node name="MainTextlbl2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1172.0
+offset_top = 90.0
+offset_right = 1864.9995
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(0.33062804, 0.32389846, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.88235295)
+theme_override_fonts/font = ExtResource("3_rtw2f")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_rtw2f")
+text = "EALMS"
+
+[node name="MainTextlbl3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 568.0
+offset_top = -84.0
+offset_right = 1261.0
+offset_bottom = -2.0
+theme_override_colors/font_color = Color(0.33062804, 0.32389846, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.88235295)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_rtw2f")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_rtw2f")
+text = "R"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -157,6 +334,12 @@ text = "QUIT"
 
 [node name="Options" parent="." instance=ExtResource("5_8ln24")]
 visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tbmy8")
+}
+autoplay = "main_screen"
 
 [connection signal="pressed" from="CenterContainer/ButtonManager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CenterContainer/ButtonManager/Option" to="." method="_on_option_pressed"]

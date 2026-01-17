@@ -29,6 +29,10 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res:/
 
 Music=false
 
+[global_group]
+
+Player=""
+
 [input]
 
 move_forward={

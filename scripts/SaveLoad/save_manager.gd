@@ -57,10 +57,12 @@ func load_game():
 func _apply_save_data(data):
 	if get_tree().current_scene.scene_file_path != data["current_scene"]:
 		get_tree().change_scene_to_file(data["current_scene"])
+		print("Scene Changed")
 		await get_tree().process_frame
 	
 	var player = get_tree().get_first_node_in_group("Player")
-	
+	print(player)
+	print(get_tree().current_scene)
 	if player:
 		player.health = data["health"]
 		player.energy = data["energy"]
@@ -80,3 +82,5 @@ func _apply_save_data(data):
 			#ui.update_health(player.health)
 			player.ui.update_spell(player.spells,player.current_spell)
 		player.godettte_skin.switch_weapon(player.weapon_active)
+	else:
+		print("Player Not Found")

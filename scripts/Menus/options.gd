@@ -175,7 +175,6 @@ func _on_back_pressed() -> void:
 func _on_glass_intensity_value_changed(value: float) -> void:
 	$ColorRect.material.set_shader_parameter('glass_intensity',value)
 
-
 func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("pause"):

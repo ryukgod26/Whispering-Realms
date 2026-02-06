@@ -82,7 +82,7 @@ func load_game() -> Resource:
 	#print(player)
 	#print(get_tree().current_scene)
 	#if player:
-	
+
 		#player.health = data["health"]
 		#player.energy = data["energy"]
 		#player.stamina = data["stamina"]

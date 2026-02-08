@@ -18,4 +18,3 @@ func stop_breathing():
 		var tween = create_tween()
 		tween.parallel()
 		tween.tween_property(child,"scale:x",scale_xy,0.5)
-		tween.tween_property(child,"scale:y",scale_xy,0.5)

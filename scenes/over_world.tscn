@@ -1,4 +1,4 @@
-[gd_scene load_steps=758 format=3 uid="uid://brt83m705ova0"]
+[gd_scene load_steps=761 format=3 uid="uid://brt83m705ova0"]
 
 [ext_resource type="PackedScene" uid="uid://xs4k0bcewmjw" path="res://scenes/level.tscn" id="1_ntpey"]
 [ext_resource type="Script" uid="uid://b3yobdrhdad7o" path="res://scripts/over_world.gd" id="2_6gcac"]
@@ -26,6 +26,8 @@
 [ext_resource type="AudioStream" uid="uid://cvq05fj2rym4b" path="res://assets/audio/stream.mp3" id="22_qp3h1"]
 [ext_resource type="PackedScene" uid="uid://ea7hvimnpbpr" path="res://scenes/pause_menu.tscn" id="26_kc3io"]
 [ext_resource type="PackedScene" uid="uid://cjwsx3i32lomh" path="res://scenes/options.tscn" id="27_h60du"]
+[ext_resource type="Texture2D" uid="uid://bf8omy0wv6y83" path="res://assets/Icons/kenney_game-icons/PNG/White/2x/arrowUp.png" id="29_orltg"]
+[ext_resource type="Texture2D" uid="uid://ux2hytuomgp5" path="res://assets/Icons/kenney_game-icons/PNG/Black/2x/arrowUp.png" id="30_u2mpb"]
 [ext_resource type="Shader" uid="uid://cghvekeqkuo05" path="res://shaders/grass_blade.gdshader" id="33_6vxvs"]
 [ext_resource type="ArrayMesh" uid="uid://k1syv00tyig8" path="res://assets/vfx/grass_blade.obj" id="34_7wui2"]
 
@@ -4395,6 +4397,9 @@ instance_count = 2
 mesh = ExtResource("34_7wui2")
 buffer = PackedFloat32Array(0.92516226, 0.026715374, 0.44317332, -0.13263702, 0.085131265, 0.9946374, -0.23767754, 0.33457947, -0.43573958, 0.2510463, 0.89451015, 1.6414795, -0.63949525, -0.0045255455, 0.77556014, 0.13263702, -0.14777814, 0.98749834, -0.11608957, -0.33457947, -0.7613643, -0.18786879, -0.62888616, -1.6414795)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orltg"]
+size = Vector2(55, 70)
+
 [node name="OverWorld" instance=ExtResource("1_ntpey")]
 script = ExtResource("2_6gcac")
 
@@ -8313,7 +8318,19 @@ material_override = SubResource("ShaderMaterial_pd73r")
 multimesh = SubResource("MultiMesh_754et")
 
 [node name="PauseMenu" parent="." index="5" instance=ExtResource("26_kc3io")]
+visible = false
 
 [node name="Options" parent="." index="6" instance=ExtResource("27_h60du")]
+visible = false
+
+[node name="AndroidControls" type="CanvasLayer" parent="." index="7"]
+
+[node name="Attack" type="TouchScreenButton" parent="AndroidControls" index="0"]
+
+[node name="Jump" type="TouchScreenButton" parent="AndroidControls" index="1"]
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("29_orltg")
+texture_pressed = ExtResource("30_u2mpb")
+shape = SubResource("RectangleShape2D_orltg")
 
 [connection signal="body_entered" from="Enviorment/castle/CastleArea" to="." method="_on_castle_area_body_entered"]

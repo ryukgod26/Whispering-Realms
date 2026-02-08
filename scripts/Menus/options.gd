@@ -57,7 +57,6 @@ func _ready() -> void:
 			$TabContainer/Video/vsync.select(3)
 		_:
 			$TabContainer/Video/vsync.select(-1)
-	
  
 #For Video
 

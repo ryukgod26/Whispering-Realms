@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjwsx3i32lomh"]
+[gd_scene load_steps=16 format=3 uid="uid://cjwsx3i32lomh"]
 
 [ext_resource type="Script" uid="uid://vcda3q7of4pu" path="res://scripts/Menus/options.gd" id="1_c2u1v"]
 [ext_resource type="Shader" uid="uid://cmklbql0553mf" path="res://shaders/options.gdshader" id="2_yjkok"]
@@ -44,7 +44,27 @@ shadow_size = 1
 shadow_offset = Vector2(2, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6vpq"]
-bg_color = Color(0.15127608, 0.15127608, 0.15127605, 1)
+bg_color = Color(0.7738557, 7.70092e-07, 5.7756904e-07, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7i7e"]
+bg_color = Color(0.4812734, 1.0949746e-06, 2.4065375e-07, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uon5e"]
+bg_color = Color(0.60567385, 1.311563e-06, 2.8878452e-07, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o7i7e"]
 
 [node name="Options" type="CanvasLayer"]
 process_mode = 3
@@ -269,6 +289,9 @@ offset_top = 0.104003906
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_e6vpq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o7i7e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uon5e")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o7i7e")
 text = "Back"
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ea7hvimnpbpr"]
+[gd_scene load_steps=13 format=3 uid="uid://ea7hvimnpbpr"]
 
 [ext_resource type="Script" uid="uid://b2suwayxl185a" path="res://scripts/pause_menu.gd" id="1_n87rw"]
 [ext_resource type="FontFile" uid="uid://cx1srhm1xxxal" path="res://assets/fonts/tab_container_title/Cinzel/static/Cinzel-Bold.ttf" id="2_kukqi"]
@@ -8,6 +8,59 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d2l8"]
 bg_color = Color(0.5870761, 0.7030345, 0.9645613, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1.4439225e-06, 0.9411523, 0.669652, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4r4p"]
+bg_color = Color(0.12814263, 0.23607638, 0.5648272, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1.4439225e-06, 0.9411523, 0.669652, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kukqi"]
+bg_color = Color(0.37164125, 0.5260684, 0.92237693, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1.4439225e-06, 0.9411523, 0.669652, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kukqi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7l7mv"]
+bg_color = Color(0.37164125, 0.5260684, 0.92237693, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
@@ -178,6 +231,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_kukqi")
 theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v4r4p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kukqi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kukqi")
 text = "RESUME"
 
 [node name="Options" type="Button" parent="ButtonContainer"]
@@ -186,6 +242,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_kukqi")
 theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v4r4p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7l7mv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kukqi")
 text = "Options"
 
 [node name="Save" type="Button" parent="ButtonContainer"]
@@ -194,6 +253,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_kukqi")
 theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v4r4p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7l7mv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kukqi")
 text = "Save Game"
 
 [node name="Load" type="Button" parent="ButtonContainer"]
@@ -202,6 +264,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_kukqi")
 theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v4r4p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7l7mv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kukqi")
 text = "Load Game
 "
 
@@ -211,6 +276,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_kukqi")
 theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v4r4p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7l7mv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kukqi")
 text = "Main Menu"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -18,6 +18,9 @@ texture = ExtResource("2_8ln24")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
 bg_color = Color(0, 0.84705883, 0.54509807, 0.09019608)
 
+[sub_resource type="Animation" id="Animation_lgwnu"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_5dd4i"]
 resource_name = "breathing"
 length = 0.5
@@ -39,9 +42,6 @@ tracks/0/keys = {
 "method": &"stop_breathing"
 }]
 }
-
-[sub_resource type="Animation" id="Animation_lgwnu"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lgwnu"]
 _data = {

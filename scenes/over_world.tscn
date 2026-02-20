@@ -1,4 +1,4 @@
-[gd_scene load_steps=761 format=3 uid="uid://brt83m705ova0"]
+[gd_scene load_steps=765 format=3 uid="uid://brt83m705ova0"]
 
 [ext_resource type="PackedScene" uid="uid://xs4k0bcewmjw" path="res://scenes/level.tscn" id="1_ntpey"]
 [ext_resource type="Script" uid="uid://b3yobdrhdad7o" path="res://scripts/over_world.gd" id="2_6gcac"]
@@ -27,8 +27,12 @@
 [ext_resource type="PackedScene" uid="uid://ea7hvimnpbpr" path="res://scenes/pause_menu.tscn" id="26_kc3io"]
 [ext_resource type="PackedScene" uid="uid://cjwsx3i32lomh" path="res://scenes/options.tscn" id="27_h60du"]
 [ext_resource type="Texture2D" uid="uid://bf8omy0wv6y83" path="res://assets/Icons/kenney_game-icons/PNG/White/2x/arrowUp.png" id="29_orltg"]
+[ext_resource type="Script" uid="uid://dkky6l1d4fy" path="res://scripts/AndroidControls/android_controls.gd" id="29_t8t1p"]
+[ext_resource type="Texture2D" uid="uid://cwxpm8fr4gf75" path="res://assets/Icons/kenney_game-icons/PNG/White/2x/buttonX.png" id="29_vsre4"]
+[ext_resource type="Texture2D" uid="uid://i0r0aiweg6h0" path="res://assets/Icons/kenney_game-icons/PNG/Black/2x/buttonX.png" id="30_t8t1p"]
 [ext_resource type="Texture2D" uid="uid://ux2hytuomgp5" path="res://assets/Icons/kenney_game-icons/PNG/Black/2x/arrowUp.png" id="30_u2mpb"]
 [ext_resource type="Shader" uid="uid://cghvekeqkuo05" path="res://shaders/grass_blade.gdshader" id="33_6vxvs"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="33_vsre4"]
 [ext_resource type="ArrayMesh" uid="uid://k1syv00tyig8" path="res://assets/vfx/grass_blade.obj" id="34_7wui2"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3x5pm"]
@@ -8324,13 +8328,27 @@ visible = false
 visible = false
 
 [node name="AndroidControls" type="CanvasLayer" parent="." index="7"]
+script = ExtResource("29_t8t1p")
 
 [node name="Attack" type="TouchScreenButton" parent="AndroidControls" index="0"]
+position = Vector2(908, 441)
+texture_normal = ExtResource("29_vsre4")
+texture_pressed = ExtResource("30_t8t1p")
 
 [node name="Jump" type="TouchScreenButton" parent="AndroidControls" index="1"]
-scale = Vector2(0.5, 0.5)
+position = Vector2(1022, 439)
 texture_normal = ExtResource("29_orltg")
 texture_pressed = ExtResource("30_u2mpb")
 shape = SubResource("RectangleShape2D_orltg")
 
+[node name="Virtual Joystick" parent="AndroidControls" index="2" instance=ExtResource("33_vsre4")]
+action_left = "move_left"
+action_right = "move_right"
+action_up = "move_forward"
+action_down = "move_backward"
+
 [connection signal="body_entered" from="Enviorment/castle/CastleArea" to="." method="_on_castle_area_body_entered"]
+[connection signal="pressed" from="AndroidControls/Attack" to="Entities/Player" method="_on_attack_pressed"]
+[connection signal="released" from="AndroidControls/Attack" to="Entities/Player" method="_on_attack_released"]
+[connection signal="pressed" from="AndroidControls/Jump" to="Entities/Player" method="_on_jump_pressed"]
+[connection signal="released" from="AndroidControls/Jump" to="Entities/Player" method="_on_jump_released"]

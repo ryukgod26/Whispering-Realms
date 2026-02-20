@@ -194,3 +194,16 @@ func physics_logic() -> void:
 
 func _player_died() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_attack_pressed() -> void:
+	Input.action_press("attack")
+
+func _on_attack_released() -> void:
+	Input.action_release("attack")
+
+func _on_jump_pressed() -> void:
+	Input.action_press("Jump")
+
+func _on_jump_released() -> void:
+	Input.action_release("Jump")
